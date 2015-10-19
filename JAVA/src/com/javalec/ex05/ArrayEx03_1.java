@@ -9,8 +9,9 @@ public class ArrayEx03_1 {
 
 		float sum = (float) score[0] + score[1] + score[2]; // 합계
 		float avg = sum / score.length; // 평균
-
-		/*----------평균의 소수점 2번째 자리에서 반올림--------*/
+		avg = avg * 100;
+		avg = Math.round(avg) / 100f;
+		/*----------평균의 소수점 2번째 자리에서 반올림--------
 		float temp1 = avg * 100; // 82.66664 -> 8266.664
 		int temp2 = (int) temp1 % 10; // 8266.664 -> 6.6640625
 
@@ -19,7 +20,7 @@ public class ArrayEx03_1 {
 		} else { // 내림의 경우
 			avg = (float) (int) (avg * 100) / 100;
 		}
-		/*------------------반올림 작업 끝-------------------*/
+		------------------반올림 작업 끝-------------------*/
 		System.out.println("평균 : " + avg);
 
 		String grade = "";

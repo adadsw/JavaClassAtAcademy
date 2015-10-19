@@ -21,7 +21,8 @@ public class ArrayEx05 {
 				System.out.println("===============================");
 				System.out.print("합계");
 				
-				for (int k = 0; k < score[k].length; k++) {
+				for (int k = 0; k < 3
+						; k++) {
 					sum = 0;
 					for (int l = 0; l < score.length; l++) {
 						sum += score[l][k];
