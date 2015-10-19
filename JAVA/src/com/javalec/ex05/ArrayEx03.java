@@ -16,5 +16,4 @@ public class ArrayEx03 {
 		for (int i = 0; i < standard.length; i++)
 			System.out.println(standard[i]);
 	}
-
 }
