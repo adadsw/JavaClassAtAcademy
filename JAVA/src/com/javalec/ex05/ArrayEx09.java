@@ -12,6 +12,7 @@ public class ArrayEx09 {
 		for (int i = 0; i < newNumber.length; i++) {
 			System.out.print(newNumber[i]);
 		}
+		
 	}
 
 }

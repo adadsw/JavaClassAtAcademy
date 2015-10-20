@@ -14,5 +14,13 @@ public class GoodsStock {
 		stockNum -= amount;
 		return amount;
 	}
+	
+	GoodsStock(String code, int num) {
+		goodsCode = code;
+		if (num < 0) {
+			num = 0;
+		}
+		stockNum = num;
+	}
 
 }
