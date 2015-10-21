@@ -1,3 +1,4 @@
+// 퀴즈
 package com.javalec.ex06;
 
 import java.util.Scanner;

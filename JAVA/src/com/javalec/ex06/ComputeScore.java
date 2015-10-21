@@ -1,3 +1,4 @@
+// 퀴즈
 package com.javalec.ex06;
 
 public class ComputeScore {
