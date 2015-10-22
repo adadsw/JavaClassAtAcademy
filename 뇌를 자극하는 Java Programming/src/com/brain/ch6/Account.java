@@ -1,19 +1,16 @@
-package com.brain.ch5;
+package com.brain.ch6;
 
 public class Account {
 	String accountNo;
 	String ownerName;
 	int balance;
 
-	Account(String accountNo, String ownerName, int balance) throws Exception {
-		if (balance < 0)
-			throw new Exception("객체를 생성할 수 없습니다.");
+	Account(String accountNo, String ownerName, int balance)  {
 		this.accountNo = accountNo;
 		this.ownerName = ownerName;
 		this.balance = balance;
 	}
 
-	Account(){}
 	
 	void deposit(int amount) {
 		balance += amount;
