@@ -1,6 +1,6 @@
 package com.brain.ch6;
 
-public class Account {
+class Account {
 	String accountNo;
 	String ownerName;
 	int balance;
