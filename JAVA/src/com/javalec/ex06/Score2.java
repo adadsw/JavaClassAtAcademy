@@ -6,12 +6,13 @@ public class Score2 {
 	int eng = 0;
 	int mat = 0;
 	
-	// 생성자
+	// 기본 생성자
 	Score2() {
 		//8. this() 생성자를 활용해서 매개변수가 있는 생성자를 호출
 		this(98, 84, 75);
 	}
 
+	// 매개변수가 있는 생성자 : 초기화
 	Score2(int kor, int eng, int mat) {
 		this.kor = kor;
 		this.eng = eng;
@@ -29,8 +30,7 @@ public class Score2 {
 	}
 
 	float getAvg(float sum) {
-		float avg;
-		avg = sum;
+		float avg = (float) sum / 3;
 		avg = Math.round(avg * 100) / 100f;
 		return avg;
 	}
