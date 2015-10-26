@@ -1,18 +1,14 @@
 package com.javalec.ex06;
 
 public class Score2 {
-	// 변수
 	int kor = 0;
 	int eng = 0;
 	int mat = 0;
 
-	// 기본 생성자
 	Score2() {
-		// 8. this() 생성자를 활용해서 매개변수가 있는 생성자를 호출
 		this(98, 84, 75);
 	}
 
-	// 매개변수가 있는 생성자 : 초기화
 	Score2(int kor, int eng, int mat) {
 		this.kor = kor;
 		this.eng = eng;
@@ -20,9 +16,9 @@ public class Score2 {
 		System.out.println("국어 : " + this.kor);
 		System.out.println("영어 : " + this.eng);
 		System.out.println("수학 : " + this.mat);
+
 	}
 
-	// 3. sum 결과값을 메인의 result에 반환한다.
 	int getTotal(int kor, int eng, int mat) {
 		int sum;
 		sum = kor + eng + mat;
