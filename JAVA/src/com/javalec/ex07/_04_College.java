@@ -6,10 +6,10 @@ public class _04_College extends _04_Student{
 	
 	public _04_College() {}
 	
-	_04_College(String n, int g, int u) {
-		name = n;
-		grade = g;
-		unit = u;
+	_04_College(String name, int grade, int unit) {
+		super.name = name;
+		super.grade = grade;
+		this.unit = unit;
 	}
 	
 	public int getUnit() {

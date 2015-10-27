@@ -7,12 +7,12 @@ public class _02_College extends _02_Student {
 	public _02_College() {
 	}
 
-	public _02_College(String n, int g, int u) {
+	public _02_College(String name, int grade, int unit) {
 		super();
 		System.out.println("College 생성자 호출");
-		name = n;
-		grade = g;
-		unit = u;
+		super.name = name;
+		super.grade = grade;
+		this.unit = unit;
 	}
 
 	public int getUnit() {
