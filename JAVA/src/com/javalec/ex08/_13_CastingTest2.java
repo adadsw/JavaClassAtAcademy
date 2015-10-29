@@ -1,9 +1,9 @@
-package com.javalec.ex07;
+package com.javalec.ex08;
 
 public class _13_CastingTest2 {
 	public static void main(String[] args) {
-		Car3 car = new Car3();
-		Car3 car2 = null;
+		Car car = new Car();
+		Car car2 = null;
 		FireEngine fe = null;
 		
 		car.drive();

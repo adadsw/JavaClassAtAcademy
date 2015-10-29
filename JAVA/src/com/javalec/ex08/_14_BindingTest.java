@@ -1,4 +1,4 @@
-package com.javalec.ex07;
+package com.javalec.ex08;
 
 public class _14_BindingTest {
 	public static void main(String[] args) {
@@ -21,6 +21,7 @@ class Parent14 {
 
 class Child14 extends Parent14 {
 	int x = 200;
+	@Override
 	void method() {
 		System.out.println("Child Method");
 	}

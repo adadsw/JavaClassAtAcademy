@@ -1,4 +1,4 @@
-package com.javalec.ex07;
+package com.javalec.ex08;
 
 public class PlayerTest {
 	public static void main(String[] args) {

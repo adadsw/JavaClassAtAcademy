@@ -1,8 +1,8 @@
-package com.javalec.ex07;
+package com.javalec.ex08;
 
 public class _12_CastingTest1 {
 	public static void main(String[] args) {
-		Car3 car = null;
+		Car car = null;
 		FireEngine fe = new FireEngine();
 		FireEngine fe2 = null;
 		
@@ -22,7 +22,7 @@ public class _12_CastingTest1 {
 	}
 }
 
-class Car3 {
+class Car {
 	String color;
 	int door;
 
@@ -35,13 +35,13 @@ class Car3 {
 	}
 }
 
-class FireEngine extends Car3 {
+class FireEngine extends Car {
 	void water() {
 		System.out.println("water!!!");
 	}
 }
 
-class Ambulance extends Car3 {
+class Ambulance extends Car {
 	void siren() {
 		System.out.println("siren~~~");
 	}
