@@ -9,7 +9,15 @@ public class Player {
 		this.player = player;
 	}
 
-	void play() {
+	void play(Player player) {
+		if (player instanceof SoccerPlayer) {
+			System.out.print("축구선수가 ");
+		}
+		
+		else if (player instanceof BasketballPlayer) {
+			System.out.print("농구선수가 ");
+		}
+			
 		System.out.println("운동한다");
 	}
 }

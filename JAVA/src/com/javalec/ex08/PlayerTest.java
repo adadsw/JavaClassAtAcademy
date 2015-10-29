@@ -5,13 +5,12 @@ public class PlayerTest {
 		Player player = new Player("운동선수");
 
 		Player cha = new SoccerPlayer("차두리");
-		cha.play();
+		cha.play(cha);
 		((SoccerPlayer) cha).KickBall();
 
 		Player hyun = new BasketballPlayer("현주엽");
-		hyun.play();
+		hyun.play(hyun);
 		((BasketballPlayer) hyun).ThrowBall();
-
 	}
 
 }

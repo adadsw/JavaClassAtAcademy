@@ -1,4 +1,4 @@
-package com.javalec.ex07;
+package com.javalec.ex08;
 
 public class _14_BindingTest {
 	public static void main(String[] args) {
