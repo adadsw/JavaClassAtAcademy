@@ -2,17 +2,19 @@ package com.javalec.ex09;
 
 public class ExceptionEx02 {
 	public static void main(String[] args) {
-		int number = 100;
-		int result = 0;
-		for (int i = 0; i < 10; i++) {
-			try {
-				result = number / (int) (Math.random() * 10);
-				System.out.println(result);
-			} catch (ArithmeticException e) {
-				System.out.println(0);
-			}
+		int[] num = new int[2];
+		num[0] = 1;
+		num[1] = 2;
+		try {
+			num[2] = 3;
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("잠온다");
+		} catch (Exception e) {
+			System.out.println("대빵 Exception");
+		} finally {
+			System.out.println("finally다");
 		}
-
+		System.out.println("정상종료");
 	}
 
 }
