@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class _19_PolyArgumentTest2_ArrayList {
 	public static void main(String[] args) {
-		Product tv = new Tv17();
-		Product com = new Computer();
-		Product aud = new Audio();
+		Product5 tv = new Tv19();
+		Product5 com = new Computer2();
+		Product5 aud = new Audio2();
 
 		Buyer19 buyer = new Buyer19();
 
@@ -23,10 +23,10 @@ public class _19_PolyArgumentTest2_ArrayList {
 class Buyer19 {
 		int money = 1000;
 		int bonusPoint = 0;
-		ArrayList<Product> list = new ArrayList<Product>();
+		ArrayList<Product5> list = new ArrayList<Product5>();
 		int i = 0;
 		
-		void buy(Product p) {
+		void buy(Product5 p) {
 			if (money < p.price) {
 				System.out.println("잔액이 부족하여 물건을 살 수 없습니다.");
 				return;
@@ -36,7 +36,7 @@ class Buyer19 {
 			list.add(p);
 			System.out.println(p + "을(를) 구입하셨습니다.");
 		}
-		void refund(Product p) {
+		void refund(Product5 p) {
 			if (list.indexOf(p) == -1) {
 				System.out.println("해당 항목이 없습니다.");
 				return;
@@ -63,17 +63,17 @@ class Buyer19 {
 		}
 }
 
-class Product {
+class Product5 {
 	int price;
 	int bonusPoint;
-	Product(int price) {
+	Product5(int price) {
 		this.price = price;
 		bonusPoint = (int)(price/10.0);
 	}
 }
 
-class Tv17 extends Product {
-	Tv17() {
+class Tv19 extends Product5 {
+	Tv19() {
 		super(100);
 	}
 	public String toString() {
@@ -81,8 +81,8 @@ class Tv17 extends Product {
 	}
 }
 
-class Computer extends Product {
-	Computer() {
+class Computer2 extends Product5 {
+	Computer2() {
 		super(200);
 	}
 	public String toString() {
@@ -90,8 +90,8 @@ class Computer extends Product {
 	}
 }
 
-class Audio extends Product {
-	Audio() {
+class Audio2 extends Product5 {
+	Audio2() {
 		super(300);
 	}
 	public String toString() {
