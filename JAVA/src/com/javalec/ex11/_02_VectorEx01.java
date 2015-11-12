@@ -1,3 +1,6 @@
+
+//addElemnt("참외");
+//add(int index, element);
 package com.javalec.ex11;
 
 import java.util.Iterator;

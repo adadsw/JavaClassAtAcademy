@@ -1,0 +1,20 @@
+package com.javalec.ex12;
+
+public class _03_ThreadEx01 implements Runnable {
+	int testNum = 0;
+	@Override
+	public synchronized void run() {
+		for (int i = 0; i < 10; i ++) {
+			if (Thread.currentThread().getName().equals("A")) {
+				System.out.println("============================");
+				testNum++;
+			}
+			System.out.println("Thread Name : " + Thread.currentThread().getName());
+			try {
+				Thread.sleep(500);
+			} catch(Exception e) {
+				
+			}
+		}
+	}
+}
