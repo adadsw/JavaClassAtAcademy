@@ -9,8 +9,8 @@ public class _03_MainClass {
 		
 		Thread thread1 = new Thread(threadEx, "A"); // "A" : 쓰레드 이름
 		Thread thread2 = new Thread(threadEx, "B"); //"B" : _03_ThreadEx01의 Thread.cu
-		thread1.start();
-		thread2.start();
+		thread1.start();	//run() 호출 쓰레드 A
+		thread2.start();	//run() 호출 쓰레드 B
 		
 		System.out.println(Thread.currentThread().getName());
 		System.out.println("MainClass");
