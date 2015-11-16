@@ -1,14 +1,16 @@
 package com.brain.ch19;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.*;
+
 public class WindowExample8 {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("참가자 명단 프로그램");
 		frame.setPreferredSize(new Dimension(400, 200));
 		frame.setLocation(500, 400);
-		Container contentPane = frame.getContentPane();
 		
+		Container contentPane = frame.getContentPane();
 		String colNames[] = { "이름", "나이", "성별" };
 		DefaultTableModel model = new DefaultTableModel(colNames, 0);
 		JTable table = new JTable(model);
@@ -33,7 +35,7 @@ public class WindowExample8 {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
-		
+
 	}
 
 }
