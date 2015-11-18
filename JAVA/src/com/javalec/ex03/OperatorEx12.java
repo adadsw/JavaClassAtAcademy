@@ -9,7 +9,7 @@ public class OperatorEx12 {
 		int i = c1 + 1; //a값은 97이므로 98이 된다.
 		System.out.println("i = " + i);
 		
-		//char j = c1 + 1; //error
+//		char j = c1 + 1; //error
 		char k = 'a' + 1;
 		int l = 'a' + 1;
 		System.out.println("k = " + k);

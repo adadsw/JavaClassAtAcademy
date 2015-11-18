@@ -51,7 +51,6 @@ class Buyer19 {
 			String itemList = "";
 			
 			for(int i = 0; i < list.size(); i++) {
-				if (list.get(i) == null) break;
 				sum += (list.get(i)).price;
 				itemList += list.get(i) + ", ";
 			}

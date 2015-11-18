@@ -35,7 +35,6 @@ public class _07_DrawingPanel extends JPanel {
 			g.fillRect(210, 250 - english * 2, 10, english * 2);
 		if (math > 0)
 			g.fillRect(310, 250 - math * 2, 10, math * 2);
-
 	}
 
 	// 점수필드값을 설정하는 메서드

@@ -6,13 +6,13 @@ public class ExceptionEx07 {
 			int result = add(1, -2);
 			System.out.println(result);
 		} catch (Exception e) {
-			System.out.println("에러 발생");
+			System.out.println("에러 발생2");
 		}
 	}
 	static int add(int a, int b) throws Exception {
 		int result = a + b;
 		if (result < 0) 
-			throw new Exception("에러 발생");
+			throw new Exception("에러 발생1");
 		return result;
 	}
 }

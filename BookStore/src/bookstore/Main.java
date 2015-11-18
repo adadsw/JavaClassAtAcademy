@@ -1,95 +1,92 @@
 /*
  * bookstore : Main.java
- * 
  * bookstore.domain : 객체
  * 			 Book.java .. 책정보
- * 
- * 			 CODE.java interface	//주인과 손님의 메뉴
- * 					//주인
- * 					int HOST = 1;
- * 					int HOST_BOOK = 110;		//재고관리
- * 					int HOST_BOOL_LIST = 111;	//책목록
- * 
- * 					//손님
- * 					int GUEST = 2;
- * 					int GUEST_ORDER = 210;	//쇼핑
  * 			 Order.java ..주문정보 .. 멤버변수, 생성자, 메서드
  * 			 Shelf.java ..책꽂이정보
  * bookstore.service
- * 		Guest.java ..인터페이스
- * 		GuestImpl.java .. 구현
- * 		Host.java .. 인터페이스
- * 		HostImpl.java .. 구현
  * 		Shop.java Guest, Host
- * bookstore.presentation : 화면
- * 				Console.java
- * 				Menu.java
- * 				MenuImplement.java
  */
 
 package bookstore;
 
-import java.util.Scanner;
+import static bookstore.domain.CODE.*;
 import bookstore.presentation.*;
+import bookstore.service.*;
 
 public class Main {
-	public static final int SHOP_LOGIN = 999;
-	public static final int HOST_BOOK_LIST = 111;
-	public static final int HOST_BOOK_ADD = 112;
-	public static final int HOST_BOOK_UPDATE = 113;
-	public static final int HOST_BOOK_DEL = 114;
-	public static final int HOST_ORDER_LIST = 121;
-	public static final int HOST_ORDER_ADD = 122;
-	public static final int HOST_ORDER_DEL = 123;
-	public static final int GUEST_ORDER_ADD = 211;
-	public static final int GUEST_ORDER_DEL = 212;
-
 	public static void main(String[] args) {
 		int code = SHOP_LOGIN;
-		OpeningPage open = new OpeningPage();
-		Host host = new Host();
-		Guest guest = new Guest();
-
+		Menu menu = MenuImplement.getInstance();
+		HostImplement host = HostImplement.getInstance();
+		GuestImplement guest = GuestImplement.getInstance();
+		
+		System.out.println("서점 문을 엽니다.");
 		while (true) {
 			switch (code) {
 			case SHOP_LOGIN:
-				/*
-				 * switch (host.hostLogin) { case true: break; case false:
-				 * break; }
-				 */
-				code = open.openStore();
+				code = menu.selectUser();
 				break;
-			case 1: // 주인
-				host.login();
+
+			case HOST: // 주인
+				switch (host.state) {
+				case HOST_LOGIN:
+					code = menu.hostMenu();
+					break;
+				case HOST_LOGOUT:
+					code = menu.login("tryHost");
+					break;
+				}
 				break;
-			case 11: //재고관리
-			
+			case HOST_BOOK: // 재고관리
+				code = menu.hostBookMenu();
+				break;
 			case HOST_BOOK_LIST: // 책 목록
-
+				code = host.listBook();
+				break;
 			case HOST_BOOK_ADD: // 책 추가
-
+				code = host.addBook();
+				break;
 			case HOST_BOOK_UPDATE: // 책 수정
 
+				break;
 			case HOST_BOOK_DEL: // 책 삭제
 
-			case 12: //주문관리
-				
+				break;
+			case HOST_ORDER: // 주문관리
+				code = menu.hostOrderMenu();
+				break;
 			case HOST_ORDER_LIST: // 주문 목록
 
+				break;
 			case HOST_ORDER_ADD: // 주문 추가
 
+				break;
 			case HOST_ORDER_DEL: // 주문 삭제
 
-			case 2: // 손님
-				guest.login();
 				break;
-			case 21:
+
+			case GUEST: // 손님
+				switch (guest.state) {
+				case GUEST_LOGIN:
+					code = GUEST_ORDER;
+					break;
+				case GUEST_LOGOUT:
+					code = menu.login("tryGuest");
+					break;
+				}
+				break;
+			case GUEST_ORDER:
+				code = menu.guestOrderMenu();
+				break;
 			case GUEST_ORDER_ADD: // 구매
 
+				break;
 			case GUEST_ORDER_DEL: // 환불
-				
+
+				break;
 			default:
-				code = 0;
+				code = SHOP_LOGIN;
 				break;
 			}
 		}

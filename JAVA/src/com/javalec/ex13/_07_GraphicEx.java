@@ -8,8 +8,8 @@ public class _07_GraphicEx {
 
 		// 프래임과 컨테이너 생성, 할당
 		JFrame frame = new JFrame("성적 프로그램");
-		frame.setLocation(500, 400);
-		frame.setPreferredSize(new Dimension(350, 500));
+		frame.setLocation(500, 200);
+		frame.setPreferredSize(new Dimension(400, 350));
 		Container contentPane = frame.getContentPane();
 		
 		// 패널 1. 그래프

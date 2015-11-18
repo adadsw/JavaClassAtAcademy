@@ -40,7 +40,7 @@ class Student1 {
 	
 	public boolean equals(Object o) {
 		boolean result = false;
-		if (o instanceof Student) {
+		if (o instanceof Student1) {
 			Student1 s = (Student1) o;
 			if (name.equals(s.name) && age == s.age);
 			result = true;
