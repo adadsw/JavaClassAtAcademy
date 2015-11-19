@@ -11,6 +11,7 @@
 package bookstore;
 
 import static bookstore.domain.CODE.*;
+
 import bookstore.presentation.*;
 import bookstore.service.*;
 
@@ -20,6 +21,8 @@ public class Main {
 		Menu menu = MenuImplement.getInstance();
 		HostImplement host = HostImplement.getInstance();
 		GuestImplement guest = GuestImplement.getInstance();
+		
+
 		
 		System.out.println("서점 문을 엽니다.");
 		while (true) {
@@ -48,22 +51,22 @@ public class Main {
 				code = host.addBook();
 				break;
 			case HOST_BOOK_UPDATE: // 책 수정
-
+				code = host.modifyBook();
 				break;
 			case HOST_BOOK_DEL: // 책 삭제
-
+				code = host.deleteBook();
 				break;
 			case HOST_ORDER: // 주문관리
 				code = menu.hostOrderMenu();
 				break;
 			case HOST_ORDER_LIST: // 주문 목록
-
+				code = host.listOrder();
 				break;
 			case HOST_ORDER_ADD: // 주문 추가
-
+				code = host.addOrder();
 				break;
 			case HOST_ORDER_DEL: // 주문 삭제
-
+				code = host.deleteOrder();
 				break;
 
 			case GUEST: // 손님
@@ -80,10 +83,10 @@ public class Main {
 				code = menu.guestOrderMenu();
 				break;
 			case GUEST_ORDER_ADD: // 구매
-
+				code = guest.buy();
 				break;
 			case GUEST_ORDER_DEL: // 환불
-
+				code = guest.refund();
 				break;
 			default:
 				code = SHOP_LOGIN;

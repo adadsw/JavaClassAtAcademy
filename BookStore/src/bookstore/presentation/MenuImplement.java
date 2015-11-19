@@ -22,9 +22,13 @@ public class MenuImplement implements Menu {
 	}
 
 	@Override
-	public int selectUser() {
+	public int selectUser()  {
 		System.out.println("1: 주인, 2: 손님, 0: 나가기");
+		try {
 		code = Integer.parseInt(Console.input());
+		} catch (NumberFormatException nfe) {
+			System.out.println("숫자를 입력하여 주십시오.");
+		}
 		switch (code) {
 		case 1:
 			code = HOST;
@@ -32,6 +36,8 @@ public class MenuImplement implements Menu {
 		case 2:
 			code = GUEST;
 			break;
+		case 0:
+			return;
 		default:
 			code = SHOP_LOGIN;
 		}

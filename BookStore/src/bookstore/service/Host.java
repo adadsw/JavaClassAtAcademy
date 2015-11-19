@@ -6,12 +6,12 @@ public interface Host {
 	
 	abstract int listBook();
 	abstract int addBook();
-	abstract void modifyBook();
-	abstract void deleteBook();
+	abstract int modifyBook();
+	abstract int deleteBook();
 	
-	abstract void listOrder();
-	abstract void addOrder();
-	abstract void deleteOrder();
+	abstract int listOrder();
+	abstract int addOrder();
+	abstract int deleteOrder();
 	
 	abstract void hostLogin();
 	abstract void hostLogout();
