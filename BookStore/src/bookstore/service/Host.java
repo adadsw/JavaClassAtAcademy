@@ -10,8 +10,8 @@ public interface Host {
 	abstract int deleteBook();
 	
 	abstract int listOrder();
-	abstract int addOrder();
-	abstract int deleteOrder();
+//	abstract int addOrder();
+//	abstract int deleteOrder();
 	
 	abstract void hostLogin();
 	abstract void hostLogout();

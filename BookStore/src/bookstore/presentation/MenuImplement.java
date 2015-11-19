@@ -22,12 +22,13 @@ public class MenuImplement implements Menu {
 	}
 
 	@Override
-	public int selectUser()  {
+	public int selectUser() {
 		System.out.println("1: 주인, 2: 손님, 0: 나가기");
 		try {
-		code = Integer.parseInt(Console.input());
+			code = Integer.parseInt(Console.input());
 		} catch (NumberFormatException nfe) {
 			System.out.println("숫자를 입력하여 주십시오.");
+			return SHOP_LOGIN;
 		}
 		switch (code) {
 		case 1:
@@ -37,7 +38,8 @@ public class MenuImplement implements Menu {
 			code = GUEST;
 			break;
 		case 0:
-			return;
+			code = 0;
+			break;
 		default:
 			code = SHOP_LOGIN;
 		}
@@ -80,22 +82,26 @@ public class MenuImplement implements Menu {
 
 	@Override
 	public int hostMenu() {
-		System.out.println("Good day, Sir.");
-		System.out.println("1: 재고관리, 2: 주문관리, 0: 나가기");
-		code = Integer.parseInt((Console.input()));
+		System.out.println("1: 재고관리, 2: 주문목록, 0: 나가기");
+		try {
+			code = Integer.parseInt(Console.input());
+		} catch (NumberFormatException nfe) {
+			System.out.println("숫자를 입력하여 주십시오.");
+			return HOST;
+		}
 		switch (code) {
 		case 1:
 			code = HOST_BOOK;
 			break;
 		case 2:
-			code = HOST_ORDER;
+			code = HOST_ORDER_LIST;
 			break;
 		case 0:
 			code = SHOP_LOGIN;
 			host.hostLogout();
 			break;
 		default:
-			System.out.println("다시 입력하여 주십시오.");
+			System.out.println("잘못 입력하셨습니다.");
 			code = HOST;
 			break;
 		}
@@ -104,7 +110,12 @@ public class MenuImplement implements Menu {
 
 	public int hostBookMenu() {
 		System.out.println("1: 책 목록, 2: 책 추가, 3: 책 수정, 4:책 삭제, 0: 나가기");
-		code = Integer.parseInt((Console.input()));
+		try {
+			code = Integer.parseInt(Console.input());
+		} catch (NumberFormatException nfe) {
+			System.out.println("숫자를 입력하여 주십시오.");
+			return HOST_BOOK;
+		}
 		switch (code) {
 		case 1:
 			code = HOST_BOOK_LIST;
@@ -129,34 +140,44 @@ public class MenuImplement implements Menu {
 		return code;
 	}
 
-	@Override
-	public int hostOrderMenu() {
-		System.out.println("1: 주문 목록, 2: 주문 추가, 3: 주문 삭제 0: 나가기");
-		code = Integer.parseInt(Console.input());
-		switch (code) {
-		case 1:
-			code = HOST_ORDER_LIST;
-			break;
-		case 2:
-			code = HOST_ORDER_ADD;
-			break;
-		case 3:
-			code = HOST_ORDER_DEL;
-			break;
-		case 0:
-			code = HOST;
-			break;
-		default:
-			System.out.println("다시 입력하여 주십시오.");
-			code = HOST_ORDER;
-			break;
-		}
-		return code;
-	}
+//	@Override
+//	public int hostOrderMenu() {
+//		System.out.println("1: 주문 목록, 2: 주문 추가, 3: 주문 삭제 0: 나가기");
+//		try {
+//			code = Integer.parseInt(Console.input());
+//		} catch (NumberFormatException nfe) {
+//			System.out.println("숫자를 입력하여 주십시오.");
+//			return HOST_ORDER;
+//		}
+//		switch (code) {
+//		case 1:
+//			code = HOST_ORDER_LIST;
+//			break;
+//		case 2:
+//			code = HOST_ORDER_ADD;
+//			break;
+//		case 3:
+//			code = HOST_ORDER_DEL;
+//			break;
+//		case 0:
+//			code = HOST;
+//			break;
+//		default:
+//			System.out.println("다시 입력하여 주십시오.");
+//			code = HOST_ORDER;
+//			break;
+//		}
+//		return code;
+//	}
 
 	public int guestOrderMenu() {
 		System.out.println("1: 구매, 2: 환불, 0: 나가기");
-		code = Integer.parseInt((Console.input()));
+		try {
+			code = Integer.parseInt(Console.input());
+		} catch (NumberFormatException nfe) {
+			System.out.println("숫자를 입력하여 주십시오.");
+			return GUEST_ORDER;
+		}
 		switch (code) {
 		case 1:
 			code = GUEST_ORDER_ADD;

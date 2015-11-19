@@ -20,7 +20,11 @@ public class GuestImplement implements Guest {
 
 	@Override
 	public int buy() {
-		Shelf.listBook();
+		if (Shelf.shelf.isEmpty()) {
+			System.out.println("구매 가능한 도서가 없습니다.");
+			return GUEST_ORDER;
+		}
+		Shelf.listBook();	
 		System.out.println("구입할 책의 번호를 입력하세요.");
 		int i = Integer.parseInt(Console.input());
 		Order.Bag.add(Shelf.shelf.get(i));
