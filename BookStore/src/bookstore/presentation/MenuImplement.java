@@ -22,38 +22,13 @@ public class MenuImplement implements Menu {
 	}
 
 	@Override
-	public int selectUser() {
-		System.out.println("1: 주인, 2: 손님, 0: 나가기");
-		try {
-			code = Integer.parseInt(Console.input());
-		} catch (NumberFormatException nfe) {
-			System.out.println("숫자를 입력하여 주십시오.");
-			return SHOP_LOGIN;
-		}
-		switch (code) {
-		case 1:
-			code = HOST;
-			break;
-		case 2:
-			code = GUEST;
-			break;
-		case 0:
-			code = 0;
-			break;
-		default:
-			code = SHOP_LOGIN;
-		}
-		return code;
-	}
-
-	@Override
-	public int login(String user) {
+	public int login(int user) {
 		switch (user) {
-		case "tryHost":
+		case HOST:
 			if (host.state == HOST_LOGIN)
 				return HOST;
 			break;
-		case "tryGuest":
+		case GUEST:
 			if (guest.state == GUEST_LOGIN)
 				return GUEST;
 			break;
@@ -63,13 +38,13 @@ public class MenuImplement implements Menu {
 		System.out.println("비밀번호를 입력하여 주십시오.");
 		String pass = Console.input();
 		switch (user) {
-		case "tryHost":
+		case HOST:
 			if (Host.ID.equals(id) && Host.PASS.equals(pass)) {
 				host.hostLogin();
 				return HOST;
 			}
 			break;
-		case "tryGuest":
+		case GUEST:
 			if (Guest.ID.equals(id) && Guest.PASS.equals(pass)) {
 				guest.guestLogin();
 				return GUEST;
@@ -196,5 +171,4 @@ public class MenuImplement implements Menu {
 		}
 		return code;
 	}
-
 }

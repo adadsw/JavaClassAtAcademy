@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	th {
+		color: rgb(155,50,0);
+	}
+	.marker {
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<table border="1">
+		<caption>과일가게</caption>
+		<colgroup span="1" style="background:blue"></colgroup>
+		<colgroup span="2" style="background:orange"></colgroup>
+		<col style="background:lime;">
+		<colgroup span="2" style="background:green"></colgroup>
+		<tr>
+			<th>과일명</th>
+			<th>상태</th>
+			<th>개수</th>
+			<th>가격</th>
+			<th>원산지</th>
+			<th>배송지</th>
+		</tr>
+		<tr>
+			<td rowspan="3">사과</td>
+			<td>상</td>
+			<td rowspan="3">1개</td>
+			<td>2000원</td>
+			<td colspan="2", rowspan="3", class"marker">청주</td>
+		</tr>
+		<tr>
+			<td>중</td>
+			<td>1500원</td>
+		</tr>
+		<tr>
+			<td>하</td>
+			<td>1000원</td>
+		</tr>
+		<tr>
+			<td rowspan=3>배</td>
+			<td>상</td>
+			<td rowspan=3>1개</td>
+			<td>7000원</td>
+			<td colspan=2, class="marker">나주</td>
+		</tr>
+		<th>
+			<td>중</td>
+			<td>6000원</td>
+			<td>나주</td>
+			<td>서울</td>
+		</th>
+		<th>
+			<td>하</td>
+			<td>5000원</td>
+			<td>고양시</td>
+			<td>서울</td>
+		</th>
+		<tr>
+			<td rowspan=3>포도</td>
+			<td>상</td>
+			<td rowspan=3>1개</td>
+			<td>영동</td>
+			<td rowspan=3>서울</td>
+			<td rowspan=3></td>
+		</tr>
+		<tr>
+			<td>중</td>
+			<td>4500원</td>
+		</tr>
+		<tr>
+			<td>하</td>
+			<td>4000원</td>
+		</tr>
+		<tr>
+			<th rowspan=3>바나나</th>
+			<td>상</td>
+			<td rowspan=3>1송이</td>
+			<td>5000원</td>
+			<td>호주</td>
+			<td>서울</td>
+		</tr>
+		<tr>
+			<td>중</td>
+			<td>4000원</td>
+			<td rowspan=2>필리핀</td>
+			<td rowspan=2>서울</td>
+		</tr>
+		<tr>
+			<td>하</td>
+			<td>3000원</td>
+		</tr>
+	</table>
+
+</body>
+</html>

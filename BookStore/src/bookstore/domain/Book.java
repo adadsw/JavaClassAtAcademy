@@ -2,10 +2,11 @@ package bookstore.domain;
 
 public class Book {
 	public static int number = 1;
-	int num;
-	String title;
-	String writer;
-	int price;
+	
+	private int num;
+	private String title;
+	private String writer;
+	private int price;
 	
 	public Book(String title, String writer, int price) {
 		this.num = number;
