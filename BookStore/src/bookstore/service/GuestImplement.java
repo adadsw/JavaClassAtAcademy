@@ -27,6 +27,10 @@ public class GuestImplement implements Guest {
 		Shelf.listBook();	
 		System.out.println("구입할 책의 번호를 입력하세요.");
 		int i = Integer.parseInt(Console.input());
+		if (Shelf.shelf.get(i) == null) { 
+			System.out.println("해당 번호의 책이 없습니다.");
+			return GUEST_ORDER;
+		}
 		Order.Bag.add(Shelf.shelf.get(i));
 		System.out.println("다음은 구매한 목록입니다.");
 		Iterator<Book> iterator = Order.Bag.iterator();

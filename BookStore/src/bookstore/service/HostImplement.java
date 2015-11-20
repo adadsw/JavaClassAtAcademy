@@ -55,7 +55,7 @@ public class HostImplement implements Host {
 		int price = Integer.parseInt(Console.input());
 		Shelf.shelf.replace(i, Shelf.shelf.get(i), new Book(i, title, writer, price));
 		System.out.println("책정보를 다음과 같이 수정하였습니다.");
-		Shelf.shelf.get(i);
+		System.out.println(Shelf.shelf.get(i));
 		return HOST_BOOK;
 	}
 

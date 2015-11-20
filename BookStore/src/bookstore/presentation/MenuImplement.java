@@ -21,8 +21,10 @@ public class MenuImplement implements Menu {
 		return menu;
 	}
 
+	//로그인 메서드. 본래 주인, 손님을 따로 만들어 각각의 HostImplement와 GuestImplement에 
+	//넣어 실행하였으나 기능이 중복되어 그냥 하나의 메서드로 만들었음
 	@Override
-	public int login(int user) {
+	public int login(int user) {		
 		switch (user) {
 		case HOST:
 			if (host.state == HOST_LOGIN)
@@ -33,9 +35,10 @@ public class MenuImplement implements Menu {
 				return GUEST;
 			break;
 		}
-		System.out.println("아이디를 입력하여 주십시오.");
+		System.out.println("로그인 정보를 입력하세요.");
+		System.out.println("아이디");
 		String id = Console.input();
-		System.out.println("비밀번호를 입력하여 주십시오.");
+		System.out.println("암호");
 		String pass = Console.input();
 		switch (user) {
 		case HOST:
@@ -54,10 +57,11 @@ public class MenuImplement implements Menu {
 		System.out.println("로그인 실패");
 		return SHOP_LOGIN;
 	}
-
+	
+	// 주인으로 접속 시 메뉴
 	@Override
 	public int hostMenu() {
-		System.out.println("1: 재고관리, 2: 주문목록, 0: 나가기");
+		System.out.println("1:재고관리, 2:주문목록, 0:종료");
 		try {
 			code = Integer.parseInt(Console.input());
 		} catch (NumberFormatException nfe) {
@@ -83,8 +87,9 @@ public class MenuImplement implements Menu {
 		return code;
 	}
 
+	// 1. 주인 -> 1. 재고관리
 	public int hostBookMenu() {
-		System.out.println("1: 책 목록, 2: 책 추가, 3: 책 수정, 4:책 삭제, 0: 나가기");
+		System.out.println("1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료");
 		try {
 			code = Integer.parseInt(Console.input());
 		} catch (NumberFormatException nfe) {
@@ -114,7 +119,10 @@ public class MenuImplement implements Menu {
 		}
 		return code;
 	}
+	
 
+	//원래 1. 주인 -> 2. 주문관리 -> 1. 주문목록이 되어야 하는데
+	//1. 주인 - > 2. 주문목록으로 로그가 구현되었길래 걍 주석처리 함
 //	@Override
 //	public int hostOrderMenu() {
 //		System.out.println("1: 주문 목록, 2: 주문 추가, 3: 주문 삭제 0: 나가기");
@@ -145,8 +153,9 @@ public class MenuImplement implements Menu {
 //		return code;
 //	}
 
+	//2. 손님 -> 메뉴
 	public int guestOrderMenu() {
-		System.out.println("1: 구매, 2: 환불, 0: 나가기");
+		System.out.println("1:구매, 2:환불, 0:종료");
 		try {
 			code = Integer.parseInt(Console.input());
 		} catch (NumberFormatException nfe) {

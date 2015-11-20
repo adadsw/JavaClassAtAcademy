@@ -22,11 +22,11 @@ public class Book {
 	}
 	
 	public String toString() {
-		return "[" + num + "] " + title + "|" + writer + "| $" + price; 
+		return "[" + num + "] " + title + " | by " + writer + " | $" + price; 
 	}
 	
 	public String OrderedList(int i) {
-		return i + 1 + "번. " + title + "|" + writer + "| $" + price ;
+		return i + 1 + "번: " + "[" + num + "] " + title + " | " + writer + " | $" + price ;
 	}
 	
 	@Override
