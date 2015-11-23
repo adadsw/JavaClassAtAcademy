@@ -23,7 +23,7 @@ public class _05_HashMapEx01 {
 		map.put("장동건", "222-2222");
 		map.put("박서준", "333-3333");
 		map.put("공유", "444-4444");
-		
+
 		System.out.println(map.get("소지섭"));
 		System.out.println(map.get("장동건"));
 		System.out.println(map.get("박서준"));

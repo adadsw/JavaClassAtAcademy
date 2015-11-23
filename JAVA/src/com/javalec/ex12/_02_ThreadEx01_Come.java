@@ -12,5 +12,4 @@ public class _02_ThreadEx01_Come implements Runnable {
 			}
 		}
 	}
-
 }
