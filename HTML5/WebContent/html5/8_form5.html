@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인접 형제 선택자, 형제선택자, 그룹 선택자, 속성 선택자</title>
+<style>
+/*인접 형제 선택자-첫번째 동생 요소에 스타일 적용하기
+	문서 구조상 같은 부모를 가진 형제 요소 중 첫번째 동생 요소에만 스타일이 적용된다. 
+	태그들이 포함관계를 가질 때 포함하는 요소를 부모요소, 포함되는 요소를 자식요소라고 하듯이, 
+	같은 부모요소를 가지는 요소들을 형제관계라고 부른다. 이 때 먼저 나오는 요소를 '형요소', 
+	나중에 나오는 요소를 '동생요소'라고 한다.
+	요소1 + 요소2 {속성:속성값;} */
+/*#container > h1 + ul {
+	color: blue;
+	font-weight: bold;
+	}*/
+	h1 ~ ul {
+		color: orange;
+		font-weight: bold;
+	}
+
+/* 
+	형제 선택자- 형제요소에 스타일 적용하기
+	형제 선택자 ㅅ역시 형제 요소들에 스타일을 정의하는 것인데,
+	인접 형제 선택자와 다른 점은 모든 형제요소에 다 적용된다는 것이다.
+	형제 선택자를 정의할 때는 첫 번째 요소와 두 번째 요소 사이에 
+	~(틸드)를 표시한다.
+	요소1 ~ 요소2 {속성:속성값;...}
+	*/
+
+/* 그룹 선택자- 스타일 한꺼번에 정의하기
+	여러 선택자에 같은 속성을 적용해야 할 경우 똑같은 스타일을 
+	두 번 정의하지 않고 한 번에 묶어서 정의 가능.
+	이 때 쉼표로 선택자를 구분한다. 예를 들어 h1 요소와 h3 요소의 
+	글꼴과 글자색이 같을 경우 두 태그의 선택자를 따로 지정할 필요 없이 한 번에 선언할 수 있다.
+	요소1, 요소2, ...{속성:속성값;...} */
+
+	h1, h3 {
+		font-weight: bold;
+		color: purple;
+	}
+	ul li {
+		font-size: 16px;
+		line-height: 25px; /*줄간격*/
+	}
+/* 
+	속성 선택자-태그 안에서 사용하는 속성들의 값에 따라서 스타일을 지정한다.
+	속성값의 조건에 따라 다양한 스타일을 지정할 수 있기 때문에 활용도가 높다.
+	1. [속성] 형식
+	[속성] {속성:속성값;...}
+	a [target] {속성:속성값;...}
+	2. [속성=값]형식
+		주어진 속성과 값이 일치하는 요소를 찾아 스타일을 적용한다.
+		[속성=값] {속성:속성값;...}
+		a [target="_black"] {background-color}
+	*/
+	
+	a[href] {	/* <a>태그 중 href 속성이 있는 곳에 스타일을 지정 */
+		background: yellow;
+	}
+	
+	input[type="text"] {
+		width: 150px;
+		background-color: skyblue;
+		border: 1px solid #000;
+	}
+	/*
+		text-shaow속성-텍스트에 그림자 효과 추가하기
+		: 텍스트를 좀 더 입체적으로 보이게 하고, 글자가 더욱 선명하게 보이도록 하며, 그래픽으로 처리한 듯한 텍스트를 만든다.
+		text-shadow:h-shadow값 v-shadhow값 blur값 color값;
+		h-shadow값 : 그림자의 가로 옵셋 거리, 양수값은 글자 오른쪽에, 음수값은 글자 왼쪽에 그림자를 만든다.
+		v-shadhow값 : 그림자의 세로 옵셋 거리, 양수값은 글자 아래쪽에, 음수값은 글자 위쪽에 그림자를 만든다.;
+		blur : 그림자가 번지는 정도를 지정한다. 생략할 경우 그림자가 번지지 않고 선명하게 표시된다.;
+		color :그림자 색상을 지정한다. 16진수, rgb, 색상이름표기로 값을 입력한다.;
+	*/
+	h1 {
+		text-shadow: 4px 4px 4px black; /* 제목 텍스트에 검정 그림자를 추가 */
+	}
+	.line1 {
+		text-decoration: underline;
+	}
+	.line2 {
+		text-decoration: overline;
+	}
+	.line3 {
+		text-decoration: line-through;
+	}
+	.line4 {
+		text-decoration: overline underline;
+	}
+	#indnt1 {
+		text-indent: 30px;
+	}
+</style>
+</head>
+<body>
+	<section id="container">
+		<header><h1>객실소개</h1></header>
+		<h3>객실안내</h3>
+		<ul>
+			<li>
+				<a href="one.html"><b>2인실(유채방, 동백방)</b></a>
+				동성 또는 가족 2인 공동취사실 및 욕실(화장실) 사용
+			</li>
+			<li>
+				<a href="two.html"><b>4인실(펜션)</b></a>
+				취사기구 완비, 실내욕실(화장실)
+			</li>
+		</ul>
+		<h1>예약방법 및 요금</h1>
+		<ul>
+			<li>직접통화</li>
+			<li>문자남기기</li>
+		</ul>
+		<ul>
+			<li><p class="line1">1인 : 40,000원</p></li>
+			<li><p class="line2">2인 : 60,000원</p></li>
+			<li><p class="line3">3인 : 80,000원</p></li>
+			<li><p class="line4">4인 : 100,000원</p></li>
+		</ul>
+		<ul>
+			<li>카드결제</li>
+			<li>현금결제</li>
+		</ul>
+
+		<h1>요안도라 소개</h1>
+		<h3>요안도라는 게스트하우스형식의 농어촌 민박입니다.</h3>
+		<p id="indnt1">성산의 날씨는 다음 주 내내 구름에 햇살 가득이라고 합니다.
+			늘 부는 바람이 쾌적한 균형을 잡아 마당에 나가 있는 시간이 많아질 듯 합니다.</p>
+		<form action="">
+			<fieldset>
+				<legend>예약자정보</legend>
+				<ul>
+					<li>
+						<label for="name">예약자</label>
+						<input type="text" id="name">
+					</li>
+					<li>
+						<label for="contact">연락처</label>
+						<input type="tel" id="contact">
+					</li>
+					<li>
+						<label for="people">예약인원</label>
+						<input type="number" id="people">
+					</li>
+					<li>
+						<label for="bank">입금은행</label>
+						<input type="text" id="bank">
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+	</section>
+</body>
+</html>

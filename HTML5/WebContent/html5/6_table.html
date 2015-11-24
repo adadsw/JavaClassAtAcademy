@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>태그 - 표 만들기 </title>
+</head>
+<body>
+	<!-- <caption> 태그 : 표에 제목 붙이기
+		 <tr> 태그 : 행(row) 1개
+		 <td> 태그 : 열(column) 1개 
+		 <td rowspan="합칠 행의 개수">내용</td>
+		 <th rowspan="합칠 행의 개수">내용</th>
+		 <td colspan="합칠 열의 개수">내용</td>
+		 <th colspan="합칠 열의 개수">내용</th>
+		 <col> 태그 : 한 열에 있는 모든 셀을 묶는 것으로, 주로 한 열에 똑같은 스타일을 적용함
+		 				닫는 태그가 없다.
+		 <colgroup> 태그 : 여러개의 <col>태그를 묶어 그룹으로 스타일을 적용하기도 하고,
+						 <colgroup span="2">처럼 span 속성을 이용해 열을 묶기도 한다.
+						 </colgroup> 태그로 닫아주어야 한다.
+		 <col> 열의 개수와 <colgroup>태그를 사용한 열의 개수를 합했을 때 전체 열의 개수와 정확히 일치해야 한다.
+		 
+		 <thead>, <tbody>, <tfoot> 태그 - 표의 제목과 본문, 요약부분을 구분해준다.
+										- 표의 본문이 길어서 스크롤을 해야만 볼 경우, 제목 부분과 요약 부분은 고정되어서
+											본문이 무엇을 의미하는지 쉽게 파악할 수 있다.		 
+		 t: table
+		 <thead> 태그 : table의 제목부분(head)
+		 <tbodt> 태그 : table 본문
+		 <tfoot> 태그 : table의 요약부분
+		 <tfoot> 태그는 <tbody>와 <tr> 이전에 사용하거나, <colgroup>, <thead>태그 다음에 사용해야 하며
+
+		 -->
+	<table border="1">
+		<caption>표 만들기</caption>
+		<tr>
+			<td>"1행 1열"</td>
+			<td>"1행 2열"</td>
+		</tr>
+		<tr>
+			<td>"2행 1열"</td>
+			<td>"2행 2열"</td>
+		</tr>
+		<tr>
+			<td>"3행 1열"</td>
+			<td>"3행 2열"</td>
+		</tr>
+	</table>
+</body>
+</html>

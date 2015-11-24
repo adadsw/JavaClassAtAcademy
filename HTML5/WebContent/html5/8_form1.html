@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>로그인</title>
+	<style>
+	legend {
+		color: blue;
+		bottom
+	}
+	</style>
+</head>
+<body>
+	<h3>회원가입 양식</h3>
+
+	<form action="">
+		<fieldset>
+			<legend><b>로그인 정보</b></legend>
+			<ul>
+				<li><label for="userId">아이디(6자 이상) : </label><input type="text" size="10" id="userId"></li>
+				<li><label for="pass">비밀번호 : </label><input type="password" size="10" id="pass"></li>
+				<li><label for="rePassWd">비밀번호 (확인) : </label><input type="text" size="10" id="rePassWd"></li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend><b>가입자 정보</b></legend>
+			<ul>
+				<li><label for="name">이름 : </label><input type="text" size="20" id="name"></li>
+				<li><label for="telNo">전화번호 : <input type="tel" size="20" id="telNo"></label></li>
+				<li><label for="eMail">메일 주소 : </label><input type="email" size="20" id="eMail"></li>
+				<li><label for="birthDay">생년월일 : </label><input type="text" size="20" id="birthDay"></li>
+				<li>소식지 수신<label><input type="radio" value="yes" name="letter">수신 함</label>
+				<label><input type="radio" value="no" name="letter">수신 안 함</label></li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>
+				<input type="submit" value="가입하기">
+				<input type="reset" value="다시쓰기">
+			</legend>
+		</fieldset>
+	</form>
+</body>
+</html>
+
+<!-- 
+<form> 태그 : 아이디나 검색어 등을 입력하는 텍스트 상자나 로그인 버튼, 목록 등
+				사용자가 웹사이트로 어떤 정보를 보낼 수 있는 요소들
+				<form [속성="속성값"]> 여러 폼 요소</form>
+	<fieldset>, <legend> 태그 - 폼 요소 그룹으로 묶기
+		<fieldset [속성="속성값"] ..... </fieldset>
+			
+		-->
