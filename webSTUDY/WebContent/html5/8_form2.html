@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>등록정보</title>
+	<style>
+	ul {
+		list-style-type: none;
+	}
+	ul li {
+		margin-bottom: 10px;
+	}
+	fieldset {
+		margin: 15px 10px;
+	}
+	fieldset legend {
+		font-weight: bold;
+		font-size: 18px;
+		color: purple;
+	}
+	.classapply {
+		font
+	}
+	label.reg {
+		font-weight: bold;
+		width: 125px;
+		float: left;
+	}
+	div.centered {
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+			<legend>등록정보</legend>
+			<ul>
+				<li>
+					<label for="member" class="reg">참여인원</label><small>(최대 10명)</small>
+					<input type="number" is="member" value="1" min="0" max="10" step="1">
+				</li>
+				<li>
+					<label for="stuffs" class.reg>지원물품</label>
+					<small>(1인당 5개)</small>
+					<input type="number" id="stuffs" value="5" min="0" max="50" step="5">
+				</li>
+				<li>
+					<label for="satis" class="reg">희망단계</label><small>(하.중.상)</small><input type="range" id="satis" value="1" min="1" max="3">
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>수강정보</legend>
+			<ul>
+				<li><label for="color" class="reg">선호색상</label><input type="color" id="color"></li>
+				<li>
+					<label for="" class="reg">신청과목<small>(회화)</small></label>
+					<label for=""><input type="radio" name="spk" id="spk" value="low" checked="">영어회화(초급)</label>
+					<label for=""><input type="radio" name="spk" id="spk" value="middle">영어회화(중급)</label>
+					<label for=""><input type="radio" name="spk" id="spk" value="high">영어회화(고급)</label>
+				</li>
+				<li>
+					<label for="" class="reg">신청과목</label><small>(자격)</small>
+					<label for=""><input type="radio" name="cerp" id="cert" value="toeic" checked="">TOEIC</label>
+					<label for=""><input type="radio" name="cerp" id="cert" value="tofel">TOFEL</label>
+					<label for=""><input type="radio" name="cerp" id="cert" value="opic">OPIC</label>
+				</li>
+				<li>
+					<label for="" class="reg">사용중인 SNS는?</label>
+					<label for=""><input type="checkbox" name="sns" value="tw">Twitter</label>
+					<label for=""><input type="checkbox" name="sns" value="fb">FaceBook</label>
+					<label for=""><input type="checkbox" name="sns" value="linked">LinkedIn</label>
+					<label for=""><input type="checkbox" name="sns" value="ptin">Pinterest</label>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>관심분야는?<small>(다수 선택 가능)</small></legend>
+			<ul>
+				<li>
+					<label for=""><input type="checkbox" value="grammar">문법</label>
+					<label for=""><input type="checkbox" value="word">어휘</label>
+					<label for=""><input type="checkbox" value="communication">회화</label>
+					<label for=""><input type="checkbox" value="listening">리스닝</label>
+					<label for=""><input type="checkbox" value="news listening">뉴스청취</label>
+					<label for=""><input type="checkbox" value="reading">독해</label>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>강의일자를 선택하세요</legend>
+			<ul>
+				<li>
+					<label for=""><input type="date" id="start"></label>
+				</li>
+				<li>
+					<label for=""><input type="date" id="end"></label>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>강의시간을 선택하세요</legend>
+			<ul>
+				<li>
+					<label for="" class="reg">Today</label><input type="datetime-Local">
+				</li>
+				<li>
+					<label for="" class="reg">개강주</label><input type="week" id="start">
+				</li>
+				<li>
+					<label for="" class="reg">강의시간</label><input type="time" id="end">
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>강의 장소를 선택하시오</legend>
+			<ul>
+				<li>
+					<label for="address" class="reg">강의장소</label>
+					<input type="text" id="address" size="20" placeholder="강의장소 입력" required><br>
+				</li>
+				<li>
+					<label for="" class="reg">우편번호</label>
+					<input type="text" id="post1" size="5">-<input type="text" id="post2" size="5"><input type="button" value="우편번호검색" onclick="zipSearch()">
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>여름방학 특강신청</legend>
+			<ul>
+				<li>
+					<label for="StudentNo" class="reg">학번</label>
+					<input type="text" id="StudentNo" size="10" placeholder="여백 없이 입력" required>
+				</li>
+				<li>
+					<label for="Name" class="reg">이름</label>
+					<input type="text" id="Name">
+				</li>
+				<li>
+					<label for="" class="reg">학과</label>
+					<select size="3" multiple id="class">
+						<optgroup label="공과대학">
+							<option value="archi">건축학과</option>
+							<option value="machanic">기계공학과</option>
+							<option value="indust">산업공학과</option>
+							<option value="elec">전기전자공학과</option>
+							<option value="computer">컴퓨터공학과</option>
+						</optgroup>
+						<optgroup>
+							<option value="lis">문헌정보학과</option>
+							<option value="korean">국문과</option>
+							<option value="management">경영학과</option>
+							<option value="german">독어독문학과</option>
+							<option value="arab">아랍학과</option>
+						</optgroup>
+					</select>
+				</li>
+				<li>
+					<label for="" class="reg">관심분야</label>
+					<input type="text" id="interest" list="engChoices">
+					<datalist id="engChoices">
+						<option value="grammar" label="문법"></option>
+						<option value="voca" label="어휘"></option>
+						<option value="speaking" label="회화"></option>
+						<option value="listening" label="리스닝"></option>
+						<option value="news" label="뉴스청취"></option>
+					</datalist>
+				</li>
+				<li>
+					<label for="apply" class="reg">지원동기</label>
+					<textarea name="apply" id="" cols="60" rows="5"></textarea>
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>수강신청 현황</legend>
+			<ul>
+				<li>
+					<label for="" class="reg">10초 남음</label>
+					<progress value="50" max="60"></progress>
+				</li>
+				<li>
+					<label for="" class="reg">진행률 30퍼</label>
+					<progress value="30" max="100"></progress>
+				</li>
+				<li>
+					<label for="" class="reg">점유율 0.8</label>
+					<meter value="0.8"></meter>
+				</li>
+				<li>
+					<label for="" class="reg">사용량 64%</label>
+					<meter min="0" max="100" value="64"></meter>
+				</li>
+				<li>
+					<label for=""class="reg">트래픽 초과</label>
+					<meter min="1024" max="10240" low="2048" high="8192" value="9216"></meter>
+				</li>
+				<li>
+					<label for="" class="reg">적잘한 트래픽</label>
+					<meter value="0.5" optimum="0.8"></meter>		
+				</li>
+				<li>
+					<input type="file" name="pf" id="pf">
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<div class="centered">
+				<label for=""><input type="submit" value="등록하기"></label>
+				<label for=""><input type="reset" value="취소하기"></label>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

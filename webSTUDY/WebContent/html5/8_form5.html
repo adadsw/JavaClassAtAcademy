@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>인접형제선택자, 형제선택자, 그룹선택자, 속성선택자</title>
+	<style>
+		h1 ~ ul {
+			color: orange;
+			font-weight: bold;
+		}
+		h1, h3 {
+			font-weight: bold;
+			color: purple;
+		}
+		ul li {
+			font-size: 16px;
+			line-height: 25px;
+		}
+		a[href] {
+			background: yellow;
+		}
+		input[type="text"] {
+			width: 150px;
+			background-color: skyblue;
+			border: 1px solid #000;
+		}
+		h1 {
+			text-shadow: 4px 4px 4px black;
+		}
+		.line1 {
+			text-decoration: underline;
+		}
+		.line2 {
+			text-decoration: overline;
+		}
+		.line3 {
+			text-decoration: line-through;
+		}
+		.line4 {
+			text-decoration: overline underline;
+		}
+		#indnt1 {
+			text-indent: 30px;
+		}
+	</style>
+</head>
+<body>
+	<section id="container">
+		<header>
+			<h1>객실소개</h1>
+		</header>
+			<h3>객실안내</h3>
+			<ul>
+				<li>
+					<a href="one.html"><b>2인실(유채방,동백방)</b></a>동성 또는 가족 2인 공동취사실 및 욕실(화장실)사용
+				</li>
+				<li>
+					<a href="two.html"><b>4인실(펜션)</b></a>
+					취사기구 완비, 실내욕실(화장실)
+				</li>
+			</ul>
+			<h1>예약방법 및 요금</h1>
+			<ul>
+				<li>직접통화</li>
+				<li>문자남기기</li>
+			</ul>
+			<ul>
+				<li>
+					<p class="line1">1인 : 40,000원</p>
+				</li>
+				<li>
+					<p class="line2">2인 : 60,000원</p>
+				</li>
+				<li>
+					<p class="line3">3인 : 80,000원</p>
+				</li>
+				<li>
+					<p class="line4">4인 : 100,000원</p>
+				</li>
+			</ul>
+			<ul>
+				<li>카드결제</li>
+				<li>현금결제</li>
+			</ul>
+			<h1>요안도라 소개</h1>
+			<h3>요안도라는 게스트하우스형식의 농어촌 민박입니다.</h3>
+			<p class="indnt1">성산의 날씨는 다음 주 내내 구름에 햇살 가득이라고 합니다.</p>
+			늘 부는 바람이 쾌적한 균형을 잡아 마당에 나가 있는 시간이 많아질 듯 합니다.
+			<form action="">
+				<fieldset>
+					<legend>예약자정보</legend>
+					<ul>
+						<li>
+							<label for="name">예약자</label>
+							<input type="text" id="name">
+						</li>
+						<li>
+							<label for="contact">연락처</label>
+							<input type="tel" id="contact">
+						</li>
+						<li>
+							<label for="people">예약인원</label>
+							<input type="number" id="people">
+						</li>
+						<li>
+							<label for="bank">입금은행</label>
+							<input type="text" id="bank">
+						</li>
+					</ul>
+				</fieldset>
+			</form>
+		
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>변수</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+
+		/*
+			변수를 선언할 때 주의할 사항
+			1. 변수명 첫 글자는 $, _(언더바), 영문자만 올 수 있다.
+			2. 변수명 첫 글자 다음은 영문자, 숫자, $, _만 포함할 수 있다.
+			3. 변수명으로는 예약어를 사용할 수 없다. (예 document, location, window 등)
+			4.
+		*/
+
+		// 문자형 데이터
+		// var 변수명="사용할 문자나 숫자";
+		
+		var s="javascript";	// 변수를 선언하고 대입
+		var num="100";
+		var test1="300";
+		var test2="400";
+
+		// 각 변수에 저장된 데이터를 줄바꿈("<br />")하여 출력한다.
+		document.write(s, "<br />");
+		document.write(num, "<br />");
+		document.write(test1, "<br />");
+		document.write(test2, "<br />");
+
+		// 숫자형 데이터
+		// var 변수명=숫자, 또는 Number("숫자");
+		var s=100;
+		var num=100;
+		var t="500";
+		document.write(s, "<br />");
+		document.write(num, "<br />");
+		document.write(Number(t), "<br />");
+
+		// 논리형 데이터
+		// var 변수명=true or false, 또는 Boolean(데이터);
+		// 숫자0, null, undefined를 제외한 모든 데이터는 true를 반환한다.
+		var s=true;
+		var t=10>=100;
+		var k=Boolean("hello");
+		var d=Boolean(null);
+
+		document.write(s, "<br />");
+		document.write(t, "<br />");
+		document.write(k, "<br />");
+		document.write(d, "<br />");
+
+
+	</script>
+
+
+</body>
+</html>

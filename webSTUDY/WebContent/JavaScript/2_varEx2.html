@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>변수 활용</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var height=prompt("당신의 신장은?", "0");
+		var weight=prompt("당신의 몸무게는?", "0");
+		var comments;
+
+		document.write("신장:", height, "<br />");
+		document.write("몸무게:", weight, "<br />");
+
+		normal_w=(height-100)*0.9;
+		if (weight >normal_w) {
+			comments="적정 몸무게 이상";
+		} else {
+			comments="적정 몸무게 미만";
+		}
+		document.write(comments);
+	</script>
+</body>
+</html>

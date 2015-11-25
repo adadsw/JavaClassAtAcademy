@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>변수 활용</title>
+	<style>
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		// 적정 체중을 구하는 실행문 만들기
+		// var userHeight=180;
+		// var userWeight=74;
+
+		// 방문자에게 질의응답 창을 띄워 신장을 입력받는다.
+		// 방문자의 몸무게가 적정 몸무게보다 이상일 경우에는 "적정 몸무게 이상"
+		// 미만일 경우에는 "적정 몸무게 미달"로 출력되도록 한다.
+
+		var height=prompt("당신의 신장은?", "0");
+		var weight=prompt("당신의 몸무게는?", "0");
+		var comments;
+		document.write("신장:",height, "<br />");
+		document.write("몸무게:", weight, "<br />")
+
+		// 적정 몸무게=(키-100)*0.9
+		normal_w = (height-100)*0.9;
+		if (weight > normal_w) {
+			comments="적정 몸무게 이상"
+		} else {
+			comments="적정 몸무게 미만"
+		}
+		document.write(comments);		
+	</script>
+
+
+</body>
+</html>
