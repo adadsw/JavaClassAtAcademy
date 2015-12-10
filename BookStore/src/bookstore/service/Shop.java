@@ -8,12 +8,13 @@ import bookstore.presentation.Console;
 
 public class Shop {
 	int code;
-	private static Shop shop = new Shop();
+	private static Shop shop;
 
 	private Shop() {
 	}
 
 	public static Shop getInstance() {
+		if (shop == null) shop = new Shop();
 		return shop;
 	}
 	public int selectUser() {

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#b1').css('color', '#F00');
+			$('b2').css('background', 'yellow').css('color', 'aqua');
+			$('.b2').next().css('background-color','aqua');
+			$('p').eq(1).css('display', 'none');
+			$('<p>새 내용</p>').insertAfter('p:first')
+		})
+	</script>
+
+</head>
+<body>
+	<p id="b1">내용1</p>
+	<p class="b2">내용2</p>
+	<p>내용3</p>
+</body>
+</html>

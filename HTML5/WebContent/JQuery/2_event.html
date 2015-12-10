@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	/* btn1이라는 버튼객체를 불러와서 클릭이라는 이벤트를 등록 */
+	/* 익명함수 $(function) {} : 이벤트가 발생했을 때 이벤트 핸들러가 된다 */
+	$(function() {
+		/* 1. btn1 버튼을 클릭시 다음 p태그의 백그라운드 칼라 변경 */
+		/*$('.btn1').click(function(){
+			$(this).next().css('background-color', 'orange');
+		});*/
+
+		/*2.마우스를 버튼위로 올렸을 때 p태그 백그라운드 컬러 변경*/
+		/*$('.btn1').mouseover(function() {
+			$(this).next().css('background-color', 'orange');
+		})*/
+
+		/* 3. 탭키 눌렀을 때 p태그 백그라운드 컬러 변경 */
+		/*$('.btn1').focus(function() {
+			$(this).next().css('background-color', 'orange');
+		});*/
+
+		/* 4. 그룹메서드 : 2개 이상의 이벤트(2번 3번 이벤트)를 한 요소에 등록할 수 있다. on('이벤트 종류', function()..)*/
+		/*$('.btn1').on('mouseover focus', function(){
+			$(this).next().css('background-color', 'orange')
+		})*/
+
+		/* 5. 마우스 올렸을 때 + 탭 키 줬을 때  + 마우스 벗어났을 때 */
+
+		$('.btn1').on('mouseover focus', function(){
+			$(this).next().css('background-color', 'orange');
+		}).on('mouseout blur', function(){
+			$(this).next().css('background-color', 'white');
+		});
+	});
+	</script>
+	
+</head>
+<body>
+	<button class="btn1">버튼</button>
+	<p>내용1</p>
+</body>
+</html>

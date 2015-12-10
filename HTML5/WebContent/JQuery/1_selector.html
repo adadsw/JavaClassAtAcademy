@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!-- $ : JQuery 의미 -->
+	<!-- CSS에서 요소를 선택해 오는 것을 선택자라 한다. jQuery에서도 문단태그를 직접 선택해오는 기능을 선택자라 한다.
+		하지만 선택자를 바로 사용하게 되면 문단을 읽어오기 전에, 자바 스크립트 태그가 body보다 위에 있으므로, 먼저 실행된다.
+		먼저 body에 있는 문단 태그를 로딩하고 나서 실행되도록 하기 위해 javascript에서 Window.onload()를 쓰는 것처럼
+		$(document).ready()를 쓴다. ==> document에 있는 문단내용을 준비시켜라 -->
+	<!-- (document).ready -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){ /*document에 있는 문단내용을 준비시켜라..익명함수() {일련의 실행문}*/
+			$('#b1').css('color', '#F00'); /*$('#b1') : #id 선택자, .css(속성, 값)*/
+			$('.b2').css('background', 'yellow')
+			.css('color', 'aqua'); /* $('.b2'): class 선택자, 체이닝기법 적용*/
+			$('.b2').next().css('background-color', 'aqua');/* next() : 형제요소 즉, b2 클래스 다음의 b3 배경색 지정*/
+			$('p').eq(1).css('display', 'none'); /* 내용2를 사라지게 한다*/
+			$('<p>새 내용</p>').insertAfter('p:first');/*객체조작예제 첫번째 p태그 다음에 추가*/
+		});
+	</script>
+</head>
+<body>
+	<p id="b1">내용1</p>
+	<p class="b2">내용2</p>
+	<p>내용3</p>
+</body>
+</html>

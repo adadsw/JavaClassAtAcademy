@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.btn1').on('mouseover focus', function(){
+				$(this).next().css('backgound-color', 'orange');
+			}).on('mouseover blur', function(){
+				$(this).next().css('backgound-color', 'white');
+			});
+		});
+	</script>
+</head>
+<body>
+	<button class="btn1">버튼</button>
+	<p>내용1</p>
+</body>
+</html>

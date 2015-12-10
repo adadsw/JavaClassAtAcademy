@@ -35,7 +35,7 @@ public class Main {
 	public static void main(String[] args) {
 		int code = SHOP_LOGIN;
 		
-		// 각 객체는 Singtone으로서 한 번만 만들어지고 각 클래스의 getInstance()로 호출
+		// 각 객체는 Singtone으로 한 번만 만들어지고 각 클래스의 getInstance()로 호출
 		Menu menu = MenuImplement.getInstance();
 		HostImplement host = HostImplement.getInstance();
 		GuestImplement guest = GuestImplement.getInstance();
@@ -114,3 +114,232 @@ public class Main {
 		}
 	}
 }
+/*
+서점 문을 엽니다.
+
+1: 주인, 2: 손님, 0: 나가기
+▶ 1
+로그인 정보를 입력하세요.
+아이디
+▶ host
+암호
+▶ host
+Good day, Sir.
+1:재고관리, 2:주문목록, 0:종료
+▶ 1
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 2
+책 정보를 입력하세요.
+제목
+▶ JSP
+저자
+▶ JSP
+가격
+▶ 1503
+책을 책꽂이에 꽂았습니다.
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 2
+책 정보를 입력하세요.
+제목
+▶ Java
+저자
+▶ Java
+가격
+▶ 125435
+책을 책꽂이에 꽂았습니다.
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 2
+책 정보를 입력하세요.
+제목
+▶ PHP
+저자
+▶ PHP
+가격
+▶ 5346
+책을 책꽂이에 꽂았습니다.
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 2
+책 정보를 입력하세요.
+제목
+▶ helloworld
+저자
+▶ helloworld
+가격
+▶ 235406
+책을 책꽂이에 꽂았습니다.
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 2
+책 정보를 입력하세요.
+제목
+▶ oracle
+저자
+▶ oracle
+가격
+▶ 112354
+책을 책꽂이에 꽂았습니다.
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 1
+[1] JSP | by JSP | $1503
+[2] Java | by Java | $125435
+[3] PHP | by PHP | $5346
+[4] helloworld | by helloworld | $235406
+[5] oracle | by oracle | $112354
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 3
+[1] JSP | by JSP | $1503
+[2] Java | by Java | $125435
+[3] PHP | by PHP | $5346
+[4] helloworld | by helloworld | $235406
+[5] oracle | by oracle | $112354
+책번호를 입력하세요.
+▶ 4
+제목
+▶ Stand By Me
+저자
+▶ F.R.Smith
+가격
+▶ 346546
+책정보를 다음과 같이 수정하였습니다.
+[4] Stand By Me | by F.R.Smith | $346546
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 4
+[1] JSP | by JSP | $1503
+[2] Java | by Java | $125435
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+삭제하실 책 번호를 입력하세요.
+▶ 2
+책을 책꽂이에서 제거하였습니다.
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+1:책목록, 2:책추가, 3:책수정, 4:책삭제, 0:종료
+▶ 0
+1:재고관리, 2:주문목록, 0:종료
+▶ 0
+1: 주인, 2: 손님, 0: 나가기
+▶ 2
+로그인 정보를 입력하세요.
+아이디
+▶ guest
+암호
+▶ guest
+1:구매, 2:환불, 0:종료
+▶ 1
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+구입할 책의 번호를 입력하세요.
+▶ 1
+다음은 구매한 목록입니다.
+[1] JSP | by JSP | $1503
+1:구매, 2:환불, 0:종료
+▶ 1
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+구입할 책의 번호를 입력하세요.
+▶ 2
+해당 번호의 책이 없습니다.
+1:구매, 2:환불, 0:종료
+▶ 1
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+구입할 책의 번호를 입력하세요.
+▶ 3
+다음은 구매한 목록입니다.
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+1:구매, 2:환불, 0:종료
+▶ 1
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+구입할 책의 번호를 입력하세요.
+▶ 4
+다음은 구매한 목록입니다.
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+1:구매, 2:환불, 0:종료
+▶ 1
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+구입할 책의 번호를 입력하세요.
+▶ 5
+다음은 구매한 목록입니다.
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+1:구매, 2:환불, 0:종료
+▶ 1
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+구입할 책의 번호를 입력하세요.
+▶ 1
+다음은 구매한 목록입니다.
+[1] JSP | by JSP | $1503
+[3] PHP | by PHP | $5346
+[4] Stand By Me | by F.R.Smith | $346546
+[5] oracle | by oracle | $112354
+[1] JSP | by JSP | $1503
+1:구매, 2:환불, 0:종료
+▶ 2
+1번: [1] JSP | JSP | $1503
+2번: [3] PHP | PHP | $5346
+3번: [4] Stand By Me | F.R.Smith | $346546
+4번: [5] oracle | oracle | $112354
+5번: [1] JSP | JSP | $1503
+환불할 책의 번호를 입력하세요.
+▶ 1
+책을 환불하였습니다.
+1:구매, 2:환불, 0:종료
+▶ 2
+1번: [3] PHP | PHP | $5346
+2번: [4] Stand By Me | F.R.Smith | $346546
+3번: [5] oracle | oracle | $112354
+4번: [1] JSP | JSP | $1503
+환불할 책의 번호를 입력하세요.
+▶ 3
+책을 환불하였습니다.
+1:구매, 2:환불, 0:종료
+▶ 2
+1번: [3] PHP | PHP | $5346
+2번: [4] Stand By Me | F.R.Smith | $346546
+3번: [1] JSP | JSP | $1503
+환불할 책의 번호를 입력하세요.
+▶ 2
+책을 환불하였습니다.
+1:구매, 2:환불, 0:종료
+▶ 0
+1: 주인, 2: 손님, 0: 나가기
+▶ 1
+로그인 정보를 입력하세요.
+아이디
+▶ host
+암호
+▶ host
+Good day, Sir.
+1:재고관리, 2:주문목록, 0:종료
+▶ 2
+다음은 주문 목록입니다.
+[3] PHP | by PHP | $5346
+[1] JSP | by JSP | $1503
+1:재고관리, 2:주문목록, 0:종료
+▶ 0
+1: 주인, 2: 손님, 0: 나가기
+▶ 0
+서점 문을 닫습니다.
+ */

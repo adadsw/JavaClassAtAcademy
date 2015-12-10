@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>radio onclick 이벤트</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function check(a) {
+			aleart(a.value + "를 선택하셨습니다.");
+		}
+	</script>
+	
+	<form action="" name="form1">
+		<legend>지원분야를 선택하세요.</legend>
+		<label for="">영업</label>
+		<input type="radio" name="apply" value="영업" onclick="check(this);">
+		<label for="">총무</label>
+		<input type="radio" name="apply" value="총무" onclick="check(this);">
+		<label for="">관리</label>
+		<input type="radio" name="apply" value="관리" onclick="check(this);">
+
+
+	</form>
+</body>
+</html>

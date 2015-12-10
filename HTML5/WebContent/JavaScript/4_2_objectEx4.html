@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var userEmail=prompt("당신의 이메일 주소는?", "");
+		//이메일 주소에 뒷부분 형식을 배열로 저장
+
+		var arrURL=[".co.kr", ".com", ".net", ".or.kr", "go.kr"];
+
+		var check1=false;
+		var check2=false;
+
+		//방문자가 입력한 이메일 주소에 "@"가 포함되어 있으면 변수 check1에 true가 저장되도록 한다.
+		//indexOf("찾을 문자") : 문자열에서 왼쪽부터 찾을 문자와 일치하는 문자를 찾아 최초로 일치하는 문자의 인덱스 번호를 반환한다. 만일 찾는 문자가 없으면 -1을 반환한다.
+
+		if (userEmail.indexOf("@") > 0) {
+			check1 = true;
+		}
+		document.write("@ 여부 : ", check1, "<br />");
+
+		// 이메일의 배열데이터 포함 여부 검사
+		
+		for (var url in arrURL) {
+			if (userEmail.indexOf(arrURL[url]) > 0) {
+				check2 = true;
+			}
+		}
+		document.write(".com : ", check2, "<br />");
+
+		//배열에 저장된 데이터가 입력한 이메일 문자열에 포함되어 있으면 변수 check2에 true를 할당해라.
+
+		if (check1 & check2) {
+			document.write(userEmail);
+		} else {
+			alert("이메일 형식이 잘못되었습니다.");
+		}
+	</script>
+	
+</body>
+</html>

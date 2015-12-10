@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>회원가입</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		function submit_check(myForm) {
+			// 시작부터 끝까지 한글 2~5글자까지 일치하는 패턴으로 정규표현 객체를 생성
+			var reg1=/^[가-힣]{2,5}$/;
+
+			// 첫글자는 010, 011, 016, 017 중 하나로 시작하고, 다음은 숫자 3~4개까지 오고,
+			// 마지막으로 숫자 4개가 일치하는 패턴으로 정규표현 객체를 생성
+			var reg2=/^(010|011|016|017)\d{3,4}\d{4}$/;
+
+			var name = myForm.userName;
+			var tel = myForm.userTel;
+
+			//방문자가 입력한 이름이 정규표현규칙에 어긋나면 false를 반환하겠다.
+			var result1 = reg1.test(name.value);
+			var result2 = reg2.test(tel.value);
+
+			if(!result1) {
+				alert("이름 입력이 잘못되었습니다.");
+				name.value="";
+				name.focus();
+				return false;
+			} else if (!result2) {
+				alert('연락처 입력이 잘못되었습니다.');
+				tel.value="";
+				tel.focus();
+				return false;
+			}
+			alert('회원가입이 완료되었습니다.');
+		}
+
+		function reset_check(myForm) {
+			var result=confirm('정말로 회원가입을 취소하시겠습니까?');
+			if (result) {
+				return true;
+			}
+		}
+
+	</script>
+
+	<form name="form1" method="post" onsubmit="return submit_check(this);" onreset="return reset_check(this);">
+		<fieldset>
+			<legend>회원가입</legend>
+			<p>
+				<label for="userName">이름 : </label>
+				<input type="text" id="userName" size="10">
+			</p>
+			<p>
+				<label for="userTel">연락처 : </label>
+				<input type="tel" id="userTel" size="10">
+			</p>
+			<p>
+				<!-- 서버로 입력한 데이터를 form 태그를 이용해서 전송하고자 할 때 -->
+				<input type="submit" value="회원가입">
+				<input type="reset" value="가입취소">
+			</p>
+		</fieldset>
+	</form>
+</body>
+</html>

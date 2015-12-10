@@ -5,20 +5,8 @@ import bookstore.domain.CODE;
 
 public class Console implements CODE {
 	
-	private static Console console = new Console();
 	private static BufferedReader reader;
 	
-	private Console() {}
-	
-	public static Console getInstance() {
-		return console;
-	}
-	
-//	public static String input() {
-//		scanner = new Scanner(System.in);
-//		System.out.print("▶ ");
-//		return scanner.nextLine();
-//	}
 	public static String input() {
 		reader = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("▶ ");

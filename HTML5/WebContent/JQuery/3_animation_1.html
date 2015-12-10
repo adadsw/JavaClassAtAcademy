@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Animation</title>
+	<style>
+		.textred {
+			background-color: red;
+		}
+	</style>
+	<!-- 네트워크 전송방식(CDM 방식) -->
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	/* 숨김버튼을 클릭했을 때 이벤트 등록 */
+	$(function() {
+		$('button:eq(0)').click(function(){
+			/*$('#txt').hide(2000);*/
+			$('#txt').fadeOut('slow');
+		});
+		$('button:eq(1)').click(function(){
+			/*$('#txt').slideDown('slow');*/
+			$('#txt').fadeIn('slow');
+		});
+		$('button:eq(2)').click(function(){
+			$('#txt').delay(500).slideToggle('slow');/*숨김 기능과 노출 기능이 버튼을 클릭할 때마다 발생*/
+		})
+
+	});
+	$(document).ready(function(){
+		console.log('\n $ 란?\n' + $);
+		console.log('\n jQuery 란?\n' + jQuery)
+	})
+	</script>
+</head>
+<body>
+	<button>숨김</button>
+	<button>노출</button>
+	<button>토글</button>
+	<p id="txt">
+		내용1<br/>
+		내용2<br/>
+		내용3<br/>
+	</p>
+</body>
+</html>

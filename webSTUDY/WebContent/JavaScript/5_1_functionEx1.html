@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>함수</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var i =0;
+		function myFunc() {
+			i++;
+			document.write("hello", i + "<br />");
+		}
+		myFunc();
+
+		var myFunc1 = function() {
+			i++;
+			document.write("Good afternoon", i, "<br />");
+		}
+		myFunc1();
+
+		function myFunc2() {
+			i++;
+			document.write("Good afternoon", i, "<br />");
+		}
+		myFunc2();
+
+		function myFunc3(name, area) {
+			document.write("안녕하세요" + name + "입니다.", "<br />");
+			document.write("사는 곳은" + area + "입니다.", "<br />");
+		}
+		myFunc3("김태희", "압구정");
+		myFunc3("소지섭", "대치동");
+	</script>
+	
+</body>
+</html>

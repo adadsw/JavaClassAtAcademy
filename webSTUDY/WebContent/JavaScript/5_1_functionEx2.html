@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>id, password 체크, onblur 이벤트</title>
+</head>
+<body onload="document.form1.userId.focus();">
+	<script type="text/javascript">
+		function ic_check() {
+			var id = document.form1.userId.value;
+			if (id.length <4) {
+				alert("아이디는 4글자 이상 입력하세요.")
+				document.form1.userId.focus();
+			}
+		}
+		function pwd_check() {
+			var pwd = document.form1.passWord.value;
+			var re_pwd = document.form1.rePassWord.value;
+			if (pwd != re_pwd) {
+				alert("비밀번호가 일치하지 않습니다.");
+				document.form1.rePassWord.focus();
+			}
+		}
+	</script>
+	
+	<form action="" name="form1">
+		<fieldset>
+			<legend>ID 체크</legend>
+			<label for="userId">ID : </label>
+			<input type="text" size="10" id="userId" onblur="id_check();">
+			<label for="passWord">PassWord : </label>
+			<input type="password" size="10" id="passWord">
+			<label for="rePassWord">PassWord(확인) :</label>
+			<input type="password" size="10" id="rePassWord" onblur="pwd_check();">
+			<label for="email">Email</label>
+			<input type="email" size="10" id="email">
+		</fieldset>
+		<fieldset>
+			<input type="button" value="확인">
+		</fieldset>
+
+	</form>
+</body>
+</html>

@@ -11,9 +11,16 @@ import bookstore.presentation.Console;
 
 public class GuestImplement implements Guest {
 
-	private static GuestImplement guest = new GuestImplement();
+	private static GuestImplement guest;
 
 	private GuestImplement() {
+	}
+	
+	public static GuestImplement getInstance() {
+		if (guest == null) {
+			guest = new GuestImplement();
+		}
+		return guest;
 	}
 
 	public int state = GUEST_LOGOUT;
@@ -72,8 +79,6 @@ public class GuestImplement implements Guest {
 		state = GUEST_LOGOUT;
 	}
 
-	public static GuestImplement getInstance() {
-		return guest;
-	}
+	
 
 }

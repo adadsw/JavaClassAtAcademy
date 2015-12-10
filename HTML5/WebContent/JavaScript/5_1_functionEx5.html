@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checkBox onclick 이벤트</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function check(form) {
+			var prt="";
+			for (var i in form.hobby) {
+				if (form.hobby[i].checked) {
+					prt = prt + form.hobby[i].value + "\n";
+				}
+				
+			}
+			alert(prt);	
+		}
+	</script>
+	
+	<form action="" name="form1">
+		<fieldset>
+			<legend>체크박스 객체예제(onclick)</legend>
+			<label for="">스포츠</label>
+			<input type="checkbox" name="hobby" value="스포츠">&nbsp;&nbsp;
+			<label for="">음악</label>
+			<input type="checkbox" name="hobby" value="음악">&nbsp;&nbsp;
+			<label for="">독서</label>
+			<input type="checkbox" name="hobby" value="독서">&nbsp;&nbsp;
+			<label for="">게임</label>
+			<input type="checkbox" name="hobby" value="게임">&nbsp;&nbsp;
+			<label for="">여흥</label>
+			<input type="checkbox" name="hobby" value="여흥">&nbsp;&nbsp;
+			<input type="button" value="확인" onclick="check(this.form);">
+		</fieldset>
+	</form>
+</body>
+</html>

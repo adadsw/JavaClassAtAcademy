@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM-next()..해당 엘리먼트 뒤에 있는 형제 엘리먼트 찾기</title>
+	<style>
+		div, span {
+			width: 60px;
+			height: 60px;
+			margin: 5px;
+			float:left;
+			border: 2px red solid;
+			background: white;
+		}
+		.after {
+			background: pink;
+		}
+		.selected {
+			border: 5px blue solid;
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('button').click(function(){
+				$('div').next().addClass('after');
+				$('div').next('#fourth').addClass('selected');
+			});
+		});
+	</script>
+</head>
+<body>
+	<!-- div, span : 콘텐츠를 묶어 시각적인 효과를 적용하려고 할 때, 즉 레이아웃 구성시의 영역 설정
+		div : 줄바꿈이 된다.
+				텍스트를 표현할 때 사각형 박스로 구역을 정한다.
+		span : 옆으로 붙는다
+				텍스트를 표현할 때 문장단위로 구역을 정한다. -->
+	<p><button>형제 엘리먼트에 스타일 입히기</button></p>
+	<div id="first">first</div>
+	<span id="second" class="middle">
+		sibling
+		<div id="child">child</div>
+	</span>
+		<div id="third" class="middle">sibling</div>
+		<span id="fourth" class="middle">sibling</span>
+		<span id="fifth" class="middle">sibling</span>
+		<div id="sixth">last</div>
+</body>
+</html>

@@ -14,13 +14,19 @@ public class Book {
 		this.writer = writer;
 		this.price = price;
 	}
-	public Book(int num, String title, String writer, int price) {
-		this.num = num;
+
+	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+
+	public void setPrice(int price) {
 		this.price = price;
 	}
-	
+
 	public String toString() {
 		return "[" + num + "] " + title + " | by " + writer + " | $" + price; 
 	}
@@ -35,8 +41,6 @@ public class Book {
 		String thisValue = toString();
 		return thisValue.equals(compareValue);
 	}
-	
-	
 	
 	@Override
 	public int hashCode() {
