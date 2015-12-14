@@ -24,9 +24,9 @@
 		3) <jsp:getProperty name="자바빈 이름 즉 useBean id" property="속성명" /><br />
  --%>
  
-	<jsp:setProperty name="student" property="name" value="장동건" />
+	<jsp:setProperty name="student" property="age" value="13" />
 	
-	이름 : <jsp:getProperty name="student" property="name" /><br />
+	이름 : <jsp:getProperty name="student" property="age" /><br />
 	
 </body>
 </html>
