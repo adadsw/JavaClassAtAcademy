@@ -25,8 +25,11 @@
  --%>
  
 	<jsp:setProperty name="student" property="age" value="13" />
-	
-	이름 : <jsp:getProperty name="student" property="age" /><br />
+	나이 : <jsp:getProperty name="student" property="age" /><br />
+	<jsp:setProperty name="student" property="name" value="장동건" />
+	이름 : <jsp:getProperty name="student" property="name" /><br />
+	<jsp:setProperty name="student" property="grade" value="6" />
+	학년 : <jsp:getProperty name="student" property="grade" /><br />
 	
 </body>
 </html>
