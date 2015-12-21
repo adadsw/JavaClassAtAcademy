@@ -35,7 +35,18 @@
 	 //reg_date
 	dto.setReg_date(new Timestamp(System.currentTimeMillis()));
 	 
-	 int result = regBean.insert(dto);
+	int result = regBean.insert(dto);
+	request.setAttribute("result", result);
+	 
+	if (result == 0) { 
+%>
+	<script type="text/javascript">
+		erroralert(inputerror);
+	</script>
+<%	 
+	} else {
+		response.sendRedirect("loginForm.jsp?result=" + result);	
+	}
 %>
 	
 </body>

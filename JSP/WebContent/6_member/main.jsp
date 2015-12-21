@@ -51,7 +51,7 @@
 		<tr>
 			<th>
 				<input type="button" class="inputButton" value="정보수정" onclick="window.location='modifyForm.jsp'">
-				<input type="button" class="inputbutton" value="회원탈퇴" onclick="window.location='deleteFrom.jsp'">
+				<input type="button" class="inputbutton" value="회원탈퇴" onclick="window.location='deleteForm.jsp'">
 				<input type="button" class="inputbutton" value="로그아웃" onclick="window.location='logout.jsp'">
 			</th>
 		</tr>

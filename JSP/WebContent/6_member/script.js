@@ -9,6 +9,10 @@ var msg_name = "이름을 입력하세요.";
 var msg_birth = "주민번호를 입력하세요.";
 var msg_email = "이메일 형식에 맞지 않습니다.";
 var msg_confirmid = "중복확인을 해주세요.";
+var inputerror = "회원가입에 실패하였습니다.\n 잠시 후 다시 시도하세요.";
+var deleteerror = "회원탈퇴에 실패하였습니다.\n 잠시 후 다시 시도하세요.";
+var passwderror = "입력하신 비밀번호가 다릅니다.\n 다시 확인하세요.";
+var modifyerror = "회원정보수정에 실패하였습니다.\n 잠시 후 다시 시도하세요.";
 
 // 메인 페이지
 function mainfocus() {
@@ -81,6 +85,12 @@ function inputCheck() {
 	}
 }
 
+function erroralert(msg) {
+	alert(msg);
+	window.history.back();
+}
+
+
 // 중복확인 페이지
 function confirmId() {
 	if(!document.inputform.id.value) {
@@ -131,3 +141,17 @@ function setId(id) {
 	opener.document.inputform.confirmid.value = 1;
 	self.close();
 }
+
+// 회원 탈퇴
+function passwordfocus() {
+	document.passwdform.passwd.focus();
+}
+
+function passwdCheck() {
+	if (document.passwdform.passwd.value == "") {
+		alert(msg_passwd);
+		document.passwdform.passwd.focus();
+		return false;
+	}
+}
+

@@ -112,4 +112,26 @@ public class LogonDBBean {
 		}
 		return result;
 	}
+	public int deleteMember(String id) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "delete from mvc_member where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.getStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (con != null) con.close();
+			} catch (SQLException e2) {
+				e2.getStackTrace();
+			}
+		}
+		return result;
+	}
 }
