@@ -65,8 +65,13 @@ function inputCheck() {
 	
 	var email1 = document.inputform.email1.value;
 	var email2 = document.inputform.email2.value;
-	if (email1 != "" && email2 != "") {
-		document.inputform.email.value = email1  + "@" + email2;
+	if (email1 != "") {
+		if (email2 == 0) {
+			document.inputform.email.value = email1;
+		} else {
+			document.inputform.email.value = email1  + "@" + email2;
+		}
+		
 	}
 	var tel1 = document.inputform.tel1.value;
 	var tel2 = document.inputform.tel2.value;

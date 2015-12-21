@@ -56,7 +56,7 @@
 			</tr>
 			<tr>
 				<th colspan="2">
-					<input type="submit" class="inputButton" value="회원가입" onclick="makeTelEmail()">
+					<input type="submit" class="inputButton" value="회원가입">
 					<input type="reset" class="inputButton" value="리셋">
 					<input type="button" class="inputbutton" value="가입취소" onclick="window.location='main.jsp'">
 				</th>
