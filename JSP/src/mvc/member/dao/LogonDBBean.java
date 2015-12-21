@@ -82,4 +82,34 @@ public class LogonDBBean {
 		}
 		return result;
 	}
+	
+	public int insert(mvc.member.dto.LogonDataBean dto) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "insert into mvc_member (id,passwd,name,jumin1,jumin2,tel,email,reg_date) values (?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getPasswd());
+			pstmt.setString(3, dto.getName());
+			pstmt.setString(4, dto.getJumin1());
+			pstmt.setString(5, dto.getJumin2());
+			pstmt.setString(6, dto.getTel());
+			pstmt.setString(7, dto.getEmail());
+			pstmt.setTimestamp(8, dto.getReg_date());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.getStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (con != null) con.close();
+			} catch (SQLException e) {
+				e.getStackTrace();
+			}
+		}
+		return result;
+	}
 }

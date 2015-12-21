@@ -7,11 +7,19 @@ public class LogonDataBean {
 	private String passwd;
 	private String name;
 	private String jumin1;
-	private String jomin2;
+	private String jumin2;
 	private String tel;
 	private String email;
-	private Timestamp regdate;
+	private Timestamp reg_date;
 	
+	public Timestamp getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(Timestamp reg_date) {
+		this.reg_date = reg_date;
+	}
+
 	public LogonDataBean(){}
 
 	public String getId() {
@@ -46,12 +54,12 @@ public class LogonDataBean {
 		this.jumin1 = jumin1;
 	}
 
-	public String getJomin2() {
-		return jomin2;
+	public String getJumin2() {
+		return jumin2;
 	}
 
-	public void setJomin2(String jomin2) {
-		this.jomin2 = jomin2;
+	public void setJumin2(String jomin2) {
+		this.jumin2 = jomin2;
 	}
 
 	public String getTel() {
@@ -70,12 +78,5 @@ public class LogonDataBean {
 		this.email = email;
 	}
 
-	public Timestamp getRegdate() {
-		return regdate;
-	}
-
-	public void setRegdate(Timestamp regdate) {
-		this.regdate = regdate;
-	}
 	
 }

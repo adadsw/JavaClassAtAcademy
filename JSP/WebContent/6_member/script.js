@@ -57,12 +57,25 @@ function inputCheck() {
 		alert(msg_email);
 		document.inputform.email1.focus();
 		return false;
-	} else if(document.inputform.confirmid.value == 0) { //중복확인을 하지 않은 경우 경고.. 전제조건 : inputForm.jsp 안에 <input type="hidden" name="confirmid	" value="0">
+	} else if (document.inputform.confirmid.value == 0) { //중복확인을 하지 않은 경우 경고.. 전제조건 : inputForm.jsp 안에 <input type="hidden" name="confirmid	" value="0">
 		alert(msg_confirmid);
 		document.inputform.id.focus();
 		return false;
 	}
+	
+	var email1 = document.inputform.email1.value;
+	var email2 = document.inputform.email2.value;
+	if (email1 != "" && email2 != "") {
+		document.inputform.email.value = email1  + "@" + email2;
+	}
+	var tel1 = document.inputform.tel1.value;
+	var tel2 = document.inputform.tel2.value;
+	var tel3 = document.inputform.tel3.value;
+	if (tel1 != "" && tel2 != "" && tel3 != "") {
+		document.inputform.tel.value = tel1 + tel2 + tel3;
+	}
 }
+
 // 중복확인 페이지
 function confirmId() {
 	if(!document.inputform.id.value) {

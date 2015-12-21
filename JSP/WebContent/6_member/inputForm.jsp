@@ -7,6 +7,8 @@
 <body onload="inputfocus()">
 	<form method="post" action="inputPro.jsp" name="inputform" onsubmit="return inputCheck()">
 		<input type="hidden" name="confirmid" value="0">
+		<input type="hidden" name="tel" value="0">
+		<input type="hidden" name="email" value="0">
 		<table>
 			<tr>
 				<th colspan="2">회원정보를 입력하세요.</th>
@@ -54,7 +56,7 @@
 			</tr>
 			<tr>
 				<th colspan="2">
-					<input type="submit" class="inputButton" value="회원가입">
+					<input type="submit" class="inputButton" value="회원가입" onclick="makeTelEmail()">
 					<input type="reset" class="inputButton" value="리셋">
 					<input type="button" class="inputbutton" value="가입취소" onclick="window.location='main.jsp'">
 				</th>
