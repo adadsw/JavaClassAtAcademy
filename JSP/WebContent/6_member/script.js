@@ -81,7 +81,7 @@ function inputCheck() {
 	var tel2 = document.inputform.tel2.value;
 	var tel3 = document.inputform.tel3.value;
 	if (tel1 != "" && tel2 != "" && tel3 != "") {
-		document.inputform.tel.value = tel1 + tel2 + tel3;
+		document.inputform.tel.value = tel1 + "-" +  tel2 + "-" + tel3;
 	}
 }
 

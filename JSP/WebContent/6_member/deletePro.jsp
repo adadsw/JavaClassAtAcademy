@@ -17,7 +17,7 @@
 	
 	if (resultPasswd == 1) {
 		int result = regBean.deleteMember(id);
-		out.println("result ==>" + result);
+
 		if (result == 0) {
 %>
 			<script type="text/javascript">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="euc-kr" ?>
+<!-- <?xml version="1.0" encoding="euc-kr" ?>
 
 <taglibxmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -6,16 +6,16 @@
 	http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
 	version="2.1">
 	
-	<description>EL¿¡¼­ ÇÔ¼ö½ÇÇà</description>
+	<description>ELì—ì„œ í•¨ìˆ˜ì‹¤í–‰</description>
 	<tlib-version>1.0</tlib-version>
 	<short-name>ELfunctions</short-name>
 	
 	<function>
-		<description>Date °´Ã¼ Æ÷¸ËÆÃ</description>
+		<description>Date ê°ì²´ í¬ë§·íŒ…</description>
 		<name>dateFormat</name>
 		<function-class>mvjsp.chap15.DateUtil</function-class>
 		<function-signature>
 			java.lang.String format(java.util.Date)
 		</function-signature>
 	</function>
-</taglib>
+</taglib> -->

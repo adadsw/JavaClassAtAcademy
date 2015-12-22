@@ -13,7 +13,17 @@
 	String passwd = request.getParameter("passwd");
 	
 	int result = regBean.check(id, passwd);
-	out.println(result);
+	
+	if (result == 1) {
+		request.getSession().setAttribute("memId", id);
+		response.sendRedirect("main.jsp");
+	} else if (result == -1) {
+	request.setAttribute("result", result);
+	response.sendRedirect("loginForm.jsp?result=" + result);
+	} else {
+		request.setAttribute("result", result);
+		response.sendRedirect("loginForm.jsp?result=" + result);
+	}
 %>
 </body>
 </html>

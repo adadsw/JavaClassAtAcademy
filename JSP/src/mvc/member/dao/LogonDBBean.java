@@ -2,6 +2,9 @@ package mvc.member.dao;
 
 import java.sql.*;
 import javax.sql.*;
+
+import mvc.member.dto.LogonDataBean;
+
 import javax.naming.*;
 
 public class LogonDBBean {
@@ -83,7 +86,7 @@ public class LogonDBBean {
 		return result;
 	}
 	
-	public int insert(mvc.member.dto.LogonDataBean dto) {
+	public int insert(LogonDataBean dto) {
 		int result = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -112,6 +115,7 @@ public class LogonDBBean {
 		}
 		return result;
 	}
+	
 	public int deleteMember(String id) {
 		int result = 0;
 		Connection con = null;
@@ -133,5 +137,39 @@ public class LogonDBBean {
 			}
 		}
 		return result;
+	}
+	
+	public LogonDataBean getMember(String id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		LogonDataBean dto = new LogonDataBean();
+		try {
+			con = dataSource.getConnection();
+			String sql = "select * from mvc_member where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto.setId(rs.getString("id"));
+				dto.setPasswd(rs.getString("passwd"));
+				dto.setName(rs.getString(3));
+				dto.setJumin1(rs.getString(4));
+				dto.setJumin2(rs.getString(5));
+				dto.setTel(rs.getString(6));
+				dto.setEmail(rs.getString(7));
+			}
+		} catch (SQLException e) {
+			e.getStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (pstmt != null) pstmt.close();
+				if (con != null) con.close();
+			} catch (SQLException e2) {
+				e2.getStackTrace();
+			}
+		}
+		return dto;
 	}
 }
