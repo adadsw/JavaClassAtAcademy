@@ -35,53 +35,38 @@ function maincheck() {
 function inputfocus() {
 	document.inputform.id.focus();
 }
-function inputCheck() {
-	if (!document.inputform.id.value) {
+function inputCheck(form) {
+	if (!form.id.value) {
 		alert(msg_id);
-		document.inputform.id.focus();
+		form.id.focus();
 		return false;
-	} else if (!document.inputform.passwd.value) {
+	} else if (!form.passwd.value) {
 		alert(msg_passwd);
-		document.inputform.passwd.focus();
+		form.passwd.focus();
 		return false;
-	} else if (document.inputform.passwd.value != document.inputform.repasswd.value) {
+	} else if (form.passwd.value != form.repasswd.value) {
 		alert(msg_repasswd);
-		document.inputform.repasswd.focus();
+		form.repasswd.focus();
 		return false;
-	} else if (!document.inputform.name.value) {
+	} else if (!form.name.value) {
 		alert(msg_name);
-		document.inputform.name.focus();
+		form.name.focus();
 		return false;
-	} else if (!document.inputform.jumin1.value) {
+	} else if (!form.jumin1.value) {
 		alert(msg_birth);
-		document.inputform.jumin1.focus();
+		form.jumin1.focus();
 		return false;
 		//이메일이 직접입력일 경우 "@"가 포함되지 않으면 경고
-	} else if (document.inputform.email2.value == 0 && document.inputform.email1.value.indexOf("@") == -1) {
-		alert(msg_email);
-		document.inputform.email1.focus();
-		return false;
-	} else if (document.inputform.confirmid.value == 0) { //중복확인을 하지 않은 경우 경고.. 전제조건 : inputForm.jsp 안에 <input type="hidden" name="confirmid	" value="0">
-		alert(msg_confirmid);
-		document.inputform.id.focus();
-		return false;
-	}
-	
-	var email1 = document.inputform.email1.value;
-	var email2 = document.inputform.email2.value;
-	if (email1 != "") {
-		if (email2 == 0) {
-			document.inputform.email.value = email1;
-		} else {
-			document.inputform.email.value = email1  + "@" + email2;
+	} else if (form.email1.value != "") {
+		if (form.email2.value == 0 && form.email1.value.indexOf("@") == -1) {
+			alert(msg_email);
+			form.email1.focus();
+			return false;
 		}
-		
-	}
-	var tel1 = document.inputform.tel1.value;
-	var tel2 = document.inputform.tel2.value;
-	var tel3 = document.inputform.tel3.value;
-	if (tel1 != "" && tel2 != "" && tel3 != "") {
-		document.inputform.tel.value = tel1 + "-" +  tel2 + "-" + tel3;
+	} else if (form.confirmid.value == 0) { //중복확인을 하지 않은 경우 경고.. 전제조건 : inputForm.jsp 안에 <input type="hidden" name="confirmid	" value="0">
+		alert(msg_confirmid);
+		form.id.focus();
+		return false;
 	}
 }
 
@@ -125,6 +110,18 @@ function nexttel3() {
 		document.inputform.email1.focus();
 	}
 }
+function combineEmailTel(form) {
+	if (form.tel1.value != "" && form.tel2.value != "" && form.tel3.value != "") {
+		form.tel.value = form.tel1.value + "-" +  form.tel2.value + "-" + form.tel3.value;
+	}
+	if (email1 != "") {
+		if (email2 == 0) {
+			form.email.value = form.email1.value;
+		} else if (email2 != "") {
+			form.email.value = form.email1.value  + "@" + form.email2.value;
+		} 
+	}
+}
 function confirmCheck() {
 	if (!document.fonfirmForm.id.value) {
 		alert(msg_id);
@@ -155,3 +152,30 @@ function passwdCheck() {
 	}
 }
 
+// 수정 페이지 체크
+function modifyCheck(form) {
+	if (!form.passwd.value) {
+		alert(msg_passwd);
+		form.passwd.focus();
+		return false;
+	}
+	if (form.passwd.value != form.repasswd.value) {
+		alert(msg_repasswd);
+		form.repasswd.focus();
+		return false;
+	} else if (form.email1.value == "") {
+		if (form.email2.value != "") {
+			alert(msg_email);
+			return false;
+		}
+	} else if (form.email2.value == "") {
+		if (form.email1.value != "") {
+			alert(msg_email);
+			return false;
+		}
+	}
+}
+
+function modifyFocus() {
+	document.modifyform.passwd.focus();
+}

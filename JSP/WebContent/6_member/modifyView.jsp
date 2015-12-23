@@ -16,12 +16,14 @@
 	if (result == 1) {
 		dto = regBean.getMember(id);
 		request.setAttribute("dto", dto);
-		String telTemp = dto.getTel();
-		String[] tel = telTemp.split("-");
+		dto.getTel();
 %>
-<body>
-	<form method="post" action="" name="inputform" onsubmit="return ">
+<body onload="modifyFocus()">
+	<form method="post" action="modifyPro.jsp" name="modifyform" onsubmit="return modifyCheck(this)">
+		<input type="hidden" name="tel" value="0">
+		<input type="hidden" name="email" value="0">
 		<table>
+
 			<tr>
 				<th colspan="2">
 					수정하실 정보를 입력하세요.
@@ -35,11 +37,11 @@
 			</tr>
 			<tr>
 				<th>*비밀번호</th>
-				<td><input type="password" class="input" name="passwd" maxlength="12"></td>
+				<td><input type="password" class="input" name="passwd" maxlength="12" value="<%= dto.getPasswd()%>"></td>
 			</tr>
 			<tr>
 				<th>*비밀번호 확인</th>
-				<td><input type="password" class="input" name="repasswd" maxlength="12"></td>
+				<td><input type="password" class="input" name="repasswd" maxlength="12" value="<%= dto.getPasswd()%>"></td>
 			</tr>
 			<tr>
 				<th>*이름</th>
@@ -51,24 +53,60 @@
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td><input type="tel" class="input" name="tel1" maxlength="3" style="width:30px" onkeyup="nexttel1()" value="<%=tel[0]%>">-<input class="input" type="text" name="tel2" maxlength="4" style="width:40px" onkeyup="nexttel2()" value="<%=tel[1]%>">-<input class="input" type="text" name="tel3" maxlength="4" style="width:40px" onkeyup="nexttel3()" value="<%=tel[2]%>"></td>
+<%
+		if (dto.getTel().equals("0")) {
+%>
+				<td>
+					<input type="tel" class="input" name="tel1" maxlength="3" style="width:30px" onkeyup="nexttel1()">
+					-<input class="input" type="text" name="tel2" maxlength="4" style="width:40px" onkeyup="nexttel2()">
+					-<input class="input" type="text" name="tel3" maxlength="4" style="width:40px" onkeyup="nexttel3()">
+				</td>
+<%
+		} else {
+			String tempTel = dto.getTel();
+			String[] tel = tempTel.split("-");
+%>
+				<td>
+					<input type="tel" class="input" name="tel1" maxlength="3" style="width:30px" onkeyup="nexttel1()" value="<%=tel[0]%>">
+					-<input class="input" type="text" name="tel2" maxlength="4" style="width:40px" onkeyup="nexttel2()" value="<%=tel[1]%>">
+					-<input class="input" type="text" name="tel3" maxlength="4" style="width:40px" onkeyup="nexttel3()" value="<%=tel[2]%>">
+				</td>
+<%	
+		}
+%>
+
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><input type="text" class="input" name="email1" maxlength="15" style="width:100px" value="<%= dto.getEmail() %>">
+<%
+		if (dto.getEmail().equals("0")) {
+%>
+				<td><input type="text" class="input" name="email1" maxlength="15" style="width:100px">
 					@
-					<select name="email2" class="input">
-						<option value="0">직접입력</option>
-						<option value="naver.com">네이버</option>
-						<option value="daum.net">다음</option>
-						<option value="nate.com">네이트</option>
-						<option value="gmail.com">구글</option>
-					</select>
+					<input type="text" class="input" name="email2" maxlength="15" style="width:100px">
+				</td>
+<%
+		} else {
+			String tempEmail = dto.getEmail();
+			String[] email = tempEmail.split("@");
+%>
+				<td><input type="text" class="input" name="email1" maxlength="15" style="width:100px" value="<%= email[0] %>">
+					@
+					<input type="text" class="input" name="email2" maxlength="15" style="width:100px" value="<%= email[1] %>">
+				</td>
+<%
+		}
+%>
+			</tr>
+			<tr>
+				<th>가입일자</th>
+				<td>
+					<%= dto.getReg_date() %>
 				</td>
 			</tr>
 			<tr>
 				<th colspan="2">
-					<input type="submit" class="inputButton" value="수정">
+					<input type="submit" class="inputButton" value="수정" onclick="combineEmailTel(form)">
 					<input type="reset" class="inputButton" value="리셋">
 					<input type="button" class="inputbutton" value="수정취소" onclick="window.location='main.jsp'">
 				</th>
@@ -78,7 +116,13 @@
 </body>
 <%
 	} else {
-		
+%>
+	<script type="text/javascript">
+		<!--
+			erroralert(passwderror);
+		//-->
+	</script>
+<%
 	}
 %>
 </html>

@@ -158,6 +158,7 @@ public class LogonDBBean {
 				dto.setJumin2(rs.getString(5));
 				dto.setTel(rs.getString(6));
 				dto.setEmail(rs.getString(7));
+				dto.setReg_date(rs.getTimestamp(8));
 			}
 		} catch (SQLException e) {
 			e.getStackTrace();
@@ -171,5 +172,31 @@ public class LogonDBBean {
 			}
 		}
 		return dto;
+	}
+	public int modifyMember(LogonDataBean dto) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			con = dataSource.getConnection();
+			String sql = "update mvc_member set passwd=?, email=?, tel=? where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getPasswd());
+			pstmt.setString(2, dto.getEmail());
+			pstmt.setString(3, dto.getTel());
+			pstmt.setString(4, dto.getId());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.getStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (con != null) con.close();
+			} catch (Exception e2) {
+				e2.getStackTrace();
+			}
+		}
+		return result;
+		
 	}
 }
