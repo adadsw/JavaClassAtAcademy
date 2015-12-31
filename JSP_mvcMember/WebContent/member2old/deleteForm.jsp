@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="/JSP_mvcMember/member/script.js"></script>
-<link type="text/css" rel="stylesheet" href="/JSP_mvcMember/member/style.css">
+<script src="${project}script.js"></script>
+<link type="text/css" rel="stylesheet" href="${project}style.css">
 <h2>회원탈퇴</h2>
 <body onload="passwordfocus()">
 	<form action="memberDeletePro.do" method="post" name="passwdform" onsubmit="return passwdCheck()">

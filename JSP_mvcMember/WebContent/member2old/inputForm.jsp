@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="setting.jsp" %>
-<script src="${project}/script.js"></script>
-<link type="text/css" rel="stylesheet" href="${project}/style.css">
+<script src="${project}script.js"></script>
+<link type="text/css" rel="stylesheet" href="${project}style.css">
 <h2>회원가입</h2>
 <body onload="inputfocus()">
 	<form method="post" action="memberInputPro.do" name="inputform" onsubmit="return inputCheck(this)">
@@ -14,26 +13,26 @@
 				<th colspan="2">회원정보를 입력하세요.</th>
 			</tr>
 			<tr>
-				<th>*아이디</th>
+				<th>* 아이디</th>
 				<td>
 					<input type="text" class="input" name="id" maxlength="12">
 					<input type="button" class="inputbutton" value="중복확인" onclick="confirmId()">
 				</td>
 			</tr>
 			<tr>
-				<th>*비밀번호</th>
+				<th>* 비밀번호</th>
 				<td><input type="password" class="input" name="passwd" maxlength="12"></td>
 			</tr>
 			<tr>
-				<th>*비밀번호 확인</th>
+				<th>* 비밀번호 재입력</th>
 				<td><input type="password" class="input" name="repasswd" maxlength="12"></td>
 			</tr>
 			<tr>
-				<th>*이름</th>
+				<th>* ${str_name}</th>
 				<td><input type="text" class="input" name="name" maxlength="12"></td>
 			</tr>
 			<tr>
-				<th>*주민번호</th>
+				<th>* 주민등록번호</th>
 				<td><input type="text" class="input" name="jumin1" maxlength="6" style="width:50px" onkeyup="nextjumin1()">
 				<input class="input" name="jumin2" maxlength="7" style="width:60px" onkeyup="nextjumin2()"></td>
 			</tr>

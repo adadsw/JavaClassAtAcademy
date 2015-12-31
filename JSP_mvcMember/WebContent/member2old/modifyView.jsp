@@ -1,8 +1,8 @@
 <%@page import="mvc.member.dto.LogonDataBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="/JSP_mvcMember/member/script.js"></script>
-<link type="text/css" rel="stylesheet" href="/JSP_mvcMember/member/style.css">
+<script src="${project}script.js"></script>
+<link type="text/css" rel="stylesheet" href="${project}style.css">
 <h2>회원정보 수정</h2>
 <%
 	int result = (Integer) request.getAttribute("result");

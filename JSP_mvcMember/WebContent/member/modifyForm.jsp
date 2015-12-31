@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="/JSP_mvcMember/member/script.js"></script>
-<link type="text/css" rel="stylesheet" href="/JSP_mvcMember/member/style.css">
-
+<%@ include file="setting.jsp" %>
 <body onload="passwordfocus()">
 	<form action="memberModifyView.do" method="post" name="passwdform" onsubmit="return passwdCheck()">
 		<table>

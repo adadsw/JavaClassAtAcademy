@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<script src="/JSP_mvcMember/member/script.js"></script>
+<script src="${project}script.js"></script>
 
 <body>
 	<h2>회원가입 - 처리페이지</h2>

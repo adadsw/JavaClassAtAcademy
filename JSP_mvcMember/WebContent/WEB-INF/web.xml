@@ -15,7 +15,7 @@
   	<servlet-class>mvc.member.controller.Controller</servlet-class>
   	<init-param>
   		<param-name>configFile</param-name>
-  		<param-value>C:/dev/workspace/JSP_mvcMember/WebContent/WEB-INF/config.properties</param-value>
+  		<param-value>C:\Users\Administrator\git\JavaClassAtAcademy\JSP_mvcMember\WebContent\WEB-INF\config.properties</param-value>
   	</init-param>
   </servlet>
   

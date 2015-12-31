@@ -1,9 +1,8 @@
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="setting.jsp" %>
-<script src="${project}/script.js"></script>
-<link type="text/css" rel="stylesheet" href="${project}/style.css">
+<script src="${project}script.js"></script>
+<link type="text/css" rel="stylesheet" href="${project}style.css">
 
 <h2>메인 페이지</h2>
 <!-- 

@@ -1,17 +1,15 @@
-<%@page import="mvc.member.dto.LogonDataBean"%>
+<%@ page import="mvc.member.dto.LogonDataBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="/JSP_mvcMember/member/script.js"></script>
-<link type="text/css" rel="stylesheet" href="/JSP_mvcMember/member/style.css">
+<%@ include file="setting.jsp" %>
 <h2>회원정보 수정</h2>
 <%
-	int result = (Integer) request.getAttribute("result");
-	
 	// 아이디와 패스워드가 일치하는 경우 
 	if (result == 1) {
 		LogonDataBean dto = (LogonDataBean) request.getAttribute("dto");
 		dto.getTel();
 %>
+	<c:if test="${result == 1}">
 <body onload="modifyFocus()">
 	<form method="post" action="memberModifyPro.do" name="modifyform" onsubmit="return modifyCheck(this)">
 		<input type="hidden" name="tel" value="0">
@@ -25,37 +23,37 @@
 			<tr>
 				<th>아이디</th>
 				<td>
-					<%=dto.getId()%>
+					${dto.id}
 				</td>
 			</tr>
 			<tr>
 				<th>*비밀번호</th>
-				<td><input type="password" class="input" name="passwd" maxlength="12" value="<%= dto.getPasswd()%>"></td>
+				<td><input type="password" class="input" name="passwd" maxlength="12" value="${dto.passwd}"></td>
 			</tr>
 			<tr>
 				<th>*비밀번호 확인</th>
-				<td><input type="password" class="input" name="repasswd" maxlength="12" value="<%= dto.getPasswd()%>"></td>
+				<td><input type="password" class="input" name="repasswd" maxlength="12" value="${dto.passwd}"></td>
 			</tr>
 			<tr>
 				<th>*이름</th>
-				<td><%=dto.getName()%></td>
+				<td>${dto.name}</td>
 			</tr>
 			<tr>
 				<th>주민등록번호</th>
-				<td><%=dto.getJumin1() + "-" + dto.getJumin2() %>
+				<td>${dto.jumin1}-${dto.getJumin2}
 			</tr>
 			<tr>
 				<th>전화번호</th>
-<%
-		if (dto.getTel().equals("0")) {
-%>
+		<c:if test="${dto.tel == 0}">
 				<td>
 					<input type="tel" class="input" name="tel1" maxlength="3" style="width:30px" onkeyup="nexttel1()">
 					-<input class="input" type="text" name="tel2" maxlength="4" style="width:40px" onkeyup="nexttel2()">
 					-<input class="input" type="text" name="tel3" maxlength="4" style="width:40px" onkeyup="nexttel3()">
 				</td>
+		</c:if>
+		<c:if test="${dto.tel != 0}">
+		split 함수 써서 나눠주기 펑션 fn
 <%
-		} else {
 			String tempTel = dto.getTel();
 			String[] tel = tempTel.split("-");
 %>
@@ -64,21 +62,18 @@
 					-<input class="input" type="text" name="tel2" maxlength="4" style="width:40px" onkeyup="nexttel2()" value="<%=tel[1]%>">
 					-<input class="input" type="text" name="tel3" maxlength="4" style="width:40px" onkeyup="nexttel3()" value="<%=tel[2]%>">
 				</td>
-<%	
-		}
-%>
+		</c:if>
 			</tr>
 			<tr>
 				<th>이메일</th>
-<%
-		if (dto.getEmail().equals("0")) {
-%>
+		<c:if test="${dto.email == 0}">
 				<td><input type="text" class="input" name="email1" maxlength="15" style="width:100px">
 					@
 					<input type="text" class="input" name="email2" maxlength="15" style="width:100px">
 				</td>
+		</c:if>
+		<c:if test="${dto.email != 0}">
 <%
-		} else {
 			String tempEmail = dto.getEmail();
 			String[] email = tempEmail.split("@");
 %>
@@ -86,14 +81,12 @@
 					@
 					<input type="text" class="input" name="email2" maxlength="15" style="width:100px" value="<%= email[1] %>">
 				</td>
-<%
-		}
-%>
+		</c:if>	
 			</tr>
 			<tr>
 				<th>가입일자</th>
 				<td>
-					<%= dto.getReg_date() %>
+					${dto.reg_date}
 				</td>
 			</tr>
 			<tr>
@@ -106,15 +99,12 @@
 		</table>
 	</form>
 </body>
-<%
-	} else {
-%>
-	<script type="text/javascript">
-		<!--
-			erroralert(passwderror);
-		//-->
-	</script>
-<%
-	}
-%>
+	</c:if>
+	<c:if test="${result != 0}">
+		<script type="text/javascript">
+			<!--
+				erroralert(passwderror);
+			//-->
+		</script>
+	</c:if>
 </html>

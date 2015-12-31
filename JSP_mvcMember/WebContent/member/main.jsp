@@ -1,9 +1,8 @@
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="setting.jsp" %>
-<script src="${project}/script.js"></script>
-<link type="text/css" rel="stylesheet" href="${project}/style.css">
 
 <h2>메인 페이지</h2>
 <!-- 
@@ -11,13 +10,8 @@
 	세션은 사용자의 브라우저와 서버간의 논리적 연결.. 즉 서버가 자신에게 접속한
 	클라이언트의 정보를 갖고 있는 상태.. 예) 장바구니 정보
  -->
-<%!
-	String memId;
-%>
-<%
-	memId = (String) request.getSession().getAttribute("memId");
-	if (memId == null) {
-%>
+
+<c:if test="${sessionScope.memId == null}">
 	<body onload="mainfocus()">
 		<form method="post" action="loginPro.do" name="mainform" onsubmit="return maincheck()">
 			<table>
@@ -39,28 +33,25 @@
 			</table>
 		</form>
 	</body>
-<%
-	} else {
-%>		
-<body>
-	<table>
-		<tr>
-			<td align="center" style="width: 300px">
-				<span><%= memId %></span>님 안녕하세요.
-			</td>
-		</tr>
-		<tr>
-			<th>
-				<input type="button" class="inputbutton" value="정보수정" onclick="window.location='memberModifyForm.do'">
-				<input type="button" class="inputbutton" value="회원탈퇴" onclick="window.location='memberDeleteForm.do'">
-				<input type="button" class="inputbutton" value="로그아웃" onclick="window.location='logout.do'">
-			</th>
-		</tr>
-
-	</table>
+</c:if>
+<c:if test="${sessionScope.memId != null}">
+	<body>
+		<table>
+			<tr>
+				<td align="center" style="width: 300px">
+					<span>${sessionScope.memId}</span>님 안녕하세요.
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<input type="button" class="inputbutton" value="정보수정" onclick="window.location='memberModifyForm.do'">
+					<input type="button" class="inputbutton" value="회원탈퇴" onclick="window.location='memberDeleteForm.do'">
+					<input type="button" class="inputbutton" value="로그아웃" onclick="window.location='logout.do'">
+				</th>
+			</tr>
 	
-</body>
-<%
-	}
-%>
+		</table>
+		
+	</body>
+</c:if>
 </html>
