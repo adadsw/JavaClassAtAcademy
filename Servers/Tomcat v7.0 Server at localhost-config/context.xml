@@ -29,7 +29,7 @@
     <!--
     <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
     -->
-
+   
 	<Resource auth="Container"
 		driverClassName="oracle.jdbc.driver.OracleDriver"
 		maxActive="50"
@@ -39,6 +39,5 @@
 		type="javax.sql.DataSource"
 		url="jdbc:oracle:thin:@localhost:1521:xe"
 		username="scott"
-	
 	/>
 </Context>

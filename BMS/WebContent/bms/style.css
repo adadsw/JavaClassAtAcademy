@@ -1,0 +1,27 @@
+@CHARSET "utf-8";
+nav {
+	width: 130px;
+	border-right: 0px;
+	float: left;
+}
+nav ul {
+		list-style: none;
+}
+.loginForm {
+	width: 300px;
+}
+header {
+	border-bottom: 0px;
+	padding: 30px;
+}
+iframe {
+	width:500px;
+	height:500px;
+	border: 0;
+}
+.center {
+	text-align: center;
+}
+table {
+	width:100%;
+}

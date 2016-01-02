@@ -1,7 +1,6 @@
 <%@page import="java.util.Enumeration"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="setting.jsp" %>
 
 <h2>메인 페이지</h2>
@@ -49,9 +48,7 @@
 					<input type="button" class="inputbutton" value="로그아웃" onclick="window.location='logout.do'">
 				</th>
 			</tr>
-	
 		</table>
-		
 	</body>
 </c:if>
 </html>

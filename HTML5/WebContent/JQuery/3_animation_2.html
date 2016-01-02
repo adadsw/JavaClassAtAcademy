@@ -13,8 +13,12 @@
 	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function() {
-			$('.left_btn').on('click', function(){
+			$('.right_btn').on('click', function(){
 				$('#box').animate({ marginLeft:"50px"}, 500);
+			});
+			
+			$('.left_btn').click(function(){
+				$('#box').animate({ marginLeft:"0px"}, 500);
 			});
 		});
 	</script>

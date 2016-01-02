@@ -1,6 +1,6 @@
-/* 
+/*
  * 자료구조 : 데이터를 효율적으로 사용할 수 있도록 구조를 만들어서 저장해 둔 것
- * 
+ *
  * Collection API
  * 1. 정의 : 다양한 자료구조를 자바클래스로 객체화한 것
  * 			 다수의 데이터를 저장할 수 있는 클래스(ArrayList, HashMap...)
@@ -63,9 +63,9 @@ public class _00_ArrayListEx01 {
 
 		int lastIndex = list2.lastIndexOf("사과");
 		System.out.println("마지막 사과 ==> " + lastIndex);
-		
+
 		System.out.println(list2.size());
-		
+
 		// list2의 데이터 전체삭제
 //		list2.clear();
 		list2 = null;

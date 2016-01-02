@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/mvc/member/controller/Controller.java=UTF-8
+encoding//src/mvc/member/dao/LogonDBBean.java=UTF-8
+encoding//src/mvc/member/handler/InputProHandler.java=UTF-8
+encoding//src/mvc/member/handler/LoginProHandler.java=UTF-8
