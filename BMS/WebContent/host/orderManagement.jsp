@@ -1,21 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ include file="/bms/setting.jsp" %>
 <body>
 
-<h2 class="center">аж╧╝ ╦Я╥о</h2>
+<h2 class="center">Лё╪К╛╦К╙╘К║²</h2>
 
-<%-- аж╧╝юл ╬Ь╢б ╟Ф©Л --%>
+<%-- Лё╪К╛╦ К╙╘К║² Л≈├К┼■ Й╡╫Л ╟ --%>
 <c:if test="${orderListResult == 0}">
-ц╔юл ╬Ь╫ю╢о╢ы.
+Лё╪К╛╦ К┌╢Л≈╜Л²╢ Л≈├Л┼╣К▀┬К▀╓.
 </c:if>
 
-<%-- аж╧╝юл юж╢б ╟Ф©Л --%>
+<%-- Лё╪К╛╦ К╙╘К║² Л·┬К┼■ Й╡╫Л ╟--%>
 <c:if test="${orderList != null}">
 	<table>
 		<tr>
-			<td>
-			</td>
 			<td>
 				Order_Code
 			</td>
@@ -31,9 +29,6 @@
 		</tr>
 		<c:forEach var="orders" items="${orderList}">
 			<tr>
-				<td>
-					<input type="checkbox" name="book_code" value="${orders.order_code}">
-				</td>
 				<td>
 					${orders.order_code}
 				</td>

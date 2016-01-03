@@ -1,4 +1,4 @@
-package mvc.bms.handler;
+package mvc.bms.handler.host;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import mvc.bms.dao.OrderDBBean;
 import mvc.bms.dto.OrderDataBean;
+import mvc.bms.handler.CommandHandler;
 
 public class HostOrderManagementHandler implements CommandHandler {
 

@@ -1,16 +1,17 @@
-package mvc.bms.handler;
+package mvc.bms.handler.host;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mvc.bms.dao.HostDBBean;
+import mvc.bms.handler.CommandHandler;
 
 public class HostBookAddProHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 		
 		HostDBBean hostDao = HostDBBean.getInstance();
 		String title = request.getParameter("title");
@@ -20,12 +21,7 @@ public class HostBookAddProHandler implements CommandHandler {
 		int result = hostDao.addBook(title, writer_name, price);
 		
 		request.setAttribute("addBookResult", result);
-		if (result == 1) {
-			return "hostBookManagement.do";
-		} else {
-			return "hostBookManagement.do";
-		}
-
+		return "hostBookManagement.do";
 	}
 
 }

@@ -1,64 +1,98 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ include file="/bms/setting.jsp" %>
 
-<%-- √• √ﬂ∞° º∫∞¯ Ω«∆– ø©∫Œ --%>
+<%-- Ï±Ö Ï∂îÍ∞Ä ÏÑ±Í≥µ Ïó¨Î∂Ä --%>
 <c:if test="${addBookResult != null && addBookResult == 1}">
 	<script type="text/javascript">
-		alert("√• √ﬂ∞° º∫∞¯");
+		alert("Ï±Ö Ï∂îÍ∞Ä ÏÑ±Í≥µ");
 	</script>
 </c:if>
 <c:if test="${addBookResult != null && addBookResult != 1}">
 	<script type="text/javascript">
-		alert("√• √ﬂ∞° Ω«∆–");
+		alert("Ï±Ö Ï∂îÍ∞Ä Ïã§Ìå®");
 	</script>
 </c:if>
 
-
-<body>
-
-<h2 class="center">√• ∏Ò∑œ</h2>
-
-<%-- √•¿Âø° √• æ¯¥¬ ∞ÊøÏ --%>
-<c:if test="${bookListResult == 0}">
-√•¿Ã æ¯Ω¿¥œ¥Ÿ.
+<%-- Ï±Ö ÏÇ≠Ï†ú ÏÑ±Í≥µ Ïó¨Î∂Ä --%>
+<c:if test="${deleteBookResult != null && deleteBookResult == ' '}">
+	<script type="text/javascript">
+		alert("Ï±Ö ÏÇ≠Ï†ú ÏÑ±Í≥µ");
+	</script>
+</c:if>
+<c:if test="${deleteBookResult != null && deleteBookResult != ' '}">
+	<script type="text/javascript">
+		alert("Ï±Ö ÏÇ≠Ï†ú Ïã§Ìå®. Íµ¨Îß§ ÎÇ¥Ïó≠ ÌôïÏù∏ Î∞îÎûå.");
+	</script>
 </c:if>
 
-<%-- √•¿Âø° √• ¿÷¥¬ ∞ÊøÏ --%>
+<%-- Ï±Ö ÏàòÏ†ï ÏÑ±Í≥µ Ïó¨Î∂Ä --%>
+<c:if test="${modifyBookResult != null && modifyBookResult == '1'}">
+	<script type="text/javascript">
+		alert("Ï±Ö ÏàòÏ†ï ÏÑ±Í≥µ");
+	</script>
+</c:if>
+<c:if test="${modifyBookResult != null && modifyBookResult == '0'}">
+	<script type="text/javascript">
+		alert("Ï±Ö ÏàòÏ†ï Ïã§Ìå®");
+	</script>
+</c:if>
+
+<body>
+	<h2 class="center">Ï±Ö Î™©Î°ù</h2>
+
+<%-- Ï±Ö Î™©Î°ù ÏóÜÎäî Í≤ΩÏö∞ --%>
+<c:if test="${bookList == null}">
+Ï±Ö Î™©Î°ù ÏóÜÏùå
+	<form method="post" action="hostBookDeletePro.do" onsubmit="return bookdeletewarning()">
+	<input type="button" value="Ï±Ö Ï∂îÍ∞Ä" onclick="window.location='hostBookAddForm.do'">
+	</form>
+</c:if>
+
+<%-- Ï±Ö ÏûàÎäî Í≤ΩÏö∞ --%>
+
 <c:if test="${bookList != null}">
-	<table>
-		<tr>
-			<td>
-			</td>
-			<td>
-				Title
-			</td>
-			<td>
-				Writer
-			</td>
-			<td>
-				Price
-			</td>
-		</tr>
-		<c:forEach var="books" items="${bookList}">
+	<form method="post" action="hostBookDeletePro.do" onsubmit="return bookdeletewarning()">
+		<table>
 			<tr>
 				<td>
-					<input type="checkbox" name="book_code" value="${books.book_code}">
 				</td>
 				<td>
-					${books.title}
+					BookCode
 				</td>
 				<td>
-					${books.writer_name}
+					Title
 				</td>
 				<td>
-					${books.price}
-				</td>	
+					Writer
+				</td>
+				<td>
+					Price
+				</td>
 			</tr>
-		</c:forEach>
-	</table>
-	<input type="button" value="√•√ﬂ∞°" onclick="window.location='hostBookAddForm.do'">
-	<input type="button" value="√•ªË¡¶" onclick="window.location='hostBookDeletePro.do'">
-	¡÷πÆµ» √• ªË¡¶ ∫“∞°	
+			<c:forEach var="books" items="${bookList}">
+				<tr>
+					<td>
+						<input type="checkbox" name="book_code" value="${books.book_code}">
+					</td>
+					<td>
+						<label for="book_code">${books.book_code}</label>
+					</td>
+					<td>
+						<a href="hostBookModifyForm.do?book_code=${books.book_code}">${books.title}</a>
+					</td>
+					<td>
+						${books.writer_name}
+					</td>
+					<td>
+						${books.price}
+					</td>	
+				</tr>
+			</c:forEach>
+		</table>
+		<input type="button" value="Ï±Ö Ï∂îÍ∞Ä" onclick="window.location='hostBookAddForm.do'">
+		<input type="submit" value="Ï±Ö ÏÇ≠Ï†ú">
+		Ï£ºÎ¨∏Îêú Ï±Ö ÏÇ≠Ï†ú Î∂àÍ∞Ä
+	</form>
 </c:if>
 </body>

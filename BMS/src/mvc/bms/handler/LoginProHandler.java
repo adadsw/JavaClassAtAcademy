@@ -18,12 +18,11 @@ public class LoginProHandler implements CommandHandler {
 		int result = userdao.check(user_id, pw);
 		
 		if (result == 1) {
-			request.getSession().setAttribute("memId", user_id);
+			request.getSession().setAttribute("user_id", user_id);
 			return "/menu/menu.jsp";
-		} else {
-			return "/login/loginForm.jsp?result=" + result;
+		} else  { // 비번 틀림 -1 아디 없음 0
+			return "/login/loginForm.jsp?result=" + result; //여기 해야 함
 		}
-		
 	}
 
 }

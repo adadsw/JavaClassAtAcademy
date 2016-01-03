@@ -1,22 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ include file="/bms/setting.jsp" %>
 <title>login</title>
 <body onload="loginfocus()">
 	<form class="loginForm" action="loginPro.do" method="post" name="loginform">
 		<fieldset>
-			<legend>ทฮฑืภฮ</legend>
+			<legend>๋ก๊ทธ์ธ</legend>
 			<table>
 				<tr>
-					<th>พฦภฬต๐</th>
+					<th>์•์ด๋””</th>
 					<td><input type="text" name="user_id" maxlength="10"></td>
 				</tr>
 				<tr>
-					<th>พฯศฃ</th>
+					<th>์•”ํธ</th>
 					<td><input type="password" name="pw" maxlength="10"></td>
 				</tr>
 				<tr>
-					<th><input type="submit" value="ทฮฑืภฮ"></th>
+					<th><input type="submit" value="๋ก๊ทธ์ธ"></th>
 				</tr>
 			</table>
 		</fieldset>

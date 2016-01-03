@@ -1,27 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <body>
 	<form class="bookAddForm" action="hostBookAddPro.do" method="post" name="loginform">
 		<fieldset>
-			<legend>Ã¥Á¤º¸ ÀÔ·Â</legend>
+			<legend>ì±… ì •ë³´ ìž…ë ¥</legend>
 			<table>
 				<tr>
-					<th>Á¦¸ñ</th>
+					<th>ì„œëª…</th>
 					<td><input type="text" name="title" maxlength="50"></td>
 				</tr>
 				<tr>
-					<th>ÀúÀÚ</th>
+					<th>ì €ìž</th>
 					<td><input type="text" name="writer_name" maxlength="20"></td>
 				</tr>
 				<tr>
-					<th>°¡°Ý</th> <!-- ¼ýÀÚ¸¸ ³Ñ¾î°¡°Ô ¸¸µé¾î¾ß ÇÔ -->
+					<th>ê°€ê²©</th>
 					<td><input type="number" name="price" value="10000" min="0" max="99999" step="5"></td>
 				</tr>
 				<tr>
-					<th><input type="submit" value="Ãß°¡"></th>
+					<th><input type="submit" value="ì¶”ê°€"></th>
 				</tr>
 				<tr>
-					<th><input type="button" value="Ãë¼Ò" onclick="window.location='hostBookManagement.do'"></th>
+					<th><input type="button" value="ëª©ë¡" onclick="window.location='hostBookManagement.do'"></th>
 				</tr>
 			</table>
 		</fieldset>

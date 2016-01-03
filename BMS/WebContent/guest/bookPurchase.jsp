@@ -1,21 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ include file="/bms/setting.jsp" %>
-<body>
 
-<h2 class="center">å ���</h2>
-
-<%-- å�忡 å ���� ��� --%>
-<c:if test="${bookListResult == 0}">
-å�� �����ϴ�.
+<%-- 책 추가 성공 여부 --%>
+<c:if test="${purchaseResult != null && purchaseResult == '1'}">
+	<script type="text/javascript">
+		alert("책 구매 성공");
+	</script>
+</c:if>
+<c:if test="${purchaseResult != null && purchaseResult == '0'}">
+	<script type="text/javascript">
+		alert("책 구매 실패");
+	</script>
 </c:if>
 
-<%-- å�忡 å �ִ� ��� --%>
+<body>
+<h2 class="center">책 구매</h2>
+<%-- 책이 없는 경우 --%>
+<c:if test="${bookListResult == 0}">
+구매할 수 있는 책이 없습니다.
+</c:if>
+
+<%-- 책 있는 경우 --%>
 <c:if test="${bookList != null}">
 	<table>
 		<tr>
-			<td>
-			</td>
 			<td>
 				Title
 			</td>
@@ -29,10 +38,7 @@
 		<c:forEach var="books" items="${bookList}">
 			<tr>
 				<td>
-					<input type="checkbox" name="book_code" value="${books.book_code}">
-				</td>
-				<td>
-					${books.title}
+					<a href="guestBookPurchaseForm.do?book_code=${books.book_code}">${books.title}</a>
 				</td>
 				<td>
 					${books.writer_name}
@@ -43,6 +49,5 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<input type="button" value="å����" onclick="">
 </c:if>
 </body>

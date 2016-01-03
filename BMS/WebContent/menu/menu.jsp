@@ -1,33 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ include file="/bms/setting.jsp" %>
 <body>
-<header>${memId}·Î Á¢¼ÓÁßÀÔ´Ï´Ù.</header>
+<header>${user_id}ë¡œ ì ‘ì† ì¤‘</header>
 <nav>
 	<ul>
-<!-- host Á¢¼Ó -->
-<c:if test="${memId == 'host'}">
+<!-- host ì ‘ì† -->
+<c:if test="${user_id == 'host'}">
 		<li>
-				<a href="hostBookManagement.do" target="link">Àç°í°ü¸®</a>
+				<a href="hostBookManagement.do" target="link">ìž¬ê³ ê´€ë¦¬</a>
 		</li>
 		<li>
-				<a href="hostOrderManagement.do" target="link">ÁÖ¹®¸ñ·Ï</a>
-		</li>
-</c:if>
-<!-- guest Á¢¼Ó -->
-<c:if test="${memId != 'host'}">
-		<li>
-				<a href="guestBookPurchase.do" target="link">±¸¸Å</a>
-		</li>
-		<li>
-				<a href="guestBag.do" target="link">Àå¹Ù±¸´Ï</a>
-		</li>
-		<li>
-				<a href="guestRefund.do" target="link">È¯ºÒ</a>
+				<a href="hostOrderManagement.do" target="link">ì£¼ë¬¸ëª©ë¡</a>
 		</li>
 </c:if>
+<!-- guest ì ‘ì† -->
+<c:if test="${user_id != 'host'}">
 		<li>
-			<a href="logout.do">·Î±×¾Æ¿ô</a>
+				<a href="guestBookPurchase.do" target="link">ì±… êµ¬ë§¤</a>
+		</li>
+<!-- 	<li>
+				<a href="guestBag.do" target="link">ìž¥ë°”êµ¬ë‹ˆ</a>
+		</li> -->
+		<li>
+				<a href="guestRefund.do" target="link">í™˜ë¶ˆ</a>
+		</li>
+</c:if>
+		<li>
+			<a href="logout.do">ë¡œê·¸ì•„ì›ƒ</a>
 		</li>
 	</ul>
 </nav>

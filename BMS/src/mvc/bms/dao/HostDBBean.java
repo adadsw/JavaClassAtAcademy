@@ -7,6 +7,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import mvc.bms.dto.BookDataBean;
+
 public class HostDBBean implements HostDao {
 	DataSource dataSource;
 	
@@ -53,7 +55,8 @@ public class HostDBBean implements HostDao {
 		}
 		return result;
 	}
-	public int deleteBooks(String book_code) {
+	
+	public int deleteBook(String book_code) {
 		int result = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -62,6 +65,32 @@ public class HostDBBean implements HostDao {
 			String sql = "delete books where book_code=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, Integer.parseInt(book_code));
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.getStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+				if (con != null) con.close();
+			} catch (Exception e2) {
+				e2.getStackTrace();
+			}
+		}
+		return result;
+	}
+	
+	public int modifyBook(BookDataBean book) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "update books set title=?, writer_name=?, price=? where book_code=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, book.getTitle());
+			pstmt.setString(2, book.getWriter_name());
+			pstmt.setInt(3, Integer.parseInt(book.getPrice()));
+			pstmt.setInt(4, Integer.parseInt(book.getBook_code()));
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.getStackTrace();

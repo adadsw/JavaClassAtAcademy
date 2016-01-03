@@ -7,8 +7,8 @@ public class LogoutHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		//request.getSession().setAttribute("memId", null);
-		request.getSession().removeAttribute("memId");
+		//request.getSession().setAttribute("user_id", null);
+		request.getSession().removeAttribute("user_id");
 		return "/login/loginForm.jsp";
 	}
 

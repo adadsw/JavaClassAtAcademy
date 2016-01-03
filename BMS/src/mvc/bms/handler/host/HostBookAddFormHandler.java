@@ -1,13 +1,16 @@
-package mvc.bms.handler;
+package mvc.bms.handler.host;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class GuestBagHandler implements CommandHandler {
+import mvc.bms.handler.CommandHandler;
+
+public class HostBookAddFormHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		return "/guest/bag.jsp";
+
+		return "/host/bookAddForm.jsp";
 	}
 
 }
