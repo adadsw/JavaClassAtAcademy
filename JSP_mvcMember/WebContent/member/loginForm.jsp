@@ -23,7 +23,7 @@
 			<tr>
 				<th>아이디</th>
 				<td>
-					<input type="text" class="input" name="id" maxlength="12" value="${requestScope.result}">
+					<input type="text" class="input" name="id" maxlength="12">
 				</td>
 			</tr>
 			<tr>

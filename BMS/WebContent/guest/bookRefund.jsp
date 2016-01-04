@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="/bms/setting.jsp" %>
 
 <%-- 책 환불 성공 여부 --%>
@@ -50,7 +51,7 @@
 					${orders.writer_name}
 				</td>
 				<td>
-					${orders.order_date}
+					<fmt:formatDate type="both" pattern="yyyy-MM-dd HH:mm" value="${orders.order_date}"/>
 				</td>	
 			</tr>
 		</c:forEach>

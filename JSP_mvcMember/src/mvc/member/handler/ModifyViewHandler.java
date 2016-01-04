@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import mvc.member.dao.LogonDBBean;
-import mvc.member.dao.LogonDao;
 import mvc.member.dto.LogonDataBean;
 
 public class ModifyViewHandler implements CommandHandler {
@@ -13,12 +12,11 @@ public class ModifyViewHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		String id = (String) request.getSession().getAttribute("memId");
 		String passwd = request.getParameter("passwd");
-		
-		LogonDao logonDao = LogonDBBean.getInstance();
-		int result = logonDao.check(id, passwd);
+
+		int result = LogonDBBean.getInstance().check(id, passwd);
 		
 		if (result == 1) {
-			LogonDataBean dto = logonDao.getMember(id);
+			LogonDataBean dto = LogonDBBean.getInstance().getMember(id);
 			request.setAttribute("dto", dto);
 		}
 		

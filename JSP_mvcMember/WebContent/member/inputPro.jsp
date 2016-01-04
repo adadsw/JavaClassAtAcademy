@@ -3,7 +3,6 @@
 <%@ include file="setting.jsp" %>
 <body>
 	<h2>회원가입 - 처리페이지</h2>
-<!-- insert error -->
 <c:if test="${result == 0}">
 	<script type="text/javascript">
 		<!--
@@ -11,7 +10,7 @@
 		//-->
 	</script>
 </c:if>
-<!-- insert ok -->
+
 <c:if test="${result != 0}">
 	<c:redirect url="loginForm.do?result=${result}"/>
 </c:if>

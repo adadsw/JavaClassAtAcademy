@@ -22,12 +22,12 @@ import mvc.bms.handler.DefaultHandler;
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public Controller() {
+
+	public Controller() {
         super();
     }
     
-    // 1´Ü°è. HTTP ¿äÃ» ¹ŞÀ½
+    // 1ë‹¨ê³„. HTTP ìš”ì²­ ë°›ìŒ
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		doProcess(request, response);
@@ -38,12 +38,12 @@ public class Controller extends HttpServlet {
 		doProcess(request, response);
 	}
 	
-	/*<Ä¿¸Çµå, ÇÚµé·¯ÀÎ½ºÅÏ½º> ¸ÅÇÎÁ¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÔ
-	Áï init() ¸Ş¼­µå¸¦ ÅëÇØ¼­ ¼³Á¤ÆÄÀÏ¿¡ ¸í½ÃÇÑ '¸í·É¾î=ÇÚµé·¯'ÀÇ ¸ÅÇÎÁ¤º¸¿¡ µû¶ó¼­
-	<¸í·É¾î, ÇÚµé·¯Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½º> ¸ÅÇÎÁ¤º¸°¡ handlerMap¿¡ ÀúÀåµÈ´Ù.
+	/*<ì»¤ë§¨ë“œ, í•¸ë“¤ëŸ¬ì¸ìŠ¤í„´ìŠ¤> ë§¤í•‘ì •ë³´ë¥¼ ì €ì¥í•˜ê¸° ìœ„í•¨
+	ì¦‰ init() ë©”ì„œë“œë¥¼ í†µí•´ì„œ ì„¤ì •íŒŒì¼ì— ëª…ì‹œí•œ 'ëª…ë ¹ì–´=í•¸ë“¤ëŸ¬'ì˜ ë§¤í•‘ì •ë³´ì— ë”°ë¼ì„œ
+	<ëª…ë ¹ì–´, í•¸ë“¤ëŸ¬í´ë˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤> ë§¤í•‘ì •ë³´ê°€ handlerMapì— ì €ì¥ëœë‹¤.
 	*/
     private Map<String, Object> handlerMap = new Hashtable<String, Object>();
-    /*  web.xml ¼³Á¤ÆÄÀÏ
+    /*  web.xml ì„¤ì •íŒŒì¼
      *  	<init-param>
      *  	  <param-name>configFile</param-name>
      *  	  <param-value>C:/dev/workspace/JSP_mvcMember/WebContent/WEB-INF/config.properties</param-value>
@@ -51,24 +51,24 @@ public class Controller extends HttpServlet {
      */   
     public void init(ServletConfig config) throws ServletException {
     	
-    	// web.xml¿¡¼­ ¼³Á¤ÇÑ configFile ÃÊ±âÈ­ ÆÄ¶ó¹ÌÅÍ·ÎºÎÅÍ, ¸ÅÇÎÁ¤º¸¸¦ ÀúÀåÇÏ°í ÀÖ´Â ¼³Á¤ÆÄÀÏÀÇ °æ·Î¸¦ ±¸ÇÑ´Ù.
+    	// web.xmlì—ì„œ ì„¤ì •í•œ configFile ì´ˆê¸°í™” íŒŒë¼ë¯¸í„°ë¡œë¶€í„°, ë§¤í•‘ì •ë³´ë¥¼ ì €ì¥í•˜ê³  ìˆëŠ” ì„¤ì •íŒŒì¼ì˜ ê²½ë¡œë¥¼ êµ¬í•œë‹¤.
     	String configFile = config.getInitParameter("configFile");
     	FileInputStream fis = null;
     	Properties prop = null;
     	
     	try {
-    		// ¼³Á¤ÆÄÀÏ web.xml¿¡ ±â¼úÇÑ config.propertiesÀÇ ¸ÅÇÎÁ¤º¸¸¦ ÀĞ¾î¿Í¼­
+    		// ì„¤ì •íŒŒì¼ web.xmlì— ê¸°ìˆ í•œ config.propertiesì˜ ë§¤í•‘ì •ë³´ë¥¼ ì½ì–´ì™€ì„œ
 			fis = new FileInputStream(configFile);
 			prop = new Properties();
 			prop.load(fis);
 			
-			// Properties°´Ã¼ keys¿¡ ÀúÀåÇÑ´Ù.
+			// Propertiesê°ì²´ keysì— ì €ì¥í•œë‹¤.
 			Iterator<Object> keys = prop.keySet().iterator();
 			while(keys.hasNext()) {
-				/* config.properties ÆÄÀÏ ³»¿ë
+				/* config.properties íŒŒì¼ ë‚´ìš©
 				 * 	==>  /main.do=mvc.member.handler.MainHandler
-				 * 	Properties °´Ã¼¿¡ ÀúÀåµÈ ¸ÅÇÎÁ¤º¸ÀÎ keys¸¦ ÀÌ¿ëÇÏ¿©
-				 * 	<¸í·É¾î, ÇÚµé·¯ÀÎ½ºÅÏ½º>ÀÇ ¸ÅÇÎÁ¤º¸¸¦ handlerMap¿¡ ÀúÀå
+				 * 	Properties ê°ì²´ì— ì €ì¥ëœ ë§¤í•‘ì •ë³´ì¸ keysë¥¼ ì´ìš©í•˜ì—¬
+				 * 	<ëª…ë ¹ì–´, í•¸ë“¤ëŸ¬ì¸ìŠ¤í„´ìŠ¤>ì˜ ë§¤í•‘ì •ë³´ë¥¼ handlerMapì— ì €ì¥
 				 */				
 				String command = (String) keys.next();	// command = /main.do
 				String className = (String) prop.getProperty(command); // className = mvc.member.handler.MainHandler
@@ -94,19 +94,19 @@ public class Controller extends HttpServlet {
     	
     	request.setCharacterEncoding("utf-8");
     	
-    	// 2´Ü°è. Å¬¶óÀÌ¾ğÆ® ¿äÃ»ÆÄ¾Ç
+    	// 2ë‹¨ê³„. í´ë¼ì´ì–¸íŠ¸ ìš”ì²­íŒŒì•…
     	String command = request.getRequestURI(); // command = /JSP_mvcMember/main.do
     	
-    	if (command.indexOf(request.getContextPath()) == 0) { // °æ·Î¸íÀÌ ÀÖ´Ù¸é
-    		command = command.substring(request.getContextPath().length()); // °æ·Î¸íÀ» »èÁ¦ÇÏ°í
+    	if (command.indexOf(request.getContextPath()) == 0) { // ê²½ë¡œëª…ì´ ìˆë‹¤ë©´
+    		command = command.substring(request.getContextPath().length()); // ê²½ë¡œëª…ì„ ì‚­ì œí•˜ê³ 
     	}
     	
-    	// command Áï /main.do¶ó´Â key¸¦ ÀÌ¿ëÇØ¼­, value Áï Map¿¡ µé¾îÀÖ´Â handlerÀÎ MainHandler¸¦ °¡Á®¿È
+    	// command ì¦‰ /main.doë¼ëŠ” keyë¥¼ ì´ìš©í•´ì„œ, value ì¦‰ Mapì— ë“¤ì–´ìˆëŠ” handlerì¸ MainHandlerë¥¼ ê°€ì ¸ì˜´
     	// handler = MainHandler
     	// CommandHandler handler = MainHandler;
-    	// CommandHandler´Â ÀÎÅÍÆäÀÌ½ºÀÌ¸ç, ´ÙÇü¼ºÀ» Àû¿ëÇÏ¿© TypeÀ¸·Î ¹ŞÀ» ¼ö ÀÖ´Ù.
-    	// MainHandler´Â ºÎ¸ğÀÎ CommandHandler ÀÎÅÍÆäÀÌ½º¸¦ implementsÇØ¼­ process()¸¦ ¿À¹ö¶óÀÌµù ÇØ¾ßÇÑ´Ù.
-    	// CommandHandlerÀÇ ¸Ş¼­µå process()¸¦ ±¸ÇöÇÏµµ·Ï ÇÏ±â À§ÇÔ.
+    	// CommandHandlerëŠ” ì¸í„°í˜ì´ìŠ¤ì´ë©°, ë‹¤í˜•ì„±ì„ ì ìš©í•˜ì—¬ Typeìœ¼ë¡œ ë°›ì„ ìˆ˜ ìˆë‹¤.
+    	// MainHandlerëŠ” ë¶€ëª¨ì¸ CommandHandler ì¸í„°í˜ì´ìŠ¤ë¥¼ implementsí•´ì„œ process()ë¥¼ ì˜¤ë²„ë¼ì´ë”© í•´ì•¼í•œë‹¤.
+    	// CommandHandlerì˜ ë©”ì„œë“œ process()ë¥¼ êµ¬í˜„í•˜ë„ë¡ í•˜ê¸° ìœ„í•¨.
     	CommandHandler handler = (CommandHandler) handlerMap.get(command);
     	if (handler == null || handler.equals("")) {
     		handler = new DefaultHandler();
@@ -115,26 +115,23 @@ public class Controller extends HttpServlet {
     	String viewPage = null;
     	
     	try {
-    		/*	CommandHandler ÀÎÅÍÆäÀÌ½º
-    		 *  3´Ü°è. ¸ğµ¨À» »ç¿ëÇÏ¿© ¿äÃ»ÇÑ ±â´ÉÀ» ¼öÇàÇÑ´Ù.
-    		 *  4´Ü°è. request³ª session¿¡ Ã³¸®°á°ú¸¦ ÀúÀåÇÑ´Ù.
+    		/*	CommandHandler ì¸í„°í˜ì´ìŠ¤
+    		 *  3ë‹¨ê³„. ëª¨ë¸ì„ ì‚¬ìš©í•˜ì—¬ ìš”ì²­í•œ ê¸°ëŠ¥ì„ ìˆ˜í–‰í•œë‹¤.
+    		 *  4ë‹¨ê³„. requestë‚˜ sessionì— ì²˜ë¦¬ê²°ê³¼ë¥¼ ì €ì¥í•œë‹¤.
     		 *  
-    		 *  Áï, ±¸ÇÑ ÇÚµé·¯ ÀÎ½ºÅÏ½º(MainHandler)ÀÇ process() ¸Ş¼­µå¸¦ È£ÃâÇØ¼­ ¿äÃ»À» Ã³¸®ÇÏ°í,
-    		 *  °á°ú·Î º¸¿©ÁÙ ºäÆäÀÌÁöÀÇ URI¸¦ ¸®ÅÏ°ªÀ¸·Î Àü´Ş¹Ş´Â´Ù.
-    		 *  ÇÚµé·¯ ÀÎ½ºÅÏ½ºÀÎ handlerÀÇ process() ¸Ş¼­µå´Â Å¬¶óÀÌ¾ğÆ®ÀÇ ¿äÃ»À» ¾Ë¸Â°Ô Ã³¸®ÇÑ ÈÄ,
-    		 *  ºä ÆäÀÌÁö¿¡ º¸¿©ÁÙ °á°ú°ªÀ» request³ª sessionÀÇ ¼Ó¼º¿¡ ÀúÀåÇØ¾ß ÇÑ´Ù.
+    		 *  ì¦‰, êµ¬í•œ í•¸ë“¤ëŸ¬ ì¸ìŠ¤í„´ìŠ¤(MainHandler)ì˜ process() ë©”ì„œë“œë¥¼ í˜¸ì¶œí•´ì„œ ìš”ì²­ì„ ì²˜ë¦¬í•˜ê³ ,
+    		 *  ê²°ê³¼ë¡œ ë³´ì—¬ì¤„ ë·°í˜ì´ì§€ì˜ URIë¥¼ ë¦¬í„´ê°’ìœ¼ë¡œ ì „ë‹¬ë°›ëŠ”ë‹¤.
+    		 *  í•¸ë“¤ëŸ¬ ì¸ìŠ¤í„´ìŠ¤ì¸ handlerì˜ process() ë©”ì„œë“œëŠ” í´ë¼ì´ì–¸íŠ¸ì˜ ìš”ì²­ì„ ì•Œë§ê²Œ ì²˜ë¦¬í•œ í›„,
+    		 *  ë·° í˜ì´ì§€ì— ë³´ì—¬ì¤„ ê²°ê³¼ê°’ì„ requestë‚˜ sessionì˜ ì†ì„±ì— ì €ì¥í•´ì•¼ í•œë‹¤.
     		 */
     		viewPage = handler.process(request, response); // viewPage = /member/main.jsp
 		} catch (Throwable e) {
 			e.getStackTrace();
 		}
-    	// 5´Ü°è. RequestDispatcher¸¦ »ç¿ëÇÏ¿© ¾Ë¸ÂÀº ºä·Î Æ÷¿öµù
-    	// dispatcher = org.apache.catalina.core.ApplicationDespatcher@ÁÖ¼Ò°ª
-    	// RequestDispatcher : ¼­ºí¸´ ¶Ç´Â JSP¿¡¼­ ¿äÃ»À» ¹ŞÀº ÈÄ ´Ù¸¥ ÄÄÆ÷³ÍÆ®·Î ¿äÃ»À» À§ÀÓÇÏ´Â Å¬·¡½ºÀÌ´Ù.
+    	// 5ë‹¨ê³„. RequestDispatcherë¥¼ ì‚¬ìš©í•˜ì—¬ ì•Œë§ì€ ë·°ë¡œ í¬ì›Œë”©
+    	// dispatcher = org.apache.catalina.core.ApplicationDespatcher@ì£¼ì†Œê°’
+    	// RequestDispatcher : ì„œë¸”ë¦¿ ë˜ëŠ” JSPì—ì„œ ìš”ì²­ì„ ë°›ì€ í›„ ë‹¤ë¥¸ ì»´í¬ë„ŒíŠ¸ë¡œ ìš”ì²­ì„ ìœ„ì„í•˜ëŠ” í´ë˜ìŠ¤ì´ë‹¤.
     	RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
     	dispatcher.forward(request, response);
     }
-
-
-
 }
