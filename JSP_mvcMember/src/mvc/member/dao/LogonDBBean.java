@@ -68,8 +68,7 @@ public class LogonDBBean implements LogonDao {
 	}
 	
 	public int check(String id) {
-		//체크 안 함 0 대신 2
-		int result = 2;
+		int result = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

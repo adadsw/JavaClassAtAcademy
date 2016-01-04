@@ -39,7 +39,6 @@ public class InputProHandler implements CommandHandler {
 		LogonDao dao = LogonDBBean.getInstance();
 		int result = dao.insertMember(dto);
 		// 4단계. request나 session에 처리결과를 저장한다.
-		request.setAttribute("result", result);
 		
 		// 5단계. 이동할 뷰페이지(jsp)를 리턴한다.
 		return "/member/inputPro.jsp";

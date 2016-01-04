@@ -1,37 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="setting.jsp" %>
-<script src="${project}script.js"></script>
-<link type="text/css" rel="stylesheet" href="${project}style.css">
 
 <body onload="mainfocus()">
 	<h2>로그인</h2>
-<%!
-	int result;
-%>	
-
-<%
-	result = Integer.parseInt(request.getParameter("result"));
-%>
 	<form action="loginPro.do" method="post" name="mainform" onsubmit="return mainCheck()">
 		<table>
 			<tr>
 				<th colspan="2">
-					<%
-						if (result == -1) {
-							out.println("비밀번호가 다릅니다. 다시 확인하세요.");
-						} else if (result == 0) {
-							out.println("아이디가 없습니다. 다시 확인하세요.");
-						} else if (result == 1) {
-							out.println("회원가입을 축하드립니다. 로그인하세요.");
-						}
-					%>
+					<c:if test="${result == -1}">
+						비밀번호가 다릅니다. 다시 확인하세요.
+					</c:if>
+					<c:if test="${result == 0}">
+						아이디가 없습니다. 다시 확인하세요.
+					</c:if>
+					<c:if test="${result == 1}">
+						회원가입을 축하드립니다. 로그인하세요.
+					</c:if>
+					
 				</th>
 			</tr>
 			<tr>
 				<th>아이디</th>
 				<td>
-					<input type="text" class="input" name="id" maxlength="12">
+					<input type="text" class="input" name="id" maxlength="12" value="${requestScope.result}">
 				</td>
 			</tr>
 			<tr>

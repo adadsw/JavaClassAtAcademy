@@ -23,12 +23,12 @@ public class LoginProHandler implements CommandHandler {
 			return "/member/main.jsp";
 		} else if(result == -1) {
 			// 비밀번호 불일치
-			//request.setAttribute("result", result);
-			return "/member/loginForm.jsp?result=" + result;
+			request.setAttribute("result", result);
+			return "/member/loginForm.jsp";
 		} else {
 			// 아이디가 존재하지 않음 : 0
-			//request.setAttribute("result", result);
-			return "/member/loginForm.jsp?result=" + result;
+			request.setAttribute("result", result);
+			return "/member/loginForm.jsp";
 		}
 	}
 }

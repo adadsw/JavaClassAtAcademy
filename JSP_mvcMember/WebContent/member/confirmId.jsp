@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="setting.jsp" %>
-<script src="${project}script.js"></script>
-<link type="text/css" rel="stylesheet" href="${project}style.css">
-
 	<h2>중복확인 페이지</h2>
 	<!-- id 중복 -->
 	<c:if test="${result == 1}">
