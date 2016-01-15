@@ -8,9 +8,12 @@ nav {
 	border-right: 0px;
 	float: left;
 }
+.rightFloat {
+	float: right;
+}
 nav ul {
 	list-style-type: none;
-	
+
 }
 li {
 	display:block;
@@ -53,19 +56,19 @@ table {
 }
 
 a:link {
-    color: blue;
+    color: gray;
     text-decoration: none;
 }
 a:visited {
-    color: red;
+    color: black;
     text-decoration: none;
 }
 a:hover {
-    color: green;  
+    color: red;  
     text-decoration: none;
 }
 a:active {
-    color: orange;
+    color: yellow;
     text-decoration: none;
 }
 .foot {

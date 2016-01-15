@@ -32,5 +32,4 @@ public class OrderDataBean {
 	public void setOrder_date(Timestamp order_date) {
 		this.order_date = order_date;
 	}
-	
 }

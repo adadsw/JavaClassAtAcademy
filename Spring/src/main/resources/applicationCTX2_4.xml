@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- set을 이용한 주입
+	<bean id="student" class="com.javalec.ch02_4.Student">	
+		<property name="name" value="홍길동"/>
+		<property name="age" value="10살"/>
+		<property name="gradeNum" value="3학년"/>
+		<property name="classNum" value="20번"/>
+	</bean>
+	<bean id="studentInfo" class="com.javalec.ch02_4.StudentInfo">
+		<property name="student">
+			<ref bean="student">
+		</property>
+	 -->
+	<!-- 생성자를 이용한 주입 -->
+	<bean id="student1" class="com.javalec.ch02_4.Student">
+		<constructor-arg value="홍길동"/>
+		<constructor-arg value="10살"/>
+		<constructor-arg value="3학년"/>
+		<constructor-arg value="20번"/>
+	</bean>
+	<bean id="student2" class="com.javalec.ch02_4.Student">
+		<constructor-arg value="홍길동형"/>	
+		<constructor-arg value="11"/>	
+		<constructor-arg value="4학년"/>	
+		<constructor-arg value="15번"/>	
+	</bean>
+	<bean id="studentInfo" class="com.javalec.ch02_4.StudentInfo">
+		<constructor-arg>
+			<ref bean="student1"/>
+		</constructor-arg>
+	</bean>
+<!-- 	<bean id="studentInfo2" class="com.javalec.ch02_4.StudentInfo">
+		<constructor-arg>
+			<ref bean="student2"/>
+		</constructor-arg>
+	</bean> -->
+</beans>

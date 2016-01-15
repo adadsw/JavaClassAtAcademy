@@ -9,5 +9,4 @@ public class LoginFormHandler implements CommandHandler {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		return "/login/loginForm.jsp";
 	}
-
 }

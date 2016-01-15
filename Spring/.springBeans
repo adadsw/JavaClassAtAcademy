@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.7.2.201511260958-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/main/resources/applicationCTX2_1.xml</config>
+		<config>src/main/resources/applicationCTX2_2.xml</config>
+		<config>src/main/resources/applicationCTX2_3.xml</config>
+		<config>src/main/resources/applicationCTXquiz2_3.xml</config>
+		<config>src/main/resources/applicationCTX3_2.xml</config>
+		<config>src/main/resources/applicationCTX3_3.xml</config>
+		<config>src/main/resources/applicationCTX4_1.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

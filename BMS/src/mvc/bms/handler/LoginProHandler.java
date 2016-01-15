@@ -10,19 +10,17 @@ public class LoginProHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		
+
 		String user_id = request.getParameter("user_id");
 		String pw = request.getParameter("pw");
-		
 		UserDao userdao = UserDBBean.getInstance();
 		int result = userdao.check(user_id, pw);
 		
 		if (result == 1) {
 			request.getSession().setAttribute("user_id", user_id);
 			return "/menu/menu.jsp";
-		} else  { // ºñ¹ø Æ²¸² -1 ¾Æµð ¾øÀ½ 0
-			return "/login/loginForm.jsp?result=" + result; //¿©±â ÇØ¾ß ÇÔ
+		} else  { // ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ -1 ï¿½Æµï¿½ ï¿½ï¿½ï¿½ï¿½ 0
+			return "/login/loginForm.jsp?result=" + result; //ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ ï¿½ï¿½
 		}
 	}
-
 }

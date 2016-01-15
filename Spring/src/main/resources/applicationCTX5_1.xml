@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	
+	<!-- expression 범위의 LogAop클래스의 loggerAop 메서드에 pointcut 적용
+		pointcut id= pointcut 이름
+		expression = pointcut 적용범위
+		<aop:around> : 핵심기능 실행전후에 공통기능 실행
+			pointcut method = 공통기능 적용할 포인트메서드
+			
+			Advice 종류는 5가지이고, <aop:before>와 <aop:around>를 많이 사용한다.
+			<aop:before> : 핵심기능 메서드 실행 전에 advice를 실행
+			<aop:after-returning> : 정상적으로 핵심 기능 메서드 실행 후에 advice를 실행
+			<aop:after-throwing> : 메서드 실행중 exception 발생시 advice 실행
+			<aop:after> : 핵심기능 메서드 실행 중 exception이 발생하여도 advice 실행
+			<aop:around> : 핵심기능 메서드 실행 전/후 및 exception 발생 시 advice를 실행  
+	 -->
+	
+	<bean id="LogAop" class="com.javalec.ch05_1.LogAop"/>
+	<aop:config>
+		<aop:aspect id="Logger" ref="LogAop">
+			<aop:pointcut id="pulicM" expression="within(com.javalec.ch05_1.*)"/> <!-- 핵심기능 범위 : 해당패키지의 하위를 모든범위 -->
+			<aop:around pointcut-ref="pulicM" method="loggerAop"/>
+		</aop:aspect>
+	</aop:config>	
+	<bean id="worker" class="com.javalec.ch05_1.Worker">
+		<property name="name" value="오승현"/>
+		<property name="age" value="27"/>
+		<property name="job" value="학생"/>		
+	</bean>
+	<bean id="student" class="com.javalec.ch05_1.Student">
+		<property name="name" value="김태희"/>
+		<property name="age" value="30"/>
+		<property name="gradeNum" value="3"/>
+		<property name="classNum" value="5"/>
+	</bean>
+</beans>

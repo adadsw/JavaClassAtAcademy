@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	<!-- Xml파일에 JAVA 파일을 포함시켜 사용하는 방법 -->
+	<!-- xmlns:context="http://www.springframework.org/schema/context" 네임스페이스 추가 -->
+	<context:annotation-config/>
+	<bean class="com.javalec.ch03_3.ApplicationConfig"/>
+	
+	<bean id="student2" class="com.javalec.ch03_3.Student">
+		<constructor-arg value="오승현"/>
+		<constructor-arg value="27"/>
+		<constructor-arg>
+			<list>
+				<value>컴퓨터</value>
+				<value>잠</value>
+				<value>낮잠</value>
+				<value>밤잠</value>
+			</list>
+		</constructor-arg>
+		<property name="height" value="170"/>
+		<property name="weight" value="63"/>
+	</bean>
+</beans>
