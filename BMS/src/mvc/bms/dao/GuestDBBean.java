@@ -52,7 +52,7 @@ public class GuestDBBean implements GuestDao {
 		return result;
 	}
 	
-	public int refundBook(String book_code) {
+	public int refundBook(String order_code) {
 		int result = 0;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -60,7 +60,7 @@ public class GuestDBBean implements GuestDao {
 			con = dataSource.getConnection();
 			String sql = "delete orders where order_code=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Integer.parseInt(book_code));
+			pstmt.setInt(1, Integer.parseInt(order_code));
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.getStackTrace();

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ include file="/bms/setting.jsp" %>
+<meta name="viewport" content="user-scalable=no, width=device-width"/>
 <body>
 	<header>
 		${user_id}로 접속 중
@@ -22,9 +23,6 @@
 				<li>
 						<a href="guestBookPurchase.do" target="link">책 구매</a>
 				</li>
-			<!--<li>
-						<a href="guestBag.do" target="link">장바구니</a>
-				</li>-->
 				<li>
 						<a href="guestRefund.do" target="link">환불</a>
 				</li>

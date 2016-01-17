@@ -15,7 +15,7 @@
   	<servlet-class>mvc.bms.controller.Controller</servlet-class>
   	<init-param>
   		<param-name>configFile</param-name>
-  		<param-value>C:\Users\Administrator\git\JavaClassAtAcademy\BMS\WebContent\WEB-INF\config.properties</param-value>
+  		<param-value>C:\Users\poste\git\JavaClassAtAcademy\BMS\WebContent\WEB-INF\config.properties</param-value>
   	</init-param>
   </servlet>
   
