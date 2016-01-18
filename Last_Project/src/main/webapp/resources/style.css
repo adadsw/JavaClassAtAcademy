@@ -46,7 +46,7 @@ header h1 {
 }
 #nav {
 	list-style-type: none; /*불릿 기호 없앰*/
-	height:45px;/*내비게이션 높이*/
+	height:50px;/*내비게이션 높이*/
 	padding-bottom: 5px 7px; /*위아래 6px, 좌우 7px씩 안여백*/
 	margin:0;/*바깥 여백 없음*/
 	background: #7d7d7d;/*내비게이션 전체 배경색*/
@@ -63,20 +63,25 @@ header h1 {
 	font-family: "굴림"; /*글꼴*/
 	font-weight: 600;/*진하게*/
 	font-size: 1em;	/*글자크기*/
-	padding:10px 20px; /*안여백*/
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 10px; /*안여백*/
 	color: #e7e5e5; /*링크 글자색*/
 	text-decoration: none;/*밑줄 없앰*/
 	margin: 0; /*바깥 여백 없음*/
-	/* border-radius: 1.4em; */ /*링크의 모서리를 둥글게*/
-	text-shadow:0 1px 1px rgba(0,0,0,.3); /*텍스트 그림자*/
+	text-shadow: 0 1px 1px rgba(0,0,0,.3); /*텍스트 그림자*/
 }
 #nav li:hover a {
 	background: #ebebeb; /*배경색*/
 	color: #444; /*글자색*/
-	text-shadow:0 1px 1px rgba(255,255,255,1); /*글자 그림자*/
-	border-radius:1.4em; /*모서리 둥글게*/
-	-webket-box-shadow:0 1px 1px rgba(0,0,0,0.2); /*메뉴 항목에 그림자*/
-	-moz-box-shadow:0 1px 1px rgba(0,0,0,0.2); /*메뉴 항목에 그림자*/
+	text-shadow: 0 1px 1px rgba(255,255,255,1); /*글자 그림자*/
+	/* [disabled]border-bottom-left-radius: 1.4em; */
+	/* [disabled]border-bottom-right-radius: 1.4em; */
+	/* [disabled]border-top-right-radius: 1.4em; */
+	/* [disabled]border-top-left-radius: 1.4em; */ /*모서리 둥글게*/
+	-webket-box-shadow: 0 1px 1px rgba(0,0,0,0.2); /*메뉴 항목에 그림자*/
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2); /*메뉴 항목에 그림자*/
 }
 #nav li:hover ul {/*메인 메뉴 위로 마우스 포인터를 가져갔을 때 서브 메뉴 스타일 */
 	opacity:1; /*서브 메뉴 불투명해짐*/
