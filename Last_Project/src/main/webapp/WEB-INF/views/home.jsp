@@ -1,53 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!doctype html>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="/resources/style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="../../resources/style.css">
-<title>아 몰라 나도 </title>
+	<meta charset="UTF-8">
+	<title>여행사</title>
+<link type="text/css" rel="stylesheet" href="./resources/style.css">
 </head>
 <body>
-<!-- Main Container -->
-<div class="container">
-<!-- Navigation -->
-  <header> <a href="">
-    <h4 class="logo">회사 이름</h4>
-    </a>
-    <nav>
-      <ul>
-      	<!-- 로그인 전-->
-        <li><a href="#hero">로그인</a></li>
-        <li><a href="#about">회원가입</a></li>
-        <li> <a href="#contact">뭐하지</a></li>
-        <!--로그인 시-->
-        <li><a href="#hero">로그아웃</a></li>
-        <li><a href="#about">회원정보</a></li>
-        <li> <a href="#contact">뭐하지</a></li>
-      </ul>
-    </nav>
-    <nav class="secondary_header" id="menu">
-      <ul>
-        <li></li>
-        <li>회사소개</li>
-        <li>여행 패키지</li>
-        <li>여행 정보</li>
-        <li>게시판</li>
-      </ul>
-    </nav>
-  </header>
-  <section> 
-  	<p>	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지 	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지 	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지 	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지 	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지 	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지	여기에 뭐가 드갈까 본문 페이지 
-    </p>
-   
-  </section>
-  <footer class="secondary_header footer">
-    <div class="copyright">&copy;2016 - <strong>만사가 귀찮다 ㅋ</strong></div>
-  </footer>  
-</div>
-<!-- Main Container Ends -->
+	<header>
+		<h1>
+			<a href="./">OO여행사</a>
+		</h1>
+		<ul class="header_side">
+		<c:if test="${sessionScope.LoginId == null}">
+			<li><a href="">로그인</a></li>
+			<li><a href="">회원가입</a></li>
+		</c:if>
+		<c:if test="${sessionScope.LoginId != null}">
+			<li><a href="">로그아웃</a></li>
+			<li><a href="">회원정보관리</a></li>
+		</c:if>
+		</ul>
+	</header>
+	<nav>
+		<ul id="nav">
+			<li><a href="">회사소개</a></li>
+			<li><a href="">여행 패키지</a>
+				<ul>
+					<li><a href="">이용 안내</a></li>
+					<li><a href="">서울</a></li>
+					<li><a href="">강원도</a></li>
+					<li><a href="">부산</a></li>
+					<li><a href="">제주도</a></li>
+				</ul>
+			</li>
+			<li><a href="">여행정보</a>
+				<ul>
+					<li><a href="">어딘가 정보</a></li>
+					<li><a href="">날씨 정보</a></li>
+				</ul>
+			</li>
+			<li><a href="">게시판</a>
+				<ul>
+					<li><a href="">공지사항</a></li>
+					<li><a href="">여행문의</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
 </body>
 </html>
