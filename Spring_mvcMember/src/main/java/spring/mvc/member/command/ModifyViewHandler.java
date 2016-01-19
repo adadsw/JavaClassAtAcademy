@@ -1,15 +1,20 @@
 package spring.mvc.member.command;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
-import mvc.member.dao.LogonDBBean;
-import mvc.member.dto.LogonDataBean;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import spring.mvc.member.dao.LogonDBBean;
+import spring.mvc.member.dto.LogonDataBean;
 
 public class ModifyViewHandler implements MCommand {
 
 	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+	public String execute(ModelAndView mv) {
+		Map<String, Object> map = mv.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
 		String id = (String) request.getSession().getAttribute("memId");
 		String passwd = request.getParameter("passwd");
 
@@ -20,9 +25,9 @@ public class ModifyViewHandler implements MCommand {
 			request.setAttribute("dto", dto);
 		}
 		
-		request.setAttribute("result", result);
+		mv.addObject("result", result);
 		
-		return "/member/modifyView.jsp";
+		return "member/modifyView";
 	}
 
 }

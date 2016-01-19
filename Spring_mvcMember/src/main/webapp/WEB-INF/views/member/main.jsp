@@ -12,7 +12,7 @@
 
 <c:if test="${sessionScope.memId == null}">
 	<body onload="mainfocus()">
-		<form method="post" action="loginPro.do" name="mainform" onsubmit="return maincheck()">
+		<form method="post" action="loginPro" name="mainform" onsubmit="return maincheck()">
 			<table>
 				<tr>
 					<th>아이디</th>
@@ -43,9 +43,9 @@
 			</tr>
 			<tr>
 				<th>
-					<input type="button" class="inputbutton" value="정보수정" onclick="window.location='memberModifyForm.do'">
-					<input type="button" class="inputbutton" value="회원탈퇴" onclick="window.location='memberDeleteForm.do'">
-					<input type="button" class="inputbutton" value="로그아웃" onclick="window.location='logout.do'">
+					<input type="button" class="inputbutton" value="정보수정" onclick="window.location='modifyForm'">
+					<input type="button" class="inputbutton" value="회원탈퇴" onclick="window.location='deleteForm'">
+					<input type="button" class="inputbutton" value="로그아웃" onclick="window.location='logout'">
 				</th>
 			</tr>
 		</table>

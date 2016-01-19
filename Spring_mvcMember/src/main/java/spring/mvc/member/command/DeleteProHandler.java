@@ -1,16 +1,27 @@
 package spring.mvc.member.command;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
-import mvc.member.dao.LogonDBBean;
-import mvc.member.dao.LogonDao;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import spring.mvc.member.dao.LogonDBBean;
+import spring.mvc.member.dao.LogonDao;
 
 public class DeleteProHandler implements MCommand {
 
 	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		request.setCharacterEncoding("utf-8");
+	public String execute(ModelAndView mv) {
+		Map<String, Object> map = mv.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
 		String id = (String) request.getSession().getAttribute("memId");
 		// out.println((String) request.getSession().getAttribute("memId"));
 		String passwd = request.getParameter("passwd");
@@ -25,10 +36,10 @@ public class DeleteProHandler implements MCommand {
 			result = logonDao.deleteMember(id);
 		}
 		
-		request.setAttribute("resultPasswd", resultPasswd);
-		request.setAttribute("result", result);
+		mv.addObject("resultPasswd", resultPasswd);
+		mv.addObject("result", result);
 		
-		return "/member/deletePro.jsp";
+		return "member/deletePro";
 	}
 
 }

@@ -6,10 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import spring.mvc.member.command.ConfirmIdHandler;
-import spring.mvc.member.command.InputProHandler;
-import spring.mvc.member.command.LoginFormHandler;
-import spring.mvc.member.command.MCommand;
+import spring.mvc.member.command.*;
 
 @Controller
 public class MController {
@@ -27,7 +24,7 @@ public class MController {
 	}
 
 	@RequestMapping("/inputPro")
-	public ModelAndView inputPro(HttpServletRequest request) {
+	public String inputPro(HttpServletRequest request) {
 		System.out.println("inputPro()");
 		
 		ModelAndView mv = new ModelAndView();
@@ -36,12 +33,12 @@ public class MController {
 		MCommand command = new InputProHandler();
 		String viewName = command.execute(mv);
 		
-		mv.setViewName(viewName);
-		return mv;
+//		mv.setViewName(viewName);
+		return viewName;
 	}
 
 	@RequestMapping("/confirmId")
-	public ModelAndView confirmId(HttpServletRequest request) {
+	public String confirmId(HttpServletRequest request) {
 		System.out.println("confirmId()");
 		
 		ModelAndView mv = new ModelAndView();
@@ -50,18 +47,98 @@ public class MController {
 		MCommand command = new ConfirmIdHandler();
 		String viewName = command.execute(mv);
 		
-		mv.setViewName(viewName);
-		return mv;
+//		mv.setViewName(viewName);
+		return viewName;
 	}
 	
 	@RequestMapping("/loginForm")
-	public ModelAndView loginForm(HttpServletRequest request) {
+	public String loginForm(HttpServletRequest request) {
 		System.out.println("loginForm()");
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("request", request);
 		
 		MCommand command = new LoginFormHandler();
+		String viewName = command.execute(mv);
+		
+		return viewName;
+	}
+	
+	@RequestMapping("/loginPro")
+	public String loginPro(HttpServletRequest request) {
+		System.out.println("loginPro()");
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("request", request);
+		
+		MCommand command = new LoginProHandler();
+		String viewName = command.execute(mv);
+		
+		return viewName;
+	}
+	
+	@RequestMapping("/logout")
+	public ModelAndView logout(HttpServletRequest request) {
+		System.out.println("logout()");
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("request", request);
+		
+		MCommand command = new LogoutHandler();
+		String viewName = command.execute(mv);
+		
+		mv.setViewName(viewName);
+		return mv;
+	}
+	
+	@RequestMapping("/deleteForm")
+	public String deleteForm(HttpServletRequest request) {
+		System.out.println("deleteForm()");
+		return "member/deleteForm";
+	}
+	
+	@RequestMapping("/deletePro")
+	public ModelAndView deletePro(HttpServletRequest request) {
+		System.out.println("deletePro()");
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("request", request);
+		
+		MCommand command = new DeleteProHandler();
+		String viewName = command.execute(mv);
+		
+		mv.setViewName(viewName);
+		return mv;
+	}
+	
+	@RequestMapping("/modifyForm")
+	public String modifyForm(HttpServletRequest request) {
+		System.out.println("modifyForm()");
+		return "member/modifyForm";
+	}
+	
+	@RequestMapping("/modifyView")
+	public ModelAndView modifyView(HttpServletRequest request) {
+		System.out.println("modifyView()");
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("request", request);
+		
+		MCommand command = new ModifyViewHandler();
+		String viewName = command.execute(mv);
+				
+		mv.setViewName(viewName);
+		return mv;
+	}
+	
+	@RequestMapping("/modifyPro")
+	public ModelAndView modifyPro(HttpServletRequest request) {
+		System.out.println("modifyPro()");
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("request", request);
+		
+		MCommand command = new ModifyProHandler();
 		String viewName = command.execute(mv);
 		
 		mv.setViewName(viewName);
