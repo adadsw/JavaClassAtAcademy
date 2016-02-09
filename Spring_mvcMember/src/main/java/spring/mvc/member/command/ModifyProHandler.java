@@ -1,16 +1,20 @@
 package spring.mvc.member.command;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
-import mvc.member.dao.LogonDBBean;
-import mvc.member.dao.LogonDao;
-import mvc.member.dto.LogonDataBean;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import spring.mvc.member.dao.LogonDBBean;
+import spring.mvc.member.dao.LogonDao;
+import spring.mvc.member.dto.LogonDataBean;
 
 public class ModifyProHandler implements MCommand {
 
 	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+	public String execute(ModelAndView mv) {
+		Map<String, Object> map = mv.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		LogonDao logonDao = LogonDBBean.getInstance();
 		LogonDataBean dto = new LogonDataBean();
@@ -20,9 +24,9 @@ public class ModifyProHandler implements MCommand {
 		dto.setEmail(request.getParameter("email"));
 		
 		int result = logonDao.modifyMember(dto);
-		request.setAttribute("result", result);
+		mv.addObject("result", result);
 		
-		return "/member/modifyPro.jsp";
+		return "member/modifyPro";
 	}
 
 }

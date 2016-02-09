@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="setting.jsp" %>
 <body onload="passwordfocus()">
-	<form action="memberModifyView.do" method="post" name="passwdform" onsubmit="return passwdCheck()">
+	<form action="modifyView" method="post" name="passwdform" onsubmit="return passwdCheck()">
 		<table>
 			<tr>
 				<th colspan="2">
@@ -18,7 +18,7 @@
 			<tr>
 				<th colspan="2">
 					<input class="inputbutton" type="submit" value="정보수정">
-					<input class="inputbutton" type="button" value="수정취소" onclick="window.location='main.do'">
+					<input class="inputbutton" type="button" value="수정취소" onclick="window.location='main'">
 				</th>
 			</tr>
 		</table>

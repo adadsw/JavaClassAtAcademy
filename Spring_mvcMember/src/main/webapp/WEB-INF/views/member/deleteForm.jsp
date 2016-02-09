@@ -5,7 +5,7 @@
 <link type="text/css" rel="stylesheet" href="${project}style.css">
 <h2>회원탈퇴</h2>
 <body onload="passwordfocus()">
-	<form action="memberDeletePro.do" method="post" name="passwdform" onsubmit="return passwdCheck()">
+	<form action="deletePro" method="post" name="passwdform" onsubmit="return passwdCheck()">
 		<table>
 			<tr>
 				<th colspan="2">
@@ -21,7 +21,7 @@
 			<tr>
 				<th colspan="2">
 					<input type="submit" class="inputbutton" value="회원탈퇴">
-					<input type="button" class="inputbutton" value="탈퇴취소" onclick="window.location='main.do'">
+					<input type="button" class="inputbutton" value="탈퇴취소" onclick="window.location='main'">
 				</th>
 			</tr>
 		</table>

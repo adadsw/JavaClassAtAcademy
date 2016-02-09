@@ -11,7 +11,7 @@
 		</script>
 	</c:if>
 	<c:if test="${result != 0}">
-		<c:redirect url="main.do"/>
+		<c:redirect url="main"/>
 	</c:if>
 </body>
 </html>

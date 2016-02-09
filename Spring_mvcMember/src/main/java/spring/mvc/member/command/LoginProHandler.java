@@ -1,15 +1,20 @@
 package spring.mvc.member.command;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
-import mvc.member.dao.LogonDBBean;
-import mvc.member.dao.LogonDao;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import spring.mvc.member.dao.LogonDBBean;
+import spring.mvc.member.dao.LogonDao;
 
 public class LoginProHandler implements MCommand {
 
 	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+	public String execute(ModelAndView mv) {
+		Map<String, Object> map = mv.getModelMap(); // model을 Map으로 변환
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
 		
@@ -20,15 +25,15 @@ public class LoginProHandler implements MCommand {
 			//로그인 성공
 			request.getSession().setAttribute("memId", id);
 			//response.sendRedirect("main.do");
-			return "/member/main.jsp";
+			return "member/main";
 		} else if(result == -1) {
 			// 비밀번호 불일치
 			request.setAttribute("result", result);
-			return "/member/loginForm.jsp";
+			return "member/loginForm";
 		} else {
 			// 아이디가 존재하지 않음 : 0
 			request.setAttribute("result", result);
-			return "/member/loginForm.jsp";
+			return "member/loginForm";
 		}
 	}
 }

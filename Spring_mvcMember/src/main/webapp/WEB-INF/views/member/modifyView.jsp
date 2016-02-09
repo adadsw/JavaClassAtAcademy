@@ -10,7 +10,7 @@
 	// 아이디와 패스워드가 일치하는 경우 
 <c:if test="${result == 1}">
 <body onload="modifyFocus()">
-	<form method="post" action="memberModifyPro.do" name="modifyform" onsubmit="return modifyCheck(this)">
+	<form method="post" action="modifyPro" name="modifyform" onsubmit="return modifyCheck(this)">
 		<input type="hidden" name="tel" value="0">
 		<input type="hidden" name="email" value="0">
 		<table>
@@ -85,7 +85,7 @@
 				<th colspan="2">
 					<input type="submit" class="inputButton" value="수정" onclick="combineEmailTel(form)">
 					<input type="reset" class="inputButton" value="리셋">
-					<input type="button" class="inputbutton" value="수정취소" onclick="window.location='main.do'">
+					<input type="button" class="inputbutton" value="수정취소" onclick="window.location='main'">
 				</th>
 			</tr>
 		</table>

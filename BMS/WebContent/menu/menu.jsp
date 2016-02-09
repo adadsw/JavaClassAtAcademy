@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ include file="/bms/setting.jsp" %>
-<meta name="viewport" content="user-scalable=no, width=device-width"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <body>
 	<header>
 		${user_id}로 접속 중

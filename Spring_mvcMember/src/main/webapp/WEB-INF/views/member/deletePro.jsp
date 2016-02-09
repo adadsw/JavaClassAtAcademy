@@ -8,7 +8,7 @@
 		<c:if test="${result == 0}">
 			<script type="text/javascript">
 			<!--
-				erroralert(deleteerror);		
+				erroralert(deleteerror);	
 			//-->
 			</script>
 		</c:if>
@@ -17,7 +17,7 @@
 			session.removeAttribute("memId");
 			// session.setAttribute("memId", null);
 			%>
-			<c:redirect url="main.do"/>
+			<c:redirect url="main"/>
 		</c:if>
 	</c:if>
 	<c:if test="${resultPasswd != 1}">

@@ -1,14 +1,12 @@
 package spring.mvc.member.command;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.servlet.ModelAndView;
 
 public class DefaultHandler implements MCommand {
 
 	@Override
-	public String process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		// TODO 자동 생성된 메소드 스텁
-		return null;
+	public String execute(ModelAndView mv) {
+		return "member/delete";
 	}
 
 }
