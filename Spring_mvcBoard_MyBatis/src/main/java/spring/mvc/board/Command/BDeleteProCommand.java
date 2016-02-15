@@ -30,7 +30,6 @@ public class BDeleteProCommand implements BCommand {
 		Map<String, Object> map2 = new HashMap<String, Object>();
 		map2.put("num", num);
 		map2.put("passwd", passwd);
-		
 		int resultPasswd = dao.check(map2);
 		
 		if (resultPasswd == 1) { //비밀번호가 같은 경우 그라믄 지우기 시도해야지.

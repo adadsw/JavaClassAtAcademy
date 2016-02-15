@@ -1,17 +1,23 @@
 package spring.mvc.board.Command;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.board.dao.BDao;
 import spring.mvc.board.dao.IDao;
 import spring.mvc.board.dto.BDto;
 
+@Service("bModifyViewCommand")
 public class BModifyViewCommand implements BCommand {
 
+	@Autowired
+	IDao dao;
+	
 	@Override
 	public String execute(Model model) {
 		Map<String, Object> map = model.asMap();
@@ -21,8 +27,12 @@ public class BModifyViewCommand implements BCommand {
 		String pageNum = request.getParameter("pageNum");
 		String passwd = request.getParameter("passwd");
 		
-		IDao dao = BDao.getInstance();
-		int result = dao.check(num, passwd);
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("num", num);
+		map2.put("passwd", passwd);
+		
+//		IDao dao = BDao.getInstance();
+		int result = dao.check(map2);
 		
 		if (result == 1) {
 			BDto dto = new BDto();

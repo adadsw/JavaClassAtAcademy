@@ -65,7 +65,7 @@
 		</c:forEach>
 	</c:if>
 	<c:if test="${count == 0}">
-		<!-- 글이 없는 경우 -->http://localhost:8081/portfolio/
+		<!-- 글이 없는 경우 -->
 		<tr>
 			<td colspan="6" align="center" style="height:40px">
 				게시판에 글이 없습니다. 글쓰기를 선택해 주세요.

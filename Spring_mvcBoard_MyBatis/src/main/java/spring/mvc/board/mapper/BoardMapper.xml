@@ -38,8 +38,8 @@
 	SELECT * from mvc_board WHERE num = #{num}
 	</select>
 	
-	<select id="check" parameterType="Map">
-	select passwd from mvc_board where num = #{num}
+	<select id="check" parameterType="Map" resultType="int">
+	SELECT count(*) FROM mvc_board WHERE num = #{num} AND passwd = #{passwd}
 	</select>
 	
 	<select id="checkReply" parameterType="spring.mvc.board.dto.BDto" resultType="int">
@@ -49,4 +49,8 @@
 	<delete id="deleteArticle" parameterType="int">
 	DELETE FROM mvc_board WHERE num = #{num}
 	</delete>
+	
+	<update id="updateArticle" parameterType="spring.mvc.board.dto.BDto">
+	UPDATE mvc_board SET email=#{email}, subject=#{subject}, content=#{content}, passwd=#{passwd} WHERE num=#{num}
+	</update>
 </mapper>

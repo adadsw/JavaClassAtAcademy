@@ -4,14 +4,19 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import spring.mvc.board.dao.BDao;
 import spring.mvc.board.dao.IDao;
 import spring.mvc.board.dto.BDto;
 
+@Service("bModifyProCommand")
 public class BModifyProCommand implements BCommand {
 
+	@Autowired
+	IDao dao;
+	
 	@Override
 	public String execute(Model model) {
 		Map<String, Object> map = model.asMap();
@@ -26,7 +31,7 @@ public class BModifyProCommand implements BCommand {
 		dto.setContent(request.getParameter("content"));
 		dto.setPasswd(request.getParameter("passwd"));
 		
-		IDao dao = BDao.getInstance();
+//		IDao dao = BDao.getInstance();
 		int result = dao.updateArticle(dto);
 		
 		model.addAttribute("result", result);

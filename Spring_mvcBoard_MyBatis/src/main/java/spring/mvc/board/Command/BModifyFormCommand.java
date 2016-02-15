@@ -4,8 +4,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+@Service("bModifyFormCommand")
 public class BModifyFormCommand implements BCommand {
 
 	@Override

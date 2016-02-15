@@ -32,8 +32,7 @@ public class BContentFormCommand implements BCommand {
 
 		// 내가 쓴 글이 아닌 것만 조회수 증가
 		if (!request.getRemoteAddr().equals(dto.getIp())) {
-			int result = dao.addCount(num);
-			model.addAttribute("addReadCountResult", result);
+			dao.addCount(num);
 		}
 
 		model.addAttribute("pageNum", pageNum);

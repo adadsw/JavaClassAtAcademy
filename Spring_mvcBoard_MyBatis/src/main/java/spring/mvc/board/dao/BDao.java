@@ -1,6 +1,5 @@
 package spring.mvc.board.dao;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -119,7 +118,6 @@ public class BDao implements IDao {
 		int re_step = dto.getRe_step();
 
 		IDao dao = this.sqlSession.getMapper(IDao.class);
-		count = dao.insertArticle(dto);
 		// 제목글인 경우
 		if (num == 0) {
 			count = getCount(); // 글개수
@@ -238,7 +236,6 @@ public class BDao implements IDao {
 	public void addCount(int num) {
 		IDao dao = this.sqlSession.getMapper(IDao.class);
 		dao.addCount(num);
-		/* count = this.sqlSession.update("spring.mvc.board.dao.IDao", num); */
 
 		/*
 		 * Connection con = null; PreparedStatement pstmt = null; int count = 0;
@@ -304,11 +301,13 @@ public class BDao implements IDao {
 		BDto dto = getArticle(num);
 		IDao dao = this.sqlSession.getMapper(IDao.class);
 		int checkReply = checkReply(dto);
+		
+		//답글이 없는 경우에만 삭제처리
 		if (checkReply != 0) {
-			// 답글이 있는 경우
+			// 답글이 있는 경우 삭제 안 함
 			result = -1;
 		} else {
-			// 답글이 없는 경우
+			// 답글이 없는 경우 삭제
 			result = dao.deleteArticle(num);
 		}
 		return result;
@@ -366,7 +365,11 @@ public class BDao implements IDao {
 
 	@Override
 	public int updateArticle(BDto dto) {
-		Connection con = null;
+		int count = 0;
+		IDao dao = this.sqlSession.getMapper(IDao.class);
+		count = dao.updateArticle(dto);
+		return count;
+		/*Connection con = null;
 		PreparedStatement pstmt = null;
 		int count = 0;
 		try {
@@ -392,6 +395,6 @@ public class BDao implements IDao {
 				e2.printStackTrace();
 			}
 		}
-		return count;
+		return count;*/
 	}
 }

@@ -84,42 +84,48 @@ public class BController {
 		System.out.println("deletePro()");
 		model.addAttribute("request", request);
 		
-		BCommand command = new BDeleteProCommand();
-		String viewName = command.execute(model);
+//		BCommand command = new BDeleteProCommand();
+		String viewName = bDeleteProCommand.execute(model);
 		System.out.println(viewName);
 
 		return viewName;	
 	}
 	
+	@Autowired
+	BModifyFormCommand bModifyFormCommand;
 	@RequestMapping("modifyForm")
 	public String modifyForm(HttpServletRequest request, Model model) {
 		System.out.println("modifyForm()");
 		model.addAttribute("request", request);
 		
-		BCommand command = new BModifyFormCommand();
-		String viewName = command.execute(model);
+//		BCommand command = new BModifyFormCommand();
+		String viewName = bModifyFormCommand.execute(model);
 		
 		return viewName;
 	}
 	
+	@Autowired
+	BModifyViewCommand bModifyViewCommand;
 	@RequestMapping("modifyView")
 	public String modifyView(HttpServletRequest request, Model model) {
 		System.out.println("modifyView()");
 		model.addAttribute("request", request);
 		
-		BCommand command = new BModifyViewCommand();
-		String viewName = command.execute(model);
+//		BCommand command = new BModifyViewCommand();
+		String viewName = bModifyViewCommand.execute(model);
 		
 		return viewName;
 	}
 	
+	@Autowired
+	BModifyProCommand bModifyProCommand;
 	@RequestMapping("modifyPro")
 	public String modifyPro(HttpServletRequest request, Model model) {
 		System.out.println("modifyPro()");
 		model.addAttribute("request", request);
 		
-		BCommand command = new BModifyProCommand();
-		String viewName = command.execute(model);
+//		BCommand command = new BModifyProCommand();
+		String viewName = bModifyProCommand.execute(model);
 		
 		return viewName;
 	}
