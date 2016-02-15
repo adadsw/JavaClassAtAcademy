@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.mvc.member.dao.LogonDao">
+
+	<select id="check" parameterType="String" resultType="int">
+		SELECT count(*) FROM mvc_member where id=#{id}
+	</select>
+
+	<insert id="insertMember" parameterType="spring.mvc.member.dto.LogonDataBean">
+		INSERT INTO mvc_member (id,passwd,name,jumin1,jumin2,tel,email,reg_date)
+		VALUES
+		(#{id},#{passwd},#{name},#{jumin1},#{jumin2},#{tel},#{email},#{reg_date})
+	</insert>
+
+	<select id="checkPwd" resultType="int">
+		SELECT count(*) FROM mvc_member WHERE id=#{id} AND passwd=#{passwd}
+	</select>
+
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM mvc_member WHERE id=#{id}
+	</delete>
+
+	<select id="getMember" parameterType="String" resultType="spring.mvc.member.dto.LogonDataBean">
+		select * from mvc_member where id=#{id}
+	</select>
+	
+	<update id="modifyMember" parameterType="spring.mvc.member.dto.LogonDataBean">
+	update mvc_member set passwd=#{passwd}, email=#{email}, tel=#{tel} where id=#{id}
+	</update>
+
+</mapper>

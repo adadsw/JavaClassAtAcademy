@@ -1,0 +1,59 @@
+utf-8
+MyBatis 작성
+1)pom.xml에서 mybatis,mybatis-spring, spring-jdbc 추가
+2)servlet-context.xml에서 설정추가
+-- 반복
+3)MController.java에서 핸들러들을 @Autowired로 생성
+  예)@Autowired
+     ConfirmIdHandler confirmIdHandler;
+
+4-1)각 핸들러에 @Service("핸들러 참조변수명") 추가
+  예) @Service("confirmIdHandler")
+4-2) //LogonDao logonDao = LogonDBBean.getInstance();
+     ->   @Autowired
+	  LogonDao logonDao;
+
+5-1) DAO 파일
+   // 마이바티스 추가 시작
+   @Autowired
+   private SqlSession sqlsession;
+   //  마이바티스 추가 종료
+
+   public int check(String id) {
+       int result = 0;
+    // 인터페이스명 logonDao = this.sqlsession.getMapper(인터페이스명.class);
+	LogonDao logonDao = this.sqlsession.getMapper(LogonDao.class);
+	result = logonDao.check(id);
+	return result;
+	}
+6) 마이바티스 작성
+
+** Map인 경우
+<LogonDao.java>
+public interface LogonDao {
+	public int checkPwd(Map<String, String> map);
+}
+
+<LoginProHandler.java>
+     Map<String, String> map2 = new HashMap<String, String>();
+     map2.put("id", id);
+     map2.put("passwd", passwd);
+		
+     int result = logonDao.checkPwd(map2);
+
+<LogonOnDBBean.java>
+public int checkPwd(Map<String, String> map) {
+		
+	int result = 0;
+		
+	LogonDao logonDao = this.sqlsession.getMapper(LogonDao.class);
+	result = logonDao.checkPwd(map);
+		
+	return result;
+}
+
+<MemberMapper.xml>
+-- 타입이 Map인경우 parameterType에 작성하지 않는다.
+<select id="checkPwd" resultType="int">
+	select count(*) from mvc_member where id=#{id} and passwd=#{passwd}
+</select>

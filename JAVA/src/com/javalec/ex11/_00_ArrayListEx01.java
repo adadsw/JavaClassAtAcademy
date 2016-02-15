@@ -41,7 +41,6 @@ public class _00_ArrayListEx01 {
 		list.set(6, "복숭아");
 		list.remove(4); // list.remove(삭제할 위치 index)
 		list.remove("키위"); // list.remove(삭제할 값)
-
 		for (int i = 0; i < list.size(); i++)
 			System.out.println(list.get(i));
 
@@ -68,9 +67,6 @@ public class _00_ArrayListEx01 {
 
 		// list2의 데이터 전체삭제
 //		list2.clear();
-		list2 = null;
-		for (String str : list2)
-			System.out.println(str);
 	}
 }
 

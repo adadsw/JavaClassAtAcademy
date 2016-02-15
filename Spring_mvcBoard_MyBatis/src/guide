@@ -1,0 +1,43 @@
+// 실행 : http://localhost:8080/board_mybatis/list
+프로젝트 복사 : 프로젝트명 복사해서 붙인다.
+	프로젝트명 - 마오 - properties > web project setting > context root : board_mybatis로 수정
+		톰캣 : Add and Remove : 해당 프로젝트를 remove 시킨다.
+		setting.jsp 소스에 경로명 수정 --> <c:set var="project" value="${'/board_mabatis/resources/'}"/>
+		
+		
+**pom.xml에서 dependency추가한 후 에러 발생시 -->
+	1) 플젝 마.오 Run > 9. Maven install 선택
+	2) 플젝 마.오 Maven > Update
+	
+마이바티스 
+1. pom.xml에 추가 mybatis-spring, spring-jdbc, mybatis 3개 추가 
+<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.1.4.RELEASE</version>
+		</dependency>
+2. servlet-context.xml에 설정 추가 : 
+	경로 : src>main>webapp>WEB-INF>spring>appServlet
+	dataSource, sqlSessionFactory, sqlSession 추가
+3. 패키지, xml 추가 : spring.mvc.board.mapper.BoardMapper.xml
+
+4. Controller 변경
+ 1) 각 핸들러별로 @Autowired 적용
+ 	@Autowired
+ 	BListCommand bListCommand;
+ 2) 핸들러 소스 변경
+ 	@Service("bListCommand") 추가
+ 	
+ 	@Autowired
+ 	Idao dao;
+5. DAO 변경

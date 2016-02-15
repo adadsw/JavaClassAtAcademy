@@ -9,7 +9,7 @@
 			<table>
 				<tr>
 					<th colspan="2">
-						<span>${id}</span>는 사용할 수 없습니다.
+						<span>${param.id}</span>는 사용할 수 없습니다.
 					</th>
 				</tr>
 				<tr>
@@ -34,7 +34,7 @@
 	<table>
 		<tr>
 			<td align="center">
-				<span>${id}</span>는 사용할 수 있습니다.
+				<span>${param.id}</span>는 사용할 수 있습니다.
 			</td>
 		</tr>
 		<tr>
