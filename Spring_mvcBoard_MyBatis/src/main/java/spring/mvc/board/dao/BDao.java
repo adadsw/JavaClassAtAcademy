@@ -3,8 +3,6 @@ package spring.mvc.board.dao;
 import java.util.ArrayList;
 import java.util.Map;
 
-import javax.sql.DataSource;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,7 +11,6 @@ import spring.mvc.board.dto.BDto;
 
 @Repository
 public class BDao implements IDao {
-	DataSource dataSource;
 
 	@Autowired
 	private SqlSession sqlSession;
