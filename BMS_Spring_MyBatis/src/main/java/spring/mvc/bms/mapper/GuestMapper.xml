@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.mvc.bms.dao.GuestDao">
+
+	<insert id="purchaseBook" parameterType="Map">
+	INSERT INTO orders VALUES (seq_order_code.NEXTVAL,#{user_id},#{book_code},SYSDATE)
+	</insert>
+	
+	<delete id="refundBook" parameterType="String">
+	DELETE orders WHERE order_code=#{order_code}
+	</delete>
+</mapper>

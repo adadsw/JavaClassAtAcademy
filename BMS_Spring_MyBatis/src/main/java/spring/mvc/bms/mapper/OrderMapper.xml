@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring.mvc.bms.dao.OrderDao">
+	<select id="listOrders" resultType="spring.mvc.bms.dto.OrderDataBean">
+	SELECT * FROM orders ORDER BY order_code
+	</select>
+	
+	<select id="listRefundOrders" parameterType="String" resultType="spring.mvc.bms.dto.OrderRefundDataBean">
+	SELECT order_code, title, writer_name, order_date FROM orders o , books b WHERE o.book_code=b.book_code AND user_id=#{user_id}
+	</select>
+
+</mapper>
