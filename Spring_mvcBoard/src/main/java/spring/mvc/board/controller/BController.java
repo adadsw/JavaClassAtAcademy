@@ -43,6 +43,8 @@ public class BController {
 		return viewName;
 	}
 	
+	
+	
 	@RequestMapping("/contentForm")
 	public String contentForm(HttpServletRequest request, Model model) {
 		System.out.println("contentForm()");

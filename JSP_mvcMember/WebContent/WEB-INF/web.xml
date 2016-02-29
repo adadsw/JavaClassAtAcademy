@@ -9,18 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  <servlet>
-  	<servlet-name>Controller</servlet-name>
-  	<servlet-class>mvc.member.controller.Controller</servlet-class>
-  	<init-param>
-  		<param-name>configFile</param-name>
-  		<param-value>C:\Users\Administrator\git\JavaClassAtAcademy\JSP_mvcMember\WebContent\WEB-INF\config.properties</param-value>
-  	</init-param>
+  <!-- <servlet>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>mvc.member.controller.Controller</servlet-class>
+    <init-param>
+      <param-name>configFile</param-name>
+      <param-value>C:\Users\Administrator\git\JavaClassAtAcademy\JSP_mvcMember\WebContent\WEB-INF\config.properties</param-value>
+    </init-param>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>Controller</servlet-name>
-  	<url-pattern>*.do</url-pattern>
-  </servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping> -->
 </web-app>

@@ -8,13 +8,13 @@
 		<table>
 			<tr>
 				<th colspan="2">
-					<c:if test="${result == -1}">
+					<c:if test="${param.result == -1}">
 						비밀번호가 다릅니다. 다시 확인하세요.
 					</c:if>
-					<c:if test="${result == 0}">
+					<c:if test="${param.result == 0}">
 						아이디가 없습니다. 다시 확인하세요.
 					</c:if>
-					<c:if test="${result == 1}">
+					<c:if test="${param.result == 1}">
 						회원가입을 축하드립니다. 로그인하세요.
 					</c:if>
 					
